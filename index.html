@@ -123,7 +123,8 @@
 
     async function initQuiz() {
         const file = document.getElementById('setMenu').value;
-        if(!document.getElementById('studentName').value || !file) return alert("Fill all details!");
+        const name = document.getElementById('studentName').value;
+        if(!name || !file) return alert("Please fill in your name and select a set!");
 
         try {
             const res = await fetch(file);
@@ -143,12 +144,11 @@
         showTopic(currentTopicIdx);
     }
 
-    // FUNGSI REDO: Padam jawapan tapi kekal maklumat pelajar
     function redoQuiz() {
         if(!confirm("Are you sure you want to clear your answers and try this set again?")) return;
         userAnswers = [];
         currentTopicIdx = 0;
-        autoSave(); // Simpan keadaan kosong ke localStorage
+        autoSave();
         startQuizUI();
     }
 
@@ -226,16 +226,42 @@
     function nextStep() { showTopic(currentTopicIdx + 1); }
     function prevStep() { showTopic(currentTopicIdx - 1); }
 
+    // --- LOGIK LAPORAN & ULASAN SPESIFIK ---
+
+    function getRemark(percent) {
+        if (percent >= 80) return "Excellent";
+        if (percent >= 60) return "Good";
+        if (percent >= 40) return "Satisfactory";
+        return "Needs Improvement";
+    }
+
+    function getTopicSpecificComment(topicName, percent) {
+        // Memberi ulasan spesifik berdasarkan nama topik dan markah
+        if (percent >= 80) {
+            return `Mastered ${topicName}. (Telah menguasai ${topicName}.)`;
+        } else if (percent >= 50) {
+            return `Basic understanding of ${topicName} is good, but needs more practice. (Pemahaman asas ${topicName} baik, tetapi perlu lebih latihan.)`;
+        } else {
+            return `Weak in ${topicName}. Needs intensive revision. (Lemah dalam ${topicName}. Perlu ulang kaji intensif.)`;
+        }
+    }
+
     function finishQuiz() {
         if(!confirm("Do you want to submit your answers?")) return;
+        
+        const name = document.getElementById('studentName').value;
+        const sClass = document.getElementById('studentClass').value;
+        const setMenu = document.getElementById('setMenu');
+        const exerciseSet = setMenu.options[setMenu.selectedIndex].text;
+
         document.getElementById('quizContent').style.display = 'none';
         document.getElementById('navArea').style.display = 'none';
         document.getElementById('progCont').style.display = 'none';
-        document.getElementById('mainHeader').style.display = 'none';
         
-        const summaryCont = document.getElementById('topicSummary');
-        summaryCont.innerHTML = ""; // Bersihkan ringkasan lama jika ada
-        let totalScore = 0, totalMax = 0;
+        let totalScore = 0;
+        let totalMax = 0;
+        let topicRows = "";
+        let specificComments = [];
 
         fullData.latihan.forEach((topic, tIdx) => {
             let tScore = 0;
@@ -243,23 +269,74 @@
                 const uA = (getSavedAns(tIdx, qIdx) || "").toLowerCase().trim();
                 if(uA === q.jawapan.toLowerCase().trim()) tScore++;
             });
+            
+            const tMax = topic.soalan.length;
             totalScore += tScore;
-            totalMax += topic.soalan.length;
-            summaryCont.innerHTML += `<div class="result-row"><span>${topic.topik}</span><span><b>${tScore}/${topic.soalan.length}</b></span></div>`;
+            totalMax += tMax;
+            
+            const tPerc = Math.round((tScore/tMax)*100);
+            const remark = getRemark(tPerc);
+            
+            // Format Laporan: Topic : 1 Nouns ( 10/10 ) - Excellent
+            topicRows += `Topic : ${tIdx + 1} ${topic.topik} ( ${tScore}/${tMax} ) - ${remark}\n`;
+            
+            // Simpan komen spesifik
+            specificComments.push(getTopicSpecificComment(topic.topik, tPerc));
         });
 
-        document.getElementById('finalGrade').innerText = `${totalScore} / ${totalMax} (${Math.round((totalScore/totalMax)*100)}%)`;
+        const finalPerc = Math.round((totalScore/totalMax)*100);
+        
+        // Gabungkan ulasan spesifik menjadi satu perenggan
+        const combinedComments = specificComments.join(" ");
+        
+        // Paparan Skrin
+        const summaryCont = document.getElementById('topicSummary');
+        summaryCont.innerHTML = `
+            <div style="text-align:left; font-family: monospace; white-space: pre-wrap; background:#f9fafb; padding:15px; border-radius:10px; border:1px solid #ddd; line-height:1.5;">
+<strong>Student Name :</strong> ${name}
+<strong>Class :</strong> ${sClass}
+<strong>Exercise Set :</strong> ${exerciseSet}
+
+${topicRows}
+<strong>Final Score :</strong> ${totalScore}/${totalMax}
+<strong>Percentage :</strong> ${finalPerc}%
+
+<strong>Comment :</strong>
+${combinedComments}
+            </div>
+        `;
+
+        // Simpan data untuk download
+        window.lastReport = {
+            name, sClass, exerciseSet, topicRows, totalScore, totalMax, finalPerc, combinedComments
+        };
+
+        document.getElementById('finalGrade').innerText = `Final: ${finalPerc}%`;
         document.getElementById('resultArea').style.display = 'block';
         window.scrollTo(0,0);
+        localStorage.removeItem(STORAGE_KEY);
     }
 
     function downloadTextReport() {
-        const name = document.getElementById('studentName').value;
-        const txt = `GRAMMAR REPORT\nName: ${name}\nScore: ${document.getElementById('finalGrade').innerText}\nDate: ${new Date().toLocaleDateString()}`;
+        const r = window.lastReport;
+        if(!r) return;
+
+        let txt = `KANDUNGAN LAPORAN\n`;
+        txt += `------------------------------\n`;
+        txt += `Student Name : ${r.name}\n`;
+        txt += `Class : ${r.sClass}\n`;
+        txt += `Exercise Set : ${r.exerciseSet}\n\n`;
+        txt += r.topicRows;
+        txt += `\nFinal Score : ${r.totalScore}/${r.totalMax}\n`;
+        txt += `Percentage : ${r.finalPerc}%\n\n`;
+        txt += `Comment :\n${r.combinedComments}\n`;
+        txt += `------------------------------\n`;
+        txt += `Generated on: ${new Date().toLocaleString()}`;
+
         const blob = new Blob([txt], {type: 'text/plain'});
         const a = document.createElement('a');
         a.href = URL.createObjectURL(blob);
-        a.download = `Result_${name}.txt`;
+        a.download = `Report_${r.name}.txt`;
         a.click();
     }
 
@@ -272,3 +349,4 @@
 </script>
 </body>
 </html>
+
