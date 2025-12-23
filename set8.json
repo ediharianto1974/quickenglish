@@ -1,0 +1,210 @@
+{
+  "modul_latihan_bahasa_inggeris_tahun_6": {
+    "maklumat_umum": {
+      "sasaran": "Tahun 6",
+      "tujuan": "Latihan Kendiri Tatabahasa",
+      "jumlah_topik": 11,
+      "set_dihasilkan": 8
+    },
+    "latihan": [
+      {
+        "topik": "Nouns",
+        "set": 8,
+        "format": "Nouns used as Adjectives",
+        "arahan": "Identify the noun that is acting as an adjective in the phrase.",
+        "soalan": [
+          {"no": 1, "teks": "A flower garden.", "jawapan": "flower"},
+          {"no": 2, "teks": "A coffee shop.", "jawapan": "coffee"},
+          {"no": 3, "teks": "The school bus.", "jawapan": "school"},
+          {"no": 4, "teks": "A computer game.", "jawapan": "computer"},
+          {"no": 5, "teks": "The tennis court.", "jawapan": "tennis"},
+          {"no": 6, "teks": "A history teacher.", "jawapan": "history"},
+          {"no": 7, "teks": "The kitchen table.", "jawapan": "kitchen"},
+          {"no": 8, "teks": "A winter coat.", "jawapan": "winter"},
+          {"no": 9, "teks": "The police station.", "jawapan": "police"},
+          {"no": 10, "teks": "An apple pie.", "jawapan": "apple"}
+        ]
+      },
+      {
+        "topik": "Pronouns",
+        "set": 8,
+        "format": "Reciprocal Pronouns",
+        "arahan": "Fill in the blanks with 'each other' or 'one another'.",
+        "soalan": [
+          {"no": 1, "teks": "Ahmad and Ali greeted _____.", "jawapan": "each other"},
+          {"no": 2, "teks": "The students in the class helped _____.", "jawapan": "one another"},
+          {"no": 3, "teks": "The two sisters love _____ very much.", "jawapan": "each other"},
+          {"no": 4, "teks": "We should respect _____.", "jawapan": "one another"},
+          {"no": 5, "teks": "The players congratulated _____ after the game.", "jawapan": "one another"},
+          {"no": 6, "teks": "My cat and dog hate _____.", "jawapan": "each other"},
+          {"no": 7, "teks": "The neighbors are talking to _____.", "jawapan": "one another"},
+          {"no": 8, "teks": "They looked at _____ in surprise.", "jawapan": "each other"},
+          {"no": 9, "teks": "All the villagers support _____.", "jawapan": "one another"},
+          {"no": 10, "teks": "We gave gifts to _____ at Christmas.", "jawapan": "each other"}
+        ]
+      },
+      {
+        "topik": "Verbs & Tenses",
+        "set": 8,
+        "format": "Present Perfect vs Simple Past",
+        "arahan": "Complete the sentences with the correct tense of the verb in brackets.",
+        "soalan": [
+          {"no": 1, "teks": "I _____ (see) that movie last night.", "jawapan": "saw"},
+          {"no": 2, "teks": "She _____ (just/finish) her dinner.", "jawapan": "has just finished"},
+          {"no": 3, "teks": "We _____ (live) in Kuching since 2010.", "jawapan": "have lived"},
+          {"no": 4, "teks": "They _____ (visit) Japan three years ago.", "jawapan": "visited"},
+          {"no": 5, "teks": "_____ you ever _____ (be) to Paris?", "jawapan": "Have, been"},
+          {"no": 6, "teks": "He _____ (lose) his phone yesterday.", "jawapan": "lost"},
+          {"no": 7, "teks": "I _____ (not/eat) anything today.", "jawapan": "have not eaten"},
+          {"no": 8, "teks": "Siti _____ (buy) a new dress last weekend.", "jawapan": "bought"},
+          {"no": 9, "teks": "The rain _____ (stop) an hour ago.", "jawapan": "stopped"},
+          {"no": 10, "teks": "They _____ (already/leave) the party.", "jawapan": "have already left"}
+        ]
+      },
+      {
+        "topik": "Adjectives",
+        "set": 8,
+        "format": "Similes (as...as)",
+        "arahan": "Complete the similes with the correct animal/object.",
+        "soalan": [
+          {"no": 1, "teks": "As brave as a _____.", "jawapan": "lion"},
+          {"no": 2, "teks": "As busy as a _____.", "jawapan": "bee"},
+          {"no": 3, "teks": "As slow as a _____.", "jawapan": "snail"},
+          {"no": 4, "teks": "As tall as a _____.", "jawapan": "giraffe"},
+          {"no": 5, "teks": "As white as _____.", "jawapan": "snow"},
+          {"no": 6, "teks": "As wise as an _____.", "jawapan": "owl"},
+          {"no": 7, "teks": "As light as a _____.", "jawapan": "feather"},
+          {"no": 8, "teks": "As clear as _____.", "jawapan": "crystal"},
+          {"no": 9, "teks": "As fast as a _____.", "jawapan": "cheetah"},
+          {"no": 10, "teks": "As quiet as a _____.", "jawapan": "mouse"}
+        ]
+      },
+      {
+        "topik": "Adverbs",
+        "set": 8,
+        "format": "Adverbs of Frequency (Position)",
+        "arahan": "Put the adverb in the correct position in the sentence.",
+        "soalan": [
+          {"no": 1, "teks": "He goes to the gym. (always)", "jawapan": "He always goes to the gym."},
+          {"no": 2, "teks": "I am late for school. (never)", "jawapan": "I am never late for school."},
+          {"no": 3, "teks": "They play football. (often)", "jawapan": "They often play football."},
+          {"no": 4, "teks": "She is happy. (usually)", "jawapan": "She is usually happy."},
+          {"no": 5, "teks": "We visit our grandparents. (sometimes)", "jawapan": "We sometimes visit our grandparents."},
+          {"no": 6, "teks": "He drinks milk. (seldom)", "jawapan": "He seldom drinks milk."},
+          {"no": 7, "teks": "It rains in the afternoon. (frequently)", "jawapan": "It frequently rains in the afternoon."},
+          {"no": 8, "teks": "I have finished my work. (already)", "jawapan": "I have already finished my work."},
+          {"no": 9, "teks": "The bus is on time. (rarely)", "jawapan": "The bus is rarely on time."},
+          {"no": 10, "teks": "Do you go there? (ever)", "jawapan": "Do you ever go there?"}
+        ]
+      },
+      {
+        "topik": "Prepositions",
+        "set": 8,
+        "format": "Prepositions of Movement",
+        "arahan": "Fill in with (into, through, across, over, around).",
+        "soalan": [
+          {"no": 1, "teks": "The cat jumped _____ the fence.", "jawapan": "over"},
+          {"no": 2, "teks": "He walked _____ the dark tunnel.", "jawapan": "through"},
+          {"no": 3, "teks": "The ball rolled _____ the road.", "jawapan": "across"},
+          {"no": 4, "teks": "She poured some water _____ the glass.", "jawapan": "into"},
+          {"no": 5, "teks": "We ran _____ the park twice.", "jawapan": "around"},
+          {"no": 6, "teks": "The bird flew _____ the window.", "jawapan": "through"},
+          {"no": 7, "teks": "He dived _____ the swimming pool.", "jawapan": "into"},
+          {"no": 8, "teks": "The bridge goes _____ the river.", "jawapan": "across"},
+          {"no": 9, "teks": "The plane flew _____ the mountains.", "jawapan": "over"},
+          {"no": 10, "teks": "The children sat _____ the campfire.", "jawapan": "around"}
+        ]
+      },
+      {
+        "topik": "Conjunctions",
+        "set": 8,
+        "format": "Sentence Transitions",
+        "arahan": "Choose the correct word (Therefore, Moreover, Instead).",
+        "soalan": [
+          {"no": 1, "teks": "It was raining. _____, we stayed home.", "jawapan": "Therefore"},
+          {"no": 2, "teks": "She is smart. _____, she is very kind.", "jawapan": "Moreover"},
+          {"no": 3, "teks": "I didn't buy the red shirt. _____, I bought the blue one.", "jawapan": "Instead"},
+          {"no": 4, "teks": "He studied hard. _____, he passed with flying colors.", "jawapan": "Therefore"},
+          {"no": 5, "teks": "Exercise is good for the heart. _____, it helps you sleep better.", "jawapan": "Moreover"},
+          {"no": 6, "teks": "Don't walk. _____, take a bus to save time.", "jawapan": "Instead"},
+          {"no": 7, "teks": "The car was old. _____, it broke down often.", "jawapan": "Therefore"},
+          {"no": 8, "teks": "Smoking is harmful. _____, it is very expensive.", "jawapan": "Moreover"},
+          {"no": 9, "teks": "He didn't go to the party. _____, he went to the library.", "jawapan": "Instead"},
+          {"no": 10, "teks": "You are late. _____, you missed the first part of the talk.", "jawapan": "Therefore"}
+        ]
+      },
+      {
+        "topik": "Articles",
+        "set": 8,
+        "format": "Articles with Instruments and Games",
+        "arahan": "Fill in with 'the' or 'X' (no article).",
+        "soalan": [
+          {"no": 1, "teks": "She plays _____ piano beautifully.", "jawapan": "the"},
+          {"no": 2, "teks": "He loves playing _____ football.", "jawapan": "X"},
+          {"no": 3, "teks": "I am learning to play _____ guitar.", "jawapan": "the"},
+          {"no": 4, "teks": "They enjoy playing _____ chess.", "jawapan": "X"},
+          {"no": 5, "teks": "Can you play _____ violin?", "jawapan": "the"},
+          {"no": 6, "teks": "We play _____ badminton every Saturday.", "jawapan": "X"},
+          {"no": 7, "teks": "My brother plays _____ drums in a band.", "jawapan": "the"},
+          {"no": 8, "teks": "She is good at _____ tennis.", "jawapan": "X"},
+          {"no": 9, "teks": "He plays _____ flute in the school orchestra.", "jawapan": "the"},
+          {"no": 10, "teks": "I like playing _____ computer games.", "jawapan": "X"}
+        ]
+      },
+      {
+        "topik": "Subject-Verb Agreement",
+        "set": 8,
+        "format": "Either/Neither Agreement",
+        "arahan": "Choose the verb that agrees with the closer subject.",
+        "soalan": [
+          {"no": 1, "teks": "Either Ali or his friends _____ (is/are) going to the park.", "jawapan": "are"},
+          {"no": 2, "teks": "Neither the students nor the teacher _____ (knows/know) the answer.", "jawapan": "knows"},
+          {"no": 3, "teks": "Either the cats or the dog _____ (has/have) eaten the food.", "jawapan": "has"},
+          {"no": 4, "teks": "Neither you nor I _____ (am/are) responsible for this.", "jawapan": "am"},
+          {"no": 5, "teks": "Either my parents or my brother _____ (is/are) coming.", "jawapan": "is"},
+          {"no": 6, "teks": "Neither the apples nor the orange _____ (is/are) fresh.", "jawapan": "is"},
+          {"no": 7, "teks": "Either the coach or the players _____ (was/were) shouting.", "jawapan": "were"},
+          {"no": 8, "teks": "Neither he nor they _____ (likes/like) spicy food.", "jawapan": "like"},
+          {"no": 9, "teks": "Either the man or the women _____ (works/work) here.", "jawapan": "work"},
+          {"no": 10, "teks": "Neither Sara nor her sisters _____ (was/were) at the party.", "jawapan": "were"}
+        ]
+      },
+      {
+        "topik": "Question Forms",
+        "set": 8,
+        "format": "How + Adjective/Adverb",
+        "arahan": "Fill in the blanks with (How long, How far, How often, How many).",
+        "soalan": [
+          {"no": 1, "teks": "_____ is your house from the school?", "jawapan": "How far"},
+          {"no": 2, "teks": "_____ do you go to the library?", "jawapan": "How often"},
+          {"no": 3, "teks": "_____ does it take to get there?", "jawapan": "How long"},
+          {"no": 4, "teks": "_____ eggs do you need for the cake?", "jawapan": "How many"},
+          {"no": 5, "teks": "_____ have you been waiting here?", "jawapan": "How long"},
+          {"no": 6, "teks": "_____ can you run without stopping?", "jawapan": "How far"},
+          {"no": 7, "teks": "_____ do you brush your teeth?", "jawapan": "How often"},
+          {"no": 8, "teks": "_____ is the river from here?", "jawapan": "How far"},
+          {"no": 9, "teks": "_____ students are in your class?", "jawapan": "How many"},
+          {"no": 10, "teks": "_____ will you stay in Malacca?", "jawapan": "How long"}
+        ]
+      },
+      {
+        "topik": "Punctuation",
+        "set": 8,
+        "format": "Direct Speech/Quotation Marks",
+        "arahan": "Insert quotation marks and commas where necessary.",
+        "soalan": [
+          {"no": 1, "teks": "I am tired said the little boy.", "jawapan": "\"I am tired,\" said the little boy."},
+          {"no": 2, "teks": "The teacher asked Have you done your homework?", "jawapan": "The teacher asked, \"Have you done your homework?\""},
+          {"no": 3, "teks": "Don't move shouted the officer.", "jawapan": "\"Don't move!\" shouted the officer."},
+          {"no": 4, "teks": "I'll be there soon promised Ahmad.", "jawapan": "\"I'll be there soon,\" promised Ahmad."},
+          {"no": 5, "teks": "She said It is a lovely day today.", "jawapan": "She said, \"It is a lovely day today.\""},
+          {"no": 6, "teks": "What is your name? asked the old man.", "jawapan": "\"What is your name?\" asked the old man."},
+          {"no": 7, "teks": "Help me! cried the girl.", "jawapan": "\"Help me!\" cried the girl."},
+          {"no": 8, "teks": "Wait for me shouted Ali.", "jawapan": "\"Wait for me!\" shouted Ali."},
+          {"no": 9, "teks": "Father said We are going on a trip.", "jawapan": "Father said, \"We are going on a trip.\""},
+          {"no": 10, "teks": "Where are you going? asked Siti.", "jawapan": "\"Where are you going?\" asked Siti."}
+        ]
+      }
+    ]
+  }
+}

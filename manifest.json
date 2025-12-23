@@ -1,0 +1,14 @@
+{
+  "available_sets": [
+    {"id": "1", "name": "Set 1: Nouns & Pronouns", "file": "set1.json"},
+    {"id": "2", "name": "Set 2: Verbs & Tenses", "file": "set2.json"},
+    {"id": "3", "name": "Set 3: Adjectives & Adverbs", "file": "set3.json"},
+    {"id": "4", "name": "Set 4: Prepositions & Conjunctions", "file": "set4.json"},
+    {"id": "5", "name": "Set 5: Articles & SVA", "file": "set5.json"},
+    {"id": "6", "name": "Set 6: Punctuation & Mixed 1", "file": "set6.json"},
+    {"id": "7", "name": "Set 7: Gender & Modals", "file": "set7.json"},
+    {"id": "8", "name": "Set 8: Similes & Movement", "file": "set8.json"},
+    {"id": "9", "name": "Set 9: Relative Pronouns & Tags", "file": "set9.json"},
+    {"id": "10", "name": "Set 10: Final Comprehensive Review", "file": "set10.json"}
+  ]
+}

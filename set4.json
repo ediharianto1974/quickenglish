@@ -1,0 +1,210 @@
+{
+  "modul_latihan_bahasa_inggeris_tahun_6": {
+    "maklumat_umum": {
+      "sasaran": "Tahun 6",
+      "tujuan": "Latihan Kendiri Tatabahasa",
+      "jumlah_topik": 11,
+      "set_dihasilkan": 4
+    },
+    "latihan": [
+      {
+        "topik": "Nouns",
+        "set": 4,
+        "format": "Abstract Nouns",
+        "arahan": "Change the adjective/verb in brackets into an abstract noun.",
+        "soalan": [
+          {"no": 1, "teks": "The soldiers were rewarded for their _____ (brave).", "jawapan": "bravery"},
+          {"no": 2, "teks": "_____ (Honest) is the best policy.", "jawapan": "Honesty"},
+          {"no": 3, "teks": "She jumped with _____ (happy) when she won the race.", "jawapan": "happiness"},
+          {"no": 4, "teks": "We must respect the _____ (free) of others.", "jawapan": "freedom"},
+          {"no": 5, "teks": "The king was known for his _____ (wise).", "jawapan": "wisdom"},
+          {"no": 6, "teks": "The _____ (long) of the table is two meters.", "jawapan": "length"},
+          {"no": 7, "teks": "He couldn't hide his _____ (angry) anymore.", "jawapan": "anger"},
+          {"no": 8, "teks": "She has great _____ (proud) in her work.", "jawapan": "pride"},
+          {"no": 9, "teks": "Many people live in _____ (poor) in that country.", "jawapan": "poverty"},
+          {"no": 10, "teks": "It is my _____ (believe) that we will win.", "jawapan": "belief"}
+        ]
+      },
+      {
+        "topik": "Pronouns",
+        "set": 4,
+        "format": "Indefinite Pronouns",
+        "arahan": "Choose the best indefinite pronoun (Someone, Anything, Everyone, Nowhere, etc.).",
+        "soalan": [
+          {"no": 1, "teks": "I knocked on the door, but _____ answered.", "jawapan": "no one"},
+          {"no": 2, "teks": "Does _____ have a pen I can borrow?", "jawapan": "anyone"},
+          {"no": 3, "teks": "I have _____ important to tell you.", "jawapan": "something"},
+          {"no": 4, "teks": "_____ is ready for the school concert.", "jawapan": "Everything"},
+          {"no": 5, "teks": "I looked for my cat, but it was _____ to be found.", "jawapan": "nowhere"},
+          {"no": 6, "teks": "_____ needs to bring their own water bottle.", "jawapan": "Everyone"},
+          {"no": 7, "teks": "Is there _____ I can do to help?", "jawapan": "anything"},
+          {"no": 8, "teks": "_____ stole my bicycle yesterday!", "jawapan": "Someone"},
+          {"no": 9, "teks": "I don't know _____ about this topic.", "jawapan": "anything"},
+          {"no": 10, "teks": "We can go _____ you like this weekend.", "jawapan": "anywhere"}
+        ]
+      },
+      {
+        "topik": "Verbs & Tenses",
+        "set": 4,
+        "format": "Simple Future Tense",
+        "arahan": "Fill in the blanks with the 'will' or 'going to' form of the verb.",
+        "soalan": [
+          {"no": 1, "teks": "I promise I _____ (help) you later.", "jawapan": "will help"},
+          {"no": 2, "teks": "We _____ (visit) our cousins in Melaka next week.", "jawapan": "are going to visit"},
+          {"no": 3, "teks": "Watch out! You _____ (fall) into that hole.", "jawapan": "are going to fall"},
+          {"no": 4, "teks": "I think it _____ (rain) this evening.", "jawapan": "will rain"},
+          {"no": 5, "teks": "They _____ (buy) a new house next year.", "jawapan": "are going to buy"},
+          {"no": 6, "teks": "Wait! I _____ (open) the door for you.", "jawapan": "will open"},
+          {"no": 7, "teks": "What _____ you _____ (do) during the holidays?", "jawapan": "are, going to do"},
+          {"no": 8, "teks": "The train _____ (leave) at 9:00 PM tonight.", "jawapan": "will leave"},
+          {"no": 9, "teks": "She _____ (be) twelve years old next Tuesday.", "jawapan": "will be"},
+          {"no": 10, "teks": "We _____ (have) a barbecue party this Saturday.", "jawapan": "are going to have"}
+        ]
+      },
+      {
+        "topik": "Adjectives",
+        "set": 4,
+        "format": "Proper Adjectives",
+        "arahan": "Change the country name into a proper adjective.",
+        "soalan": [
+          {"no": 1, "teks": "Nasi Lemak is a famous _____ (Malaysia) dish.", "jawapan": "Malaysian"},
+          {"no": 2, "teks": "I enjoy watching _____ (Japan) cartoons.", "jawapan": "Japanese"},
+          {"no": 3, "teks": "Pizza is a popular _____ (Italy) food.", "jawapan": "Italian"},
+          {"no": 4, "teks": "He is learning to speak the _____ (France) language.", "jawapan": "French"},
+          {"no": 5, "teks": "The _____ (America) flag has stars and stripes.", "jawapan": "American"},
+          {"no": 6, "teks": "Many _____ (China) tourists visit our country.", "jawapan": "Chinese"},
+          {"no": 7, "teks": "She bought an _____ (India) saree for the wedding.", "jawapan": "Indian"},
+          {"no": 8, "teks": "The _____ (England) weather is often rainy.", "jawapan": "English"},
+          {"no": 9, "teks": "I have an _____ (Australia) pen pal.", "jawapan": "Australian"},
+          {"no": 10, "teks": "We love listening to _____ (Korea) music.", "jawapan": "Korean"}
+        ]
+      },
+      {
+        "topik": "Adverbs",
+        "set": 4,
+        "format": "Adverbs of Degree",
+        "arahan": "Fill in with (too, very, quite, extremely, almost).",
+        "soalan": [
+          {"no": 1, "teks": "The tea is _____ hot to drink.", "jawapan": "too"},
+          {"no": 2, "teks": "She is _____ clever and always gets full marks.", "jawapan": "very"},
+          {"no": 3, "teks": "I am _____ finished with my homework.", "jawapan": "almost"},
+          {"no": 4, "teks": "The mountain is _____ high to climb without gear.", "jawapan": "too"},
+          {"no": 5, "teks": "The weather today is _____ pleasant.", "jawapan": "quite"},
+          {"no": 6, "teks": "It was _____ cold in the cave.", "jawapan": "extremely"},
+          {"no": 7, "teks": "He was _____ tired that he fell asleep instantly.", "jawapan": "so"},
+          {"no": 8, "teks": "The box is _____ heavy for me to lift alone.", "jawapan": "too"},
+          {"no": 9, "teks": "You are _____ right about that.", "jawapan": "quite"},
+          {"no": 10, "teks": "The baby is _____ small to walk.", "jawapan": "too"}
+        ]
+      },
+      {
+        "topik": "Prepositions",
+        "set": 4,
+        "format": "Adjective + Preposition Collocations",
+        "arahan": "Fill in the correct preposition.",
+        "soalan": [
+          {"no": 1, "teks": "I am interested _____ learning science.", "jawapan": "in"},
+          {"no": 2, "teks": "She is afraid _____ dark places.", "jawapan": "of"},
+          {"no": 3, "teks": "Ahmad is very good _____ playing chess.", "jawapan": "at"},
+          {"no": 4, "teks": "We are proud _____ our school team.", "jawapan": "of"},
+          {"no": 5, "teks": "The teacher was angry _____ the noisy pupils.", "jawapan": "with"},
+          {"no": 6, "teks": "Is your book different _____ mine?", "jawapan": "from"},
+          {"no": 7, "teks": "They are excited _____ the school trip.", "jawapan": "about"},
+          {"no": 8, "teks": "The shop is famous _____ its delicious cakes.", "jawapan": "for"},
+          {"no": 9, "teks": "Please be kind _____ your younger brother.", "jawapan": "to"},
+          {"no": 10, "teks": "I am worried _____ my missing cat.", "jawapan": "about"}
+        ]
+      },
+      {
+        "topik": "Conjunctions",
+        "set": 4,
+        "format": "Correlative Conjunctions",
+        "arahan": "Fill in with (either...or, neither...nor, both...and).",
+        "soalan": [
+          {"no": 1, "teks": "You can _____ stay here or go with them.", "jawapan": "either"},
+          {"no": 2, "teks": "_____ Ali nor his brother is at home.", "jawapan": "Neither"},
+          {"no": 3, "teks": "I like _____ reading and swimming.", "jawapan": "both"},
+          {"no": 4, "teks": "She is _____ only smart but also hardworking.", "jawapan": "not"},
+          {"no": 5, "teks": "_____ the cat nor the dog wants the food.", "jawapan": "Neither"},
+          {"no": 6, "teks": "We can go _____ to the zoo or the museum.", "jawapan": "either"},
+          {"no": 7, "teks": "_____ Sarah and Jane are my best friends.", "jawapan": "Both"},
+          {"no": 8, "teks": "He has _____ time nor money to travel.", "jawapan": "neither"},
+          {"no": 9, "teks": "You must _____ finish your work or face the music.", "jawapan": "either"},
+          {"no": 10, "teks": "It is _____ hot nor cold today.", "jawapan": "neither"}
+        ]
+      },
+      {
+        "topik": "Articles",
+        "set": 4,
+        "format": "Zero Article (No Article)",
+        "arahan": "Write 'X' if no article is needed, otherwise write 'A', 'An', or 'The'.",
+        "soalan": [
+          {"no": 1, "teks": "I play _____ badminton every evening.", "jawapan": "X"},
+          {"no": 2, "teks": "She speaks _____ Mandarin fluently.", "jawapan": "X"},
+          {"no": 3, "teks": "We live in _____ Malaysia.", "jawapan": "X"},
+          {"no": 4, "teks": "_____ Mount Kinabalu is the highest in Malaysia.", "jawapan": "X"},
+          {"no": 5, "teks": "I have _____ breakfast at 7:00 AM.", "jawapan": "X"},
+          {"no": 6, "teks": "He is very good at _____ Science.", "jawapan": "X"},
+          {"no": 7, "teks": "The pupils go to _____ school by bus.", "jawapan": "X"},
+          {"no": 8, "teks": "We visited _____ Melaka last weekend.", "jawapan": "X"},
+          {"no": 9, "teks": "I am going to _____ bed now.", "jawapan": "X"},
+          {"no": 10, "teks": "_____ Lake Toba is very beautiful.", "jawapan": "X"}
+        ]
+      },
+      {
+        "topik": "Subject-Verb Agreement",
+        "set": 4,
+        "format": "Indefinite Pronouns SVA",
+        "arahan": "Choose the correct verb form in brackets.",
+        "soalan": [
+          {"no": 1, "teks": "Everyone _____ (has/have) a role to play.", "jawapan": "has"},
+          {"no": 2, "teks": "Someone _____ (is/are) waiting for you at the gate.", "jawapan": "is"},
+          {"no": 3, "teks": "Nobody _____ (knows/know) the answer to this question.", "jawapan": "knows"},
+          {"no": 4, "teks": "Everything in this room _____ (is/are) old.", "jawapan": "is"},
+          {"no": 5, "teks": "Each of the boys _____ (gets/get) a medal.", "jawapan": "gets"},
+          {"no": 6, "teks": "No one _____ (was/were) absent yesterday.", "jawapan": "was"},
+          {"no": 7, "teks": "Somebody _____ (has/have) left their umbrella here.", "jawapan": "has"},
+          {"no": 8, "teks": "Anybody who _____ (studies/study) hard will pass.", "jawapan": "studies"},
+          {"no": 9, "teks": "Everything _____ (was/were) perfect at the party.", "jawapan": "was"},
+          {"no": 10, "teks": "Nothing _____ (is/are) impossible if you try.", "jawapan": "is"}
+        ]
+      },
+      {
+        "topik": "Question Forms",
+        "set": 4,
+        "format": "How much vs How many",
+        "arahan": "Fill in the blanks with 'How much' or 'How many'.",
+        "soalan": [
+          {"no": 1, "teks": "_____ apples did you buy?", "jawapan": "How many"},
+          {"no": 2, "teks": "_____ sugar do you want in your coffee?", "jawapan": "How much"},
+          {"no": 3, "teks": "_____ pupils are there in the hall?", "jawapan": "How many"},
+          {"no": 4, "teks": "_____ money do you need for the trip?", "jawapan": "How much"},
+          {"no": 5, "teks": "_____ water is left in the bottle?", "jawapan": "How much"},
+          {"no": 6, "teks": "_____ stars can you see tonight?", "jawapan": "How many"},
+          {"no": 7, "teks": "_____ milk is needed for this recipe?", "jawapan": "How much"},
+          {"no": 8, "teks": "_____ books are on the shelf?", "jawapan": "How many"},
+          {"no": 9, "teks": "_____ time do we have left?", "jawapan": "How much"},
+          {"no": 10, "teks": "_____ siblings do you have?", "jawapan": "How many"}
+        ]
+      },
+      {
+        "topik": "Punctuation",
+        "set": 4,
+        "format": "Dialogue & Commas",
+        "arahan": "Rewrite the sentences with correct punctuation and capital letters.",
+        "soalan": [
+          {"no": 1, "teks": "ali said i am coming", "jawapan": "Ali said, \"I am coming.\""},
+          {"no": 2, "teks": "where is my bag asked siti", "jawapan": "\"Where is my bag?\" asked Siti."},
+          {"no": 3, "teks": "no i cannot go with you", "jawapan": "No, I cannot go with you."},
+          {"no": 4, "teks": "oh no it is raining again", "jawapan": "Oh no! It is raining again."},
+          {"no": 5, "teks": "please buy eggs milk and bread", "jawapan": "Please buy eggs, milk and bread."},
+          {"no": 6, "teks": "happy birthday ahmad shouted his friends", "jawapan": "\"Happy birthday, Ahmad!\" shouted his friends."},
+          {"no": 7, "teks": "i live in ipoh perak", "jawapan": "I live in Ipoh, Perak."},
+          {"no": 8, "teks": "stop the police officer shouted", "jawapan": "\"Stop!\" the police officer shouted."},
+          {"no": 9, "teks": "yes you are right", "jawapan": "Yes, you are right."},
+          {"no": 10, "teks": "well i dont really know", "jawapan": "Well, I don't really know."}
+        ]
+      }
+    ]
+  }
+}

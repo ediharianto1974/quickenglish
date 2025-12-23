@@ -1,0 +1,210 @@
+{
+  "modul_latihan_bahasa_inggeris_tahun_6": {
+    "maklumat_umum": {
+      "sasaran": "Tahun 6",
+      "tujuan": "Latihan Kendiri Tatabahasa",
+      "jumlah_topik": 11,
+      "set_dihasilkan": 3
+    },
+    "latihan": [
+      {
+        "topik": "Nouns",
+        "set": 3,
+        "format": "Countable vs Uncountable",
+        "arahan": "Classify the nouns by choosing 'Countable' or 'Uncountable'.",
+        "soalan": [
+          {"no": 1, "teks": "Water", "jawapan": "Uncountable"},
+          {"no": 2, "teks": "Table", "jawapan": "Countable"},
+          {"no": 3, "teks": "Rice", "jawapan": "Uncountable"},
+          {"no": 4, "teks": "Elephant", "jawapan": "Countable"},
+          {"no": 5, "teks": "Money", "jawapan": "Uncountable"},
+          {"no": 6, "teks": "Information", "jawapan": "Uncountable"},
+          {"no": 7, "teks": "Students", "jawapan": "Countable"},
+          {"no": 8, "teks": "Furniture", "jawapan": "Uncountable"},
+          {"no": 9, "teks": "Bottles", "jawapan": "Countable"},
+          {"no": 10, "teks": "Salt", "jawapan": "Uncountable"}
+        ]
+      },
+      {
+        "topik": "Pronouns",
+        "set": 3,
+        "format": "Relative Pronouns",
+        "arahan": "Fill in the blanks with (who, which, whose, whom).",
+        "soalan": [
+          {"no": 1, "teks": "This is the man _____ saved the kitten.", "jawapan": "who"},
+          {"no": 2, "teks": "The book _____ I bought is on the shelf.", "jawapan": "which"},
+          {"no": 3, "teks": "That is the girl _____ father is a pilot.", "jawapan": "whose"},
+          {"no": 4, "teks": "The house _____ has a red roof is mine.", "jawapan": "which"},
+          {"no": 5, "teks": "The teacher _____ we love is very kind.", "jawapan": "whom"},
+          {"no": 6, "teks": "Do you know anyone _____ can fix this?", "jawapan": "who"},
+          {"no": 7, "teks": "The dog _____ tail was wagging followed me.", "jawapan": "whose"},
+          {"no": 8, "teks": "I lost the pen _____ you gave me.", "jawapan": "which"},
+          {"no": 9, "teks": "The students _____ were late were punished.", "jawapan": "who"},
+          {"no": 10, "teks": "The person _____ I called was busy.", "jawapan": "whom"}
+        ]
+      },
+      {
+        "topik": "Verbs & Tenses",
+        "set": 3,
+        "format": "Present Continuous Tense",
+        "arahan": "Complete the sentences using (am/is/are + verb-ing).",
+        "soalan": [
+          {"no": 1, "teks": "Listen! The baby _____ (cry).", "jawapan": "is crying"},
+          {"no": 2, "teks": "I _____ (study) for my exam right now.", "jawapan": "am studying"},
+          {"no": 3, "teks": "They _____ (play) basketball in the hall.", "jawapan": "are playing"},
+          {"no": 4, "teks": "Look! It _____ (snow) outside.", "jawapan": "is snowing"},
+          {"no": 5, "teks": "We _____ (wait) for the bus at the moment.", "jawapan": "are waiting"},
+          {"no": 6, "teks": "My mother _____ (bake) a cake in the kitchen.", "jawapan": "is baking"},
+          {"no": 7, "teks": "The birds _____ (fly) high in the sky.", "jawapan": "are flying"},
+          {"no": 8, "teks": "What _____ you _____ (do) now?", "jawapan": "are, doing"},
+          {"no": 9, "teks": "Ali _____ (not watch) television.", "jawapan": "is not watching"},
+          {"no": 10, "teks": "The gardener _____ (water) the plants.", "jawapan": "is watering"}
+        ]
+      },
+      {
+        "topik": "Adjectives",
+        "set": 3,
+        "format": "Adjectives ending in -ed or -ing",
+        "arahan": "Choose the correct adjective form.",
+        "soalan": [
+          {"no": 1, "teks": "The movie was very _____. (bore/boring)", "jawapan": "boring"},
+          {"no": 2, "teks": "I was very _____ when I heard the news. (shock/shocked)", "jawapan": "shocked"},
+          {"no": 3, "teks": "The children are _____ about the trip. (excite/excited)", "jawapan": "excited"},
+          {"no": 4, "teks": "This puzzle is very _____. (confuse/confusing)", "jawapan": "confusing"},
+          {"no": 5, "teks": "She is _____ in learning English. (interest/interested)", "jawapan": "interested"},
+          {"no": 6, "teks": "The long walk was _____. (tire/tiring)", "jawapan": "tiring"},
+          {"no": 7, "teks": "I am _____ of the loud noise. (frighten/frightened)", "jawapan": "frightened"},
+          {"no": 8, "teks": "The results were very _____. (disappoint/disappointing)", "jawapan": "disappointing"},
+          {"no": 9, "teks": "He was _____ when he failed. (depress/depressed)", "jawapan": "depressed"},
+          {"no": 10, "teks": "Gardening is a _____ hobby. (relax/relaxing)", "jawapan": "relaxing"}
+        ]
+      },
+      {
+        "topik": "Adverbs",
+        "set": 3,
+        "format": "Adverbs of Place & Time",
+        "arahan": "Fill in the blanks with suitable adverbs (everywhere, yesterday, soon, upstairs, tomorrow).",
+        "soalan": [
+          {"no": 1, "teks": "I looked for my keys _____, but couldn't find them.", "jawapan": "everywhere"},
+          {"no": 2, "teks": "We went to the zoo _____.", "jawapan": "yesterday"},
+          {"no": 3, "teks": "My brother is sleeping _____.", "jawapan": "upstairs"},
+          {"no": 4, "teks": "The doctor will see you _____.", "jawapan": "soon"},
+          {"no": 5, "teks": "I will finish my project _____.", "jawapan": "tomorrow"},
+          {"no": 6, "teks": "Please put the box _____.", "jawapan": "there"},
+          {"no": 7, "teks": "They are going to London _____ month.", "jawapan": "next"},
+          {"no": 8, "teks": "He is sitting _____ me.", "jawapan": "near"},
+          {"no": 9, "teks": "We must leave _____.", "jawapan": "now"},
+          {"no": 10, "teks": "The birds fly _____ in winter.", "jawapan": "away"}
+        ]
+      },
+      {
+        "topik": "Prepositions",
+        "set": 3,
+        "format": "Adjective + Preposition",
+        "arahan": "Fill in with (at, of, for, with, about).",
+        "soalan": [
+          {"no": 1, "teks": "She is good _____ Mathematics.", "jawapan": "at"},
+          {"no": 2, "teks": "I am afraid _____ spiders.", "jawapan": "of"},
+          {"no": 3, "teks": "He is famous _____ his beautiful paintings.", "jawapan": "for"},
+          {"no": 4, "teks": "We are worried _____ our exam results.", "jawapan": "about"},
+          {"no": 5, "teks": "Are you angry _____ me?", "jawapan": "with"},
+          {"no": 6, "teks": "Siti is interested _____ photography.", "jawapan": "in"},
+          {"no": 7, "teks": "The bottle is full _____ water.", "jawapan": "of"},
+          {"no": 8, "teks": "He was surprised _____ the news.", "jawapan": "at"},
+          {"no": 9, "teks": "I am proud _____ my parents.", "jawapan": "of"},
+          {"no": 10, "teks": "She is kind _____ animals.", "jawapan": "to"}
+        ]
+      },
+      {
+        "topik": "Conjunctions",
+        "set": 3,
+        "format": "Sentence Completion (Time)",
+        "arahan": "Complete using (before, after, while, when).",
+        "soalan": [
+          {"no": 1, "teks": "Wash your hands _____ you eat.", "jawapan": "before"},
+          {"no": 2, "teks": "Brush your teeth _____ you wake up.", "jawapan": "after"},
+          {"no": 3, "teks": "He fell asleep _____ he was watching TV.", "jawapan": "while"},
+          {"no": 4, "teks": "I will call you _____ I reach home.", "jawapan": "when"},
+          {"no": 5, "teks": "Don't talk _____ you are chewing food.", "jawapan": "while"},
+          {"no": 6, "teks": "Think twice _____ you speak.", "jawapan": "before"},
+          {"no": 7, "teks": "It started to rain _____ we were playing.", "jawapan": "while"},
+          {"no": 8, "teks": "Put on your coat _____ you go out.", "jawapan": "before"},
+          {"no": 9, "teks": "The sun came out _____ the storm ended.", "jawapan": "after"},
+          {"no": 10, "teks": "Always look both ways _____ crossing the road.", "jawapan": "before"}
+        ]
+      },
+      {
+        "topik": "Articles",
+        "set": 3,
+        "format": "MCQ (General vs Specific)",
+        "arahan": "Choose (A, An, The, or - for no article).",
+        "soalan": [
+          {"no": 1, "teks": "I love listening to _____ music.", "pilihan": ["a", "an", "the", "-"], "jawapan": "-"},
+          {"no": 2, "teks": "_____ moon revolves around the earth.", "pilihan": ["A", "An", "The", "-"], "jawapan": "The"},
+          {"no": 3, "teks": "My father is _____ engineer.", "pilihan": ["a", "an", "the", "-"], "jawapan": "an"},
+          {"no": 4, "teks": "We had _____ dinner at 8 PM.", "pilihan": ["a", "an", "the", "-"], "jawapan": "-"},
+          {"no": 5, "teks": "She lives in _____ small town.", "pilihan": ["a", "an", "the", "-"], "jawapan": "a"},
+          {"no": 6, "teks": "_____ Mount Kinabalu is in Sabah.", "pilihan": ["a", "an", "the", "-"], "jawapan": "-"},
+          {"no": 7, "teks": "He is _____ tallest boy in the room.", "pilihan": ["a", "an", "the", "-"], "jawapan": "the"},
+          {"no": 8, "teks": "I need _____ ink for my pen.", "pilihan": ["a", "an", "the", "-"], "jawapan": "-"},
+          {"no": 9, "teks": "There is _____ university in that city.", "pilihan": ["a", "an", "the", "-"], "jawapan": "a"},
+          {"no": 10, "teks": "Can you open _____ window, please?", "pilihan": ["a", "an", "the", "-"], "jawapan": "the"}
+        ]
+      },
+      {
+        "topik": "Subject-Verb Agreement",
+        "set": 3,
+        "format": "Collective Nouns",
+        "arahan": "Choose the correct singular verb for collective nouns.",
+        "soalan": [
+          {"no": 1, "teks": "A pack of wolves _____ (howl/howls) at the moon.", "jawapan": "howls"},
+          {"no": 2, "teks": "The team _____ (is/are) practicing hard.", "jawapan": "is"},
+          {"no": 3, "teks": "Our class _____ (has/have) twenty pupils.", "jawapan": "has"},
+          {"no": 4, "teks": "A bunch of keys _____ (was/were) found.", "jawapan": "was"},
+          {"no": 5, "teks": "The crowd _____ (cheer/cheers) for the hero.", "jawapan": "cheers"},
+          {"no": 6, "teks": "My family _____ (go/goes) to church together.", "jawapan": "goes"},
+          {"no": 7, "teks": "A swarm of bees _____ (is/are) in the garden.", "jawapan": "is"},
+          {"no": 8, "teks": "The audience _____ (clap/claps) loudly.", "jawapan": "claps"},
+          {"no": 9, "teks": "A bouquet of flowers _____ (smell/smells) sweet.", "jawapan": "smells"},
+          {"no": 10, "teks": "The committee _____ (decide/decides) the winner.", "jawapan": "decides"}
+        ]
+      },
+      {
+        "topik": "Question Forms",
+        "set": 3,
+        "format": "Auxiliary Verbs (Do, Does, Did)",
+        "arahan": "Fill in the blanks with (Do, Does, or Did).",
+        "soalan": [
+          {"no": 1, "teks": "_____ you like chocolate?", "jawapan": "Do"},
+          {"no": 2, "teks": "_____ she arrive late yesterday?", "jawapan": "Did"},
+          {"no": 3, "teks": "_____ your father work in an office?", "jawapan": "Does"},
+          {"no": 4, "teks": "_____ they play football last Sunday?", "jawapan": "Did"},
+          {"no": 5, "teks": "_____ cats catch mice?", "jawapan": "Do"},
+          {"no": 6, "teks": "_____ he know the answer now?", "jawapan": "Does"},
+          {"no": 7, "teks": "_____ you see my glasses just now?", "jawapan": "Did"},
+          {"no": 8, "teks": "_____ we have any milk left?", "jawapan": "Do"},
+          {"no": 9, "teks": "_____ it rain last night?", "jawapan": "Did"},
+          {"no": 10, "teks": "_____ your mother cook every day?", "jawapan": "Does"}
+        ]
+      },
+      {
+        "topik": "Punctuation",
+        "set": 3,
+        "format": "Apostrophes (Possession & Contraction)",
+        "arahan": "Place the apostrophe in the correct place.",
+        "soalan": [
+          {"no": 1, "teks": "This is Alis book.", "jawapan": "Ali's"},
+          {"no": 2, "teks": "Dont touch that!", "jawapan": "Don't"},
+          {"no": 3, "teks": "The girls school is nearby.", "jawapan": "girls'"},
+          {"no": 4, "teks": "I cant swim very well.", "jawapan": "can't"},
+          {"no": 5, "teks": "Its a lovely day.", "jawapan": "It's"},
+          {"no": 6, "teks": "The birds nest is in the tree.", "jawapan": "bird's"},
+          {"no": 7, "teks": "Were going to the park.", "jawapan": "We're"},
+          {"no": 8, "teks": "Theyve finished their homework.", "jawapan": "They've"},
+          {"no": 9, "teks": "My mothers car is red.", "jawapan": "mother's"},
+          {"no": 10, "teks": "Whos at the door?", "jawapan": "Who's"}
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "modul_latihan_bahasa_inggeris_tahun_6": {
+    "maklumat_umum": {
+      "sasaran": "Tahun 6",
+      "tujuan": "Latihan Kendiri Tatabahasa",
+      "jumlah_topik": 11,
+      "set_dihasilkan": 7
+    },
+    "latihan": [
+      {
+        "topik": "Nouns",
+        "set": 7,
+        "format": "Gender Nouns",
+        "arahan": "Give the feminine form of the masculine nouns provided.",
+        "soalan": [
+          {"no": 1, "teks": "Prince", "jawapan": "Princess"},
+          {"no": 2, "teks": "Waiter", "jawapan": "Waitress"},
+          {"no": 3, "teks": "Actor", "jawapan": "Actress"},
+          {"no": 4, "teks": "King", "jawapan": "Queen"},
+          {"no": 5, "teks": "Stallion", "jawapan": "Mare"},
+          {"no": 6, "teks": "Tiger", "jawapan": "Tigress"},
+          {"no": 7, "teks": "Uncle", "jawapan": "Aunt"},
+          {"no": 8, "teks": "Nephew", "jawapan": "Niece"},
+          {"no": 9, "teks": "Host", "jawapan": "Hostess"},
+          {"no": 10, "teks": "Lion", "jawapan": "Lioness"}
+        ]
+      },
+      {
+        "topik": "Pronouns",
+        "set": 7,
+        "format": "Interrogative Pronouns",
+        "arahan": "Fill in the blanks with (Who, Whom, Whose, Which, What).",
+        "soalan": [
+          {"no": 1, "teks": "_____ is your best friend?", "jawapan": "Who"},
+          {"no": 2, "teks": "_____ of these colors do you prefer?", "jawapan": "Which"},
+          {"no": 3, "teks": "_____ umbrella is this?", "jawapan": "Whose"},
+          {"no": 4, "teks": "To _____ did you give the letter?", "jawapan": "whom"},
+          {"no": 5, "teks": "_____ is your father's occupation?", "jawapan": "What"},
+          {"no": 6, "teks": "_____ is knocking at the door?", "jawapan": "Who"},
+          {"no": 7, "teks": "_____ did you see at the mall?", "jawapan": "Whom"},
+          {"no": 8, "teks": "_____ bag is left on the floor?", "jawapan": "Whose"},
+          {"no": 9, "teks": "_____ happened during the meeting?", "jawapan": "What"},
+          {"no": 10, "teks": "_____ way should we go, left or right?", "jawapan": "Which"}
+        ]
+      },
+      {
+        "topik": "Verbs & Tenses",
+        "set": 7,
+        "format": "Modals",
+        "arahan": "Choose the correct modal verb (can, must, should, might).",
+        "soalan": [
+          {"no": 1, "teks": "You _____ stop at the red light.", "jawapan": "must"},
+          {"no": 2, "teks": "_____ I borrow your pencil, please?", "jawapan": "Can"},
+          {"no": 3, "teks": "You _____ eat more vegetables for good health.", "jawapan": "should"},
+          {"no": 4, "teks": "It _____ rain later, the sky is cloudy.", "jawapan": "might"},
+          {"no": 5, "teks": "I _____ play the piano since I was five.", "jawapan": "can"},
+          {"no": 6, "teks": "We _____ respect our elders.", "jawapan": "must"},
+          {"no": 7, "teks": "Where _____ I find a pharmacy?", "jawapan": "can"},
+          {"no": 8, "teks": "You _____ study hard if you want to pass.", "jawapan": "must"},
+          {"no": 9, "teks": "He _____ be at home, but I am not sure.", "jawapan": "might"},
+          {"no": 10, "teks": "Students _____ wear their uniforms to school.", "jawapan": "must"}
+        ]
+      },
+      {
+        "topik": "Adjectives",
+        "set": 7,
+        "format": "Comparison of Adjectives",
+        "arahan": "Fill in the blanks with the correct Comparative or Superlative form.",
+        "soalan": [
+          {"no": 1, "teks": "This mountain is _____ (high) than that one.", "jawapan": "higher"},
+          {"no": 2, "teks": "Ali is the _____ (tall) boy in the class.", "jawapan": "tallest"},
+          {"no": 3, "teks": "Health is _____ (important) than wealth.", "jawapan": "more important"},
+          {"no": 4, "teks": "That was the _____ (bad) movie I have ever seen.", "jawapan": "worst"},
+          {"no": 5, "teks": "My house is _____ (big) than yours.", "jawapan": "bigger"},
+          {"no": 6, "teks": "Which is the _____ (large) city in Malaysia?", "jawapan": "largest"},
+          {"no": 7, "teks": "Gold is _____ (expensive) than silver.", "jawapan": "more expensive"},
+          {"no": 8, "teks": "He is the _____ (good) student in the school.", "jawapan": "best"},
+          {"no": 9, "teks": "A plane is _____ (fast) than a train.", "jawapan": "faster"},
+          {"no": 10, "teks": "This is the _____ (heavy) box of all.", "jawapan": "heaviest"}
+        ]
+      },
+      {
+        "topik": "Adverbs",
+        "set": 7,
+        "format": "Adverbs of Manner",
+        "arahan": "Change the adjectives in brackets into adverbs.",
+        "soalan": [
+          {"no": 1, "teks": "The turtle moves _____ (slow).", "jawapan": "slowly"},
+          {"no": 2, "teks": "She sings _____ (beautiful).", "jawapan": "beautifully"},
+          {"no": 3, "teks": "The soldier fought _____ (brave).", "jawapan": "bravely"},
+          {"no": 4, "teks": "He finished his work _____ (quick).", "jawapan": "quickly"},
+          {"no": 5, "teks": "Please talk _____ (quiet).", "jawapan": "quietly"},
+          {"no": 6, "teks": "They shouted _____ (loud) during the game.", "jawapan": "loudly"},
+          {"no": 7, "teks": "I can see the mountains _____ (clear).", "jawapan": "clearly"},
+          {"no": 8, "teks": "The baby is sleeping _____ (peaceful).", "jawapan": "peacefully"},
+          {"no": 9, "teks": "She smiled _____ (happy) at me.", "jawapan": "happily"},
+          {"no": 10, "teks": "He drives _____ (careful) on the highway.", "jawapan": "carefully"}
+        ]
+      },
+      {
+        "topik": "Prepositions",
+        "set": 7,
+        "format": "Prepositions of Time (at, in, on)",
+        "arahan": "Fill in the blanks with the correct preposition of time.",
+        "soalan": [
+          {"no": 1, "teks": "I was born _____ 2012.", "jawapan": "in"},
+          {"no": 2, "teks": "The meeting starts _____ 10:00 AM.", "jawapan": "at"},
+          {"no": 3, "teks": "We have a party _____ Saturday.", "jawapan": "on"},
+          {"no": 4, "teks": "It is very cold _____ night.", "jawapan": "at"},
+          {"no": 5, "teks": "Flowers bloom _____ spring.", "jawapan": "in"},
+          {"no": 6, "teks": "The holiday begins _____ July.", "jawapan": "in"},
+          {"no": 7, "teks": "I'll see you _____ lunchtime.", "jawapan": "at"},
+          {"no": 8, "teks": "They go to church _____ Sundays.", "jawapan": "on"},
+          {"no": 9, "teks": "My birthday is _____ the 5th of May.", "jawapan": "on"},
+          {"no": 10, "teks": "We usually drink tea _____ the afternoon.", "jawapan": "in"}
+        ]
+      },
+      {
+        "topik": "Conjunctions",
+        "set": 7,
+        "format": "Contrastive Conjunctions",
+        "arahan": "Choose the correct conjunction (but, although, however).",
+        "soalan": [
+          {"no": 1, "teks": "He is small _____ he is very strong.", "jawapan": "but"},
+          {"no": 2, "teks": "_____ it was late, he continued to study.", "jawapan": "Although"},
+          {"no": 3, "teks": "She wanted to buy the dress; _____, it was too expensive.", "jawapan": "however"},
+          {"no": 4, "teks": "I like coffee _____ my sister likes tea.", "jawapan": "but"},
+          {"no": 5, "teks": "_____ she was tired, she helped her mother.", "jawapan": "Although"},
+          {"no": 6, "teks": "He tried hard; _____, he failed the test.", "jawapan": "however"},
+          {"no": 7, "teks": "It was raining, _____ they still went for a walk.", "jawapan": "but"},
+          {"no": 8, "teks": "_____ he is rich, he lives a simple life.", "jawapan": "Although"},
+          {"no": 9, "teks": "The movie was long; _____, it was very interesting.", "jawapan": "however"},
+          {"no": 10, "teks": "I called him, _____ he didn't answer.", "jawapan": "but"}
+        ]
+      },
+      {
+        "topik": "Articles",
+        "set": 7,
+        "format": "Titles and Professions",
+        "arahan": "Fill in with (a, an, the, X).",
+        "soalan": [
+          {"no": 1, "teks": "He is _____ doctor at this hospital.", "jawapan": "a"},
+          {"no": 2, "teks": "_____ Queen of England visited Malaysia long ago.", "jawapan": "The"},
+          {"no": 3, "teks": "She wants to be _____ artist.", "jawapan": "an"},
+          {"no": 4, "teks": "_____ President of the club gave a speech.", "jawapan": "The"},
+          {"no": 5, "teks": "My uncle is _____ honest lawyer.", "jawapan": "an"},
+          {"no": 6, "teks": "_____ General Manager is not in his office.", "jawapan": "The"},
+          {"no": 7, "teks": "Is she _____ nurse or _____ teacher?", "jawapan": "a, a"},
+          {"no": 8, "teks": "_____ Captain of the ship is very brave.", "jawapan": "The"},
+          {"no": 9, "teks": "He became _____ engineer last year.", "jawapan": "an"},
+          {"no": 10, "teks": "_____ Prime Minister will launch the event.", "jawapan": "The"}
+        ]
+      },
+      {
+        "topik": "Subject-Verb Agreement",
+        "set": 7,
+        "format": "The number vs A number",
+        "arahan": "Choose the correct verb (is/are/has/have).",
+        "soalan": [
+          {"no": 1, "teks": "The number of students _____ (is/are) forty.", "jawapan": "is"},
+          {"no": 2, "teks": "A number of people _____ (is/are) waiting outside.", "jawapan": "are"},
+          {"no": 3, "teks": "The number of cars on the road _____ (has/have) increased.", "jawapan": "has"},
+          {"no": 4, "teks": "A number of books _____ (has/have) been lost.", "jawapan": "have"},
+          {"no": 5, "teks": "The number of pages in this book _____ (is/are) 200.", "jawapan": "is"},
+          {"no": 6, "teks": "A number of boys _____ (was/were) playing in the rain.", "jawapan": "were"},
+          {"no": 7, "teks": "The number of errors _____ (was/were) small.", "jawapan": "was"},
+          {"no": 8, "teks": "A number of questions _____ (is/are) difficult to answer.", "jawapan": "are"},
+          {"no": 9, "teks": "The number of rainy days _____ (has/have) been high this month.", "jawapan": "has"},
+          {"no": 10, "teks": "A number of trees _____ (was/were) cut down.", "jawapan": "were"}
+        ]
+      },
+      {
+        "topik": "Question Forms",
+        "set": 7,
+        "format": "Indirect Questions",
+        "arahan": "Rewrite the direct question as an indirect question starting with 'Can you tell me...'.",
+        "soalan": [
+          {"no": 1, "teks": "Where is the post office?", "jawapan": "Can you tell me where the post office is?"},
+          {"no": 2, "teks": "What time is it?", "jawapan": "Can you tell me what time it is?"},
+          {"no": 3, "teks": "Who is that man?", "jawapan": "Can you tell me who that man is?"},
+          {"no": 4, "teks": "How much does this cost?", "jawapan": "Can you tell me how much this costs?"},
+          {"no": 5, "teks": "Where do you live?", "jawapan": "Can you tell me where you live?"},
+          {"no": 6, "teks": "Why is she crying?", "jawapan": "Can you tell me why she is crying?"},
+          {"no": 7, "teks": "When will the train arrive?", "jawapan": "Can you tell me when the train will arrive?"},
+          {"no": 8, "teks": "Where did they go?", "jawapan": "Can you tell me where they went?"},
+          {"no": 9, "teks": "What is his name?", "jawapan": "Can you tell me what his name is?"},
+          {"no": 10, "teks": "How far is the school?", "jawapan": "Can you tell me how far the school is?"}
+        ]
+      },
+      {
+        "topik": "Punctuation",
+        "set": 7,
+        "format": "Contextual Marks",
+        "arahan": "Provide the correct punctuation mark for the end of each sentence (. , ? !).",
+        "soalan": [
+          {"no": 1, "teks": "What a beautiful flower this is", "jawapan": "!"},
+          {"no": 2, "teks": "Do you know where Ahmad is", "jawapan": "?"},
+          {"no": 3, "teks": "Please sit down", "jawapan": "."},
+          {"no": 4, "teks": "Watch out for the car", "jawapan": "!"},
+          {"no": 5, "teks": "I have a pen, a pencil and a ruler", "jawapan": "."},
+          {"no": 6, "teks": "Are you coming with us", "jawapan": "?"},
+          {"no": 7, "teks": "Ouch  That hurts", "jawapan": "!"},
+          {"no": 8, "teks": "They live in Kuching, Sarawak", "jawapan": "."},
+          {"no": 9, "teks": "How do you make a paper plane", "jawapan": "?"},
+          {"no": 10, "teks": "Hurray  We won the match", "jawapan": "!"}
+        ]
+      }
+    ]
+  }
+}

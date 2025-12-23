@@ -1,0 +1,210 @@
+{
+  "modul_latihan_bahasa_inggeris_tahun_6": {
+    "maklumat_umum": {
+      "sasaran": "Tahun 6",
+      "tujuan": "Latihan Kendiri Tatabahasa",
+      "jumlah_topik": 11,
+      "set_dihasilkan": 6
+    },
+    "latihan": [
+      {
+        "topik": "Nouns",
+        "set": 6,
+        "format": "Specific Collective Nouns",
+        "arahan": "Fill in the blanks with the correct collective noun from the box (pride, school, troop, colony, team).",
+        "soalan": [
+          {"no": 1, "teks": "A _____ of lions was seen resting under the tree.", "jawapan": "pride"},
+          {"no": 2, "teks": "We saw a large _____ of fish swimming in the coral reef.", "jawapan": "school"},
+          {"no": 3, "teks": "A _____ of monkeys swung from branch to branch.", "jawapan": "troop"},
+          {"no": 4, "teks": "There is a _____ of ants under the old log.", "jawapan": "colony"},
+          {"no": 5, "teks": "The football _____ is practicing for the final match.", "jawapan": "team"},
+          {"no": 6, "teks": "A _____ of wolves hunted together in the forest.", "jawapan": "pack"},
+          {"no": 7, "teks": "She bought a _____ of grapes at the market.", "jawapan": "bunch"},
+          {"no": 8, "teks": "A _____ of bees built a hive on the balcony.", "jawapan": "swarm"},
+          {"no": 9, "teks": "The _____ of sailors worked hard to steer the ship.", "jawapan": "crew"},
+          {"no": 10, "teks": "A _____ of cattle grazed in the green field.", "jawapan": "herd"}
+        ]
+      },
+      {
+        "topik": "Pronouns",
+        "set": 6,
+        "format": "Demonstrative Pronouns",
+        "arahan": "Fill in the blanks with (This, That, These, Those).",
+        "soalan": [
+          {"no": 1, "teks": "_____ is my pen here on the desk.", "jawapan": "This"},
+          {"no": 2, "teks": "Look at _____ birds flying way up in the sky.", "jawapan": "those"},
+          {"no": 3, "teks": "_____ books in my hand are very heavy.", "jawapan": "These"},
+          {"no": 4, "teks": "_____ house over there belongs to my grandfather.", "jawapan": "That"},
+          {"no": 5, "teks": "Are _____ your shoes over there by the door?", "jawapan": "those"},
+          {"no": 6, "teks": "_____ is a beautiful rainbow in the distance.", "jawapan": "That"},
+          {"no": 7, "teks": "_____ cookies I am eating are delicious.", "jawapan": "These"},
+          {"no": 8, "teks": "Is _____ your bicycle right here?", "jawapan": "This"},
+          {"no": 9, "teks": "_____ stars are so bright tonight.", "jawapan": "Those"},
+          {"no": 10, "teks": "I like _____ shirt I am wearing today.", "jawapan": "this"}
+        ]
+      },
+      {
+        "topik": "Verbs & Tenses",
+        "set": 6,
+        "format": "Present Perfect Tense",
+        "arahan": "Complete the sentences using (has/have + past participle).",
+        "soalan": [
+          {"no": 1, "teks": "I _____ (finish) my homework already.", "jawapan": "have finished"},
+          {"no": 2, "teks": "She _____ (lose) her car keys again.", "jawapan": "has lost"},
+          {"no": 3, "teks": "They _____ (live) here for ten years.", "jawapan": "have lived"},
+          {"no": 4, "teks": "Ahmad _____ (not eat) his lunch yet.", "jawapan": "has not eaten"},
+          {"no": 5, "teks": "_____ you ever _____ (see) a whale?", "jawapan": "Have, seen"},
+          {"no": 6, "teks": "We _____ (visit) Malacca several times.", "jawapan": "have visited"},
+          {"no": 7, "teks": "The rain _____ (stop), so we can go out.", "jawapan": "has stopped"},
+          {"no": 8, "teks": "He _____ (write) three letters today.", "jawapan": "has written"},
+          {"no": 9, "teks": "The cat _____ (catch) a mouse.", "jawapan": "has caught"},
+          {"no": 10, "teks": "My parents _____ (buy) a new car.", "jawapan": "have bought"}
+        ]
+      },
+      {
+        "topik": "Adjectives",
+        "set": 6,
+        "format": "Possessive Adjectives",
+        "arahan": "Fill in with (my, your, his, her, its, our, their).",
+        "soalan": [
+          {"no": 1, "teks": "I have a dog. _____ name is Rex.", "jawapan": "Its"},
+          {"no": 2, "teks": "Sarah is doing _____ homework now.", "jawapan": "her"},
+          {"no": 3, "teks": "The boys are playing with _____ toys.", "jawapan": "their"},
+          {"no": 4, "teks": "We love _____ school very much.", "jawapan": "our"},
+          {"no": 5, "teks": "Ali washed _____ car yesterday.", "jawapan": "his"},
+          {"no": 6, "teks": "Do you have _____ umbrella with you?", "jawapan": "your"},
+          {"no": 7, "teks": "I forgot _____ bag in the bus.", "jawapan": "my"},
+          {"no": 8, "teks": "The bird is in _____ nest.", "jawapan": "its"},
+          {"no": 9, "teks": "They invited us to _____ party.", "jawapan": "their"},
+          {"no": 10, "teks": "She combed _____ long hair.", "jawapan": "her"}
+        ]
+      },
+      {
+        "topik": "Adverbs",
+        "set": 6,
+        "format": "Adverbs of Time (Already, Yet, Still)",
+        "arahan": "Choose the correct adverb to complete the sentence.",
+        "soalan": [
+          {"no": 1, "teks": "Have you finished your work _____?", "jawapan": "yet"},
+          {"no": 2, "teks": "I have _____ seen that movie twice.", "jawapan": "already"},
+          {"no": 3, "teks": "It is _____ raining outside.", "jawapan": "still"},
+          {"no": 4, "teks": "She hasn't arrived _____.", "jawapan": "yet"},
+          {"no": 5, "teks": "They have _____ cleaned the entire house.", "jawapan": "already"},
+          {"no": 6, "teks": "Are you _____ waiting for the bus?", "jawapan": "still"},
+          {"no": 7, "teks": "The train has _____ left the station.", "jawapan": "already"},
+          {"no": 8, "teks": "I haven't heard from him _____.", "jawapan": "yet"},
+          {"no": 9, "teks": "He is _____ working on his project.", "jawapan": "still"},
+          {"no": 10, "teks": "We have _____ prepared everything for the trip.", "jawapan": "already"}
+        ]
+      },
+      {
+        "topik": "Prepositions",
+        "set": 6,
+        "format": "Prepositions with Verbs",
+        "arahan": "Fill in the blanks with (to, for, at, in, on).",
+        "soalan": [
+          {"no": 1, "teks": "Please listen _____ the teacher.", "jawapan": "to"},
+          {"no": 2, "teks": "He is waiting _____ the bus.", "jawapan": "for"},
+          {"no": 3, "teks": "Don't shout _____ me!", "jawapan": "at"},
+          {"no": 4, "teks": "Do you believe _____ ghosts?", "jawapan": "in"},
+          {"no": 5, "teks": "It depends _____ the weather.", "jawapan": "on"},
+          {"no": 6, "teks": "She apologized _____ her mistake.", "jawapan": "for"},
+          {"no": 7, "teks": "I agree _____ you.", "jawapan": "with"},
+          {"no": 8, "teks": "Look _____ that beautiful painting.", "jawapan": "at"},
+          {"no": 9, "teks": "He applied _____ a job at the bank.", "jawapan": "for"},
+          {"no": 10, "teks": "We arrived _____ the airport on time.", "jawapan": "at"}
+        ]
+      },
+      {
+        "topik": "Conjunctions",
+        "set": 6,
+        "format": "Reason and Purpose",
+        "arahan": "Join the sentences using (so that, because, since).",
+        "soalan": [
+          {"no": 1, "teks": "He studied hard. He wanted to pass the exam. (so that)", "jawapan": "He studied hard so that he could pass the exam."},
+          {"no": 2, "teks": "She was late. She missed the bus. (because)", "jawapan": "She was late because she missed the bus."},
+          {"no": 3, "teks": "It is raining. We should stay inside. (since)", "jawapan": "Since it is raining, we should stay inside."},
+          {"no": 4, "teks": "I wore a coat. I didn't want to feel cold. (so that)", "jawapan": "I wore a coat so that I wouldn't feel cold."},
+          {"no": 5, "teks": "He failed. He didn't study. (because)", "jawapan": "He failed because he didn't study."},
+          {"no": 6, "teks": "You are here. Let's start the meeting. (since)", "jawapan": "Since you are here, let's start the meeting."},
+          {"no": 7, "teks": "Speak louder. Everyone can hear you. (so that)", "jawapan": "Speak louder so that everyone can hear you."},
+          {"no": 8, "teks": "I am hungry. I haven't eaten anything. (because)", "jawapan": "I am hungry because I haven't eaten anything."},
+          {"no": 9, "teks": "It's a holiday. The shops are closed. (since)", "jawapan": "Since it's a holiday, the shops are closed."},
+          {"no": 10, "teks": "Save money. You can buy a bicycle. (so that)", "jawapan": "Save money so that you can buy a bicycle."}
+        ]
+      },
+      {
+        "topik": "Articles",
+        "set": 6,
+        "format": "Mixed MCQ",
+        "arahan": "Choose the correct article for each sentence.",
+        "soalan": [
+          {"no": 1, "teks": "Is there _____ orange in the basket?", "pilihan": ["a", "an", "the", "X"], "jawapan": "an"},
+          {"no": 2, "teks": "_____ sun rises in the east.", "pilihan": ["A", "An", "The", "X"], "jawapan": "The"},
+          {"no": 3, "teks": "My brother is _____ pilot.", "pilihan": ["a", "an", "the", "X"], "jawapan": "a"},
+          {"no": 4, "teks": "I saw _____ UFO last night!", "pilihan": ["a", "an", "the", "X"], "jawapan": "a"},
+          {"no": 5, "teks": "_____ water is essential for life.", "pilihan": ["a", "an", "the", "X"], "jawapan": "X"},
+          {"no": 6, "teks": "He is _____ richest man in town.", "pilihan": ["a", "an", "the", "X"], "jawapan": "the"},
+          {"no": 7, "teks": "Would you like _____ cup of tea?", "pilihan": ["a", "an", "the", "X"], "jawapan": "a"},
+          {"no": 8, "teks": "I need _____ umbrella because it's raining.", "pilihan": ["a", "an", "the", "X"], "jawapan": "an"},
+          {"no": 9, "teks": "We went to _____ Paris last year.", "pilihan": ["a", "an", "the", "X"], "jawapan": "X"},
+          {"no": 10, "teks": "_____ moon looks beautiful tonight.", "pilihan": ["a", "an", "the", "X"], "jawapan": "The"}
+        ]
+      },
+      {
+        "topik": "Subject-Verb Agreement",
+        "set": 6,
+        "format": "Intervening Phrases",
+        "arahan": "Choose the correct verb form.",
+        "soalan": [
+          {"no": 1, "teks": "The teacher, along with her students, _____ (is/are) going to the museum.", "jawapan": "is"},
+          {"no": 2, "teks": "The bag of apples _____ (was/were) on the table.", "jawapan": "was"},
+          {"no": 3, "teks": "My father, as well as my uncles, _____ (likes/like) fishing.", "jawapan": "likes"},
+          {"no": 4, "teks": "The box of chocolates _____ (is/are) empty.", "jawapan": "is"},
+          {"no": 5, "teks": "The girls in the room _____ (is/are) singing.", "jawapan": "are"},
+          {"no": 6, "teks": "The captain of the team _____ (works/work) hard.", "jawapan": "works"},
+          {"no": 7, "teks": "The news about the floods _____ (was/were) true.", "jawapan": "was"},
+          {"no": 8, "teks": "The books on that shelf _____ (belongs/belong) to me.", "jawapan": "belong"},
+          {"no": 9, "teks": "One of the boys _____ (has/have) a new bicycle.", "jawapan": "has"},
+          {"no": 10, "teks": "The quality of the fruits _____ (is/are) good.", "jawapan": "is"}
+        ]
+      },
+      {
+        "topik": "Question Forms",
+        "set": 6,
+        "format": "Negative Questions",
+        "arahan": "Complete the questions starting with (Isn't, Aren't, Don't, Doesn't).",
+        "soalan": [
+          {"no": 1, "teks": "_____ she your sister?", "jawapan": "Isn't"},
+          {"no": 2, "teks": "_____ you going to the party?", "jawapan": "Aren't"},
+          {"no": 3, "teks": "_____ he like ice cream?", "jawapan": "Doesn't"},
+          {"no": 4, "teks": "_____ you have a pen I can use?", "jawapan": "Don't"},
+          {"no": 5, "teks": "_____ it a beautiful day?", "jawapan": "Isn't"},
+          {"no": 6, "teks": "_____ they coming with us?", "jawapan": "Aren't"},
+          {"no": 7, "teks": "_____ you remember me?", "jawapan": "Don't"},
+          {"no": 8, "teks": "_____ your mother cook well?", "jawapan": "Doesn't"},
+          {"no": 9, "teks": "_____ those your shoes?", "jawapan": "Aren't"},
+          {"no": 10, "teks": "_____ he working today?", "jawapan": "Isn't"}
+        ]
+      },
+      {
+        "topik": "Punctuation",
+        "set": 6,
+        "format": "Dialogue with Commas",
+        "arahan": "Correct the punctuation in these sentences.",
+        "soalan": [
+          {"no": 1, "teks": "Yes I will go with you.", "jawapan": "Yes, I will go with you."},
+          {"no": 2, "teks": "I like apples bananas and grapes.", "jawapan": "I like apples, bananas and grapes."},
+          {"no": 3, "teks": "Actually I don't know the answer.", "jawapan": "Actually, I don't know the answer."},
+          {"no": 4, "teks": "Wait Ahmad don't go yet!", "jawapan": "Wait, Ahmad, don't go yet!"},
+          {"no": 5, "teks": "No thank you I am full.", "jawapan": "No, thank you, I am full."},
+          {"no": 6, "teks": "In fact it was a great day.", "jawapan": "In fact, it was a great day."},
+          {"no": 7, "teks": "Please bring a pencil a ruler and a paper.", "jawapan": "Please bring a pencil, a ruler and a paper."},
+          {"no": 8, "teks": "However he still failed the test.", "jawapan": "However, he still failed the test."},
+          {"no": 9, "teks": "Sorry I didn't mean to do that.", "jawapan": "Sorry, I didn't mean to do that."},
+          {"no": 10, "teks": "By the way where are you going?", "jawapan": "By the way, where are you going?"}
+        ]
+      }
+    ]
+  }
+}

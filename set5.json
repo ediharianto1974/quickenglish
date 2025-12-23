@@ -1,0 +1,210 @@
+{
+  "modul_latihan_bahasa_inggeris_tahun_6": {
+    "maklumat_umum": {
+      "sasaran": "Tahun 6",
+      "tujuan": "Latihan Kendiri Tatabahasa",
+      "jumlah_topik": 11,
+      "set_dihasilkan": 5
+    },
+    "latihan": [
+      {
+        "topik": "Nouns",
+        "set": 5,
+        "format": "Compound Nouns",
+        "arahan": "Combine the words in the brackets to form a compound noun.",
+        "soalan": [
+          {"no": 1, "teks": "I need a new _____ (tooth + brush) to clean my teeth.", "jawapan": "toothbrush"},
+          {"no": 2, "teks": "The _____ (rain + bow) appeared after the storm.", "jawapan": "rainbow"},
+          {"no": 3, "teks": "She forgot her _____ (note + book) in the classroom.", "jawapan": "notebook"},
+          {"no": 4, "teks": "The _____ (fire + man) saved the kitten from the tree.", "jawapan": "fireman"},
+          {"no": 5, "teks": "Let's meet at the _____ (bus + stop) at 8:00 AM.", "jawapan": "bus stop"},
+          {"no": 6, "teks": "He scored a goal on the _____ (foot + ball) field.", "jawapan": "football"},
+          {"no": 7, "teks": "My mother bought a beautiful _____ (sun + flower).", "jawapan": "sunflower"},
+          {"no": 8, "teks": "I love eating _____ (pan + cake) for breakfast.", "jawapan": "pancake"},
+          {"no": 9, "teks": "Please put the trash in the _____ (dust + bin).", "jawapan": "dustbin"},
+          {"no": 10, "teks": "We watched the _____ (sun + set) by the beach.", "jawapan": "sunset"}
+        ]
+      },
+      {
+        "topik": "Pronouns",
+        "set": 5,
+        "format": "Reflexive Pronouns",
+        "arahan": "Fill in the blanks with (myself, yourself, himself, herself, itself, ourselves, yourselves, themselves).",
+        "soalan": [
+          {"no": 1, "teks": "I did the homework by _____.", "jawapan": "myself"},
+          {"no": 2, "teks": "She made this dress _____.", "jawapan": "herself"},
+          {"no": 3, "teks": "The cat cleaned _____ after eating.", "jawapan": "itself"},
+          {"no": 4, "teks": "The boys built the camp by _____.", "jawapan": "themselves"},
+          {"no": 5, "teks": "We enjoyed _____ at the party.", "jawapan": "ourselves"},
+          {"no": 6, "teks": "Ali, you must take care of _____.", "jawapan": "yourself"},
+          {"no": 7, "teks": "He cut _____ while slicing the onions.", "jawapan": "himself"},
+          {"no": 8, "teks": "Children, please help _____ to the food.", "jawapan": "yourselves"},
+          {"no": 9, "teks": "The machine turns _____ off after ten minutes.", "jawapan": "itself"},
+          {"no": 10, "teks": "I saw _____ in the mirror.", "jawapan": "myself"}
+        ]
+      },
+      {
+        "topik": "Verbs & Tenses",
+        "set": 5,
+        "format": "Past Continuous Tense",
+        "arahan": "Complete the sentences with (was/were + verb-ing).",
+        "soalan": [
+          {"no": 1, "teks": "I _____ (read) a book when the lights went out.", "jawapan": "was reading"},
+          {"no": 2, "teks": "They _____ (play) football when it started to rain.", "jawapan": "were playing"},
+          {"no": 3, "teks": "She _____ (cook) dinner at 7:00 PM yesterday.", "jawapan": "was cooking"},
+          {"no": 4, "teks": "We _____ (study) in the library all afternoon.", "jawapan": "were studying"},
+          {"no": 5, "teks": "The dog _____ (bark) at the postman just now.", "jawapan": "was barking"},
+          {"no": 6, "teks": "Ahmad _____ (sleep) when I called him.", "jawapan": "was sleeping"},
+          {"no": 7, "teks": "You _____ (listen) to music when I saw you.", "jawapan": "were listening"},
+          {"no": 8, "teks": "It _____ (rain) heavily this morning.", "jawapan": "was raining"},
+          {"no": 9, "teks": "The children _____ (shout) in the field.", "jawapan": "were shouting"},
+          {"no": 10, "teks": "My father _____ (wash) the car just now.", "jawapan": "was washing"}
+        ]
+      },
+      {
+        "topik": "Adjectives",
+        "set": 5,
+        "format": "Order of Adjectives",
+        "arahan": "Rearrange the adjectives in the correct order.",
+        "soalan": [
+          {"no": 1, "teks": "She wore a _____ dress. (beautiful, red, long)", "jawapan": "beautiful long red"},
+          {"no": 2, "teks": "He bought a _____ car. (new, shiny, blue)", "jawapan": "shiny new blue"},
+          {"no": 3, "teks": "They live in a _____ house. (big, white, old)", "jawapan": "big old white"},
+          {"no": 4, "teks": "I saw a _____ cat. (small, black, cute)", "jawapan": "cute small black"},
+          {"no": 5, "teks": "She has _____ hair. (straight, long, black)", "jawapan": "long straight black"},
+          {"no": 6, "teks": "It is a _____ day. (sunny, lovely, warm)", "jawapan": "lovely warm sunny"},
+          {"no": 7, "teks": "We sat on a _____ chair. (wooden, old, brown)", "jawapan": "old brown wooden"},
+          {"no": 8, "teks": "He is a _____ man. (tall, kind, young)", "jawapan": "kind tall young"},
+          {"no": 9, "teks": "I have a _____ bag. (leather, small, brown)", "jawapan": "small brown leather"},
+          {"no": 10, "teks": "She found a _____ coin. (round, silver, tiny)", "jawapan": "tiny round silver"}
+        ]
+      },
+      {
+        "topik": "Adverbs",
+        "set": 5,
+        "format": "Adverbs of Probability",
+        "arahan": "Fill in with (certainly, probably, maybe, perhaps).",
+        "soalan": [
+          {"no": 1, "teks": "I will _____ be there on time.", "jawapan": "certainly"},
+          {"no": 2, "teks": "_____ it will rain later, so take an umbrella.", "jawapan": "Maybe"},
+          {"no": 3, "teks": "She is _____ the best student in the school.", "jawapan": "probably"},
+          {"no": 4, "teks": "_____ we can go to the beach tomorrow.", "jawapan": "Perhaps"},
+          {"no": 5, "teks": "He will _____ win the race because he is fast.", "jawapan": "certainly"},
+          {"no": 6, "teks": "I am _____ going to stay home tonight.", "jawapan": "probably"},
+          {"no": 7, "teks": "_____ you are right, let me check.", "jawapan": "Maybe"},
+          {"no": 8, "teks": "They will _____ arrive before dinner.", "jawapan": "probably"},
+          {"no": 9, "teks": "_____ I will see you at the party.", "jawapan": "Perhaps"},
+          {"no": 10, "teks": "You are _____ the kindest person I know.", "jawapan": "certainly"}
+        ]
+      },
+      {
+        "topik": "Prepositions",
+        "set": 5,
+        "format": "Prepositions with Vehicles",
+        "arahan": "Fill in with (by, on, in).",
+        "soalan": [
+          {"no": 1, "teks": "He goes to school _____ bus.", "jawapan": "by"},
+          {"no": 2, "teks": "They are traveling _____ a train.", "jawapan": "on"},
+          {"no": 3, "teks": "She went to the hospital _____ a taxi.", "jawapan": "in"},
+          {"no": 4, "teks": "We can go there _____ foot.", "jawapan": "on"},
+          {"no": 5, "teks": "I love traveling _____ plane.", "jawapan": "by"},
+          {"no": 6, "teks": "They arrived _____ a big ship.", "jawapan": "on"},
+          {"no": 7, "teks": "He came home _____ his car.", "jawapan": "in"},
+          {"no": 8, "teks": "She enjoys riding _____ her bicycle.", "jawapan": "on"},
+          {"no": 9, "teks": "We crossed the river _____ boat.", "jawapan": "by"},
+          {"no": 10, "teks": "He is sitting _____ a motorbike.", "jawapan": "on"}
+        ]
+      },
+      {
+        "topik": "Conjunctions",
+        "set": 5,
+        "format": "Complex Sentences (Even if, Unless)",
+        "arahan": "Choose the correct conjunction.",
+        "soalan": [
+          {"no": 1, "teks": "I will go _____ it rains. (even if/unless)", "jawapan": "even if"},
+          {"no": 2, "teks": "You will fail _____ you study hard. (unless/although)", "jawapan": "unless"},
+          {"no": 3, "teks": "_____ he is tired, he continues working. (Although/Unless)", "jawapan": "Although"},
+          {"no": 4, "teks": "We won't go out _____ the rain stops. (unless/even if)", "jawapan": "unless"},
+          {"no": 5, "teks": "_____ she apologized, I won't forgive her. (Even if/So that)", "jawapan": "Even if"},
+          {"no": 6, "teks": "I'll be there _____ I'm late. (even if/because)", "jawapan": "even if"},
+          {"no": 7, "teks": "Don't open the door _____ I tell you. (unless/but)", "jawapan": "unless"},
+          {"no": 8, "teks": "_____ it was expensive, he bought it. (Although/So)", "jawapan": "Although"},
+          {"no": 9, "teks": "I can't hear you _____ you speak louder. (unless/and)", "jawapan": "unless"},
+          {"no": 10, "teks": "He won't come _____ you invite him. (unless/since)", "jawapan": "unless"}
+        ]
+      },
+      {
+        "topik": "Articles",
+        "set": 5,
+        "format": "Articles with Geographical Names",
+        "arahan": "Fill in with 'the' or 'X' (no article).",
+        "soalan": [
+          {"no": 1, "teks": "_____ Mount Everest is very high.", "jawapan": "X"},
+          {"no": 2, "teks": "_____ Pacific Ocean is the largest ocean.", "jawapan": "The"},
+          {"no": 3, "teks": "He lives in _____ London.", "jawapan": "X"},
+          {"no": 4, "teks": "_____ Philippines is a country of many islands.", "jawapan": "The"},
+          {"no": 5, "teks": "_____ Nile is the longest river.", "jawapan": "The"},
+          {"no": 6, "teks": "_____ Amazon Rainforest is very dense.", "jawapan": "The"},
+          {"no": 7, "teks": "We visited _____ Lake Victoria.", "jawapan": "X"},
+          {"no": 8, "teks": "_____ Sahara Desert is very hot.", "jawapan": "The"},
+          {"no": 9, "teks": "They went to _____ France for a holiday.", "jawapan": "X"},
+          {"no": 10, "teks": "_____ Himalayas are covered in snow.", "jawapan": "The"}
+        ]
+      },
+      {
+        "topik": "Subject-Verb Agreement",
+        "set": 5,
+        "format": "Phrases of Distance/Money/Time",
+        "arahan": "Choose the correct verb form.",
+        "soalan": [
+          {"no": 1, "teks": "Ten dollars _____ (is/are) enough to buy this book.", "jawapan": "is"},
+          {"no": 2, "teks": "Five miles _____ (is/are) a long way to walk.", "jawapan": "is"},
+          {"no": 3, "teks": "Two hours _____ (is/are) too long to wait.", "jawapan": "is"},
+          {"no": 4, "teks": "Fifty ringgit _____ (was/were) spent on the meal.", "jawapan": "was"},
+          {"no": 5, "teks": "Twenty minutes _____ (has/have) passed already.", "jawapan": "has"},
+          {"no": 6, "teks": "Three liters of milk _____ (is/are) in the fridge.", "jawapan": "is"},
+          {"no": 7, "teks": "Seven days _____ (is/are) one week.", "jawapan": "is"},
+          {"no": 8, "teks": "A thousand kilometers _____ (is/are) very far.", "jawapan": "is"},
+          {"no": 9, "teks": "Six months _____ (is/are) a short time for training.", "jawapan": "is"},
+          {"no": 10, "teks": "Two hundred grams of sugar _____ (is/are) needed.", "jawapan": "is"}
+        ]
+      },
+      {
+        "topik": "Question Forms",
+        "set": 5,
+        "format": "Wh-Questions (Mixed)",
+        "arahan": "Write the correct Wh-question word for the given answers.",
+        "soalan": [
+          {"no": 1, "teks": "_____ did you go? I went to the park.", "jawapan": "Where"},
+          {"no": 2, "teks": "_____ is your favorite color? Blue.", "jawapan": "What"},
+          {"no": 3, "teks": "_____ gave you this? My sister.", "jawapan": "Who"},
+          {"no": 4, "teks": "_____ are you late? Because I missed the bus.", "jawapan": "Why"},
+          {"no": 5, "teks": "_____ does the show start? At 8:00 PM.", "jawapan": "When"},
+          {"no": 6, "teks": "_____ do you feel? I feel happy.", "jawapan": "How"},
+          {"no": 7, "teks": "_____ book is this? It's Ahmad's.", "jawapan": "Whose"},
+          {"no": 8, "teks": "_____ car is yours? The red one.", "jawapan": "Which"},
+          {"no": 9, "teks": "_____ are you talking to? I'm talking to Ali.", "jawapan": "Who"},
+          {"no": 10, "teks": "_____ is your house? It's near the school.", "jawapan": "Where"}
+        ]
+      },
+      {
+        "topik": "Punctuation",
+        "set": 5,
+        "format": "Using the Colon and Semicolon",
+        "arahan": "Place the colon (:) or semicolon (;) in the correct place.",
+        "soalan": [
+          {"no": 1, "teks": "I have three hobbies reading swimming and singing.", "jawapan": "I have three hobbies: reading, swimming and singing."},
+          {"no": 2, "teks": "He is tired however he still works hard.", "jawapan": "He is tired; however, he still works hard."},
+          {"no": 3, "teks": "Please bring these items a pen a ruler and a paper.", "jawapan": "Please bring these items: a pen, a ruler and a paper."},
+          {"no": 4, "teks": "I like cats she likes dogs.", "jawapan": "I like cats; she likes dogs."},
+          {"no": 5, "teks": "The list is as follows bread milk and eggs.", "jawapan": "The list is as follows: bread, milk and eggs."},
+          {"no": 6, "teks": "She won the race therefore she got a prize.", "jawapan": "She won the race; therefore, she got a prize."},
+          {"no": 7, "teks": "There are four seasons spring summer autumn and winter.", "jawapan": "There are four seasons: spring, summer, autumn and winter."},
+          {"no": 8, "teks": "My car is old it often breaks down.", "jawapan": "My car is old; it often breaks down."},
+          {"no": 9, "teks": "I have one goal to win the competition.", "jawapan": "I have one goal: to win the competition."},
+          {"no": 10, "teks": "Ali is from Kedah Abu is from Johor.", "jawapan": "Ali is from Kedah; Abu is from Johor."}
+        ]
+      }
+    ]
+  }
+}

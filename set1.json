@@ -1,0 +1,210 @@
+{
+  "modul_latihan_bahasa_inggeris_tahun_6": {
+    "maklumat_umum": {
+      "sasaran": "Tahun 6",
+      "tujuan": "Latihan Kendiri Tatabahasa",
+      "jumlah_topik": 11,
+      "set_dihasilkan": 1
+    },
+    "latihan": [
+      {
+        "topik": "Nouns",
+        "set": 1,
+        "format": "Pilihan Ganda (MCQ)",
+        "arahan": "Choose the correct noun to fill in the blanks.",
+        "soalan": [
+          {"no": 1, "teks": "The _____ is barking at the stranger.", "pilihan": ["cat", "dog", "bird", "fish"], "jawapan": "dog"},
+          {"no": 2, "teks": "My mother bought two _____ of bread.", "pilihan": ["loaf", "loaves", "slice", "bag"], "jawapan": "loaves"},
+          {"no": 3, "teks": "A flock of _____ is flying south for the winter.", "pilihan": ["sheep", "birds", "wolves", "bees"], "jawapan": "birds"},
+          {"no": 4, "teks": "The _____ are playing football in the field.", "pilihan": ["boy", "boys", "man", "woman"], "jawapan": "boys"},
+          {"no": 5, "teks": "Please put your _____ on the shelf.", "pilihan": ["shoe", "shoes", "shoed", "shoeing"], "jawapan": "shoes"},
+          {"no": 6, "teks": "The _____ of the mountain is covered in snow.", "pilihan": ["peak", "peaks", "bottom", "side"], "jawapan": "peak"},
+          {"no": 7, "teks": "How many _____ are there in the classroom?", "pilihan": ["child", "children", "childs", "childrens"], "jawapan": "children"},
+          {"no": 8, "teks": "She lost her _____ at the mall yesterday.", "pilihan": ["purse", "purses", "money", "wallet"], "jawapan": "purse"},
+          {"no": 9, "teks": "The _____ is sharp, be careful!", "pilihan": ["knife", "knives", "knifes", "knifing"], "jawapan": "knife"},
+          {"no": 10, "teks": "A swarm of _____ attacked the honey hunter.", "pilihan": ["ants", "bees", "flies", "mosquitoes"], "jawapan": "bees"}
+        ]
+      },
+      {
+        "topik": "Pronouns",
+        "set": 1,
+        "format": "Isi Tempat Kosong",
+        "arahan": "Fill in the blanks with the suitable pronoun (He, She, They, It, We, I, You).",
+        "soalan": [
+          {"no": 1, "teks": "Sarah is a doctor. _____ works at the hospital.", "jawapan": "She"},
+          {"no": 2, "teks": "The pupils are tired. _____ want to go home.", "jawapan": "They"},
+          {"no": 3, "teks": "My cat is hungry. Give _____ some milk.", "jawapan": "it"},
+          {"no": 4, "teks": "Ali and I are friends. _____ play football together.", "jawapan": "We"},
+          {"no": 5, "teks": "This is my book. It belongs to _____.", "jawapan": "me"},
+          {"no": 6, "teks": "Are _____ coming to my party, Ahmad?", "jawapan": "you"},
+          {"no": 7, "teks": "John built this table by _____.", "jawapan": "himself"},
+          {"no": 8, "teks": "The house is big, but _____ roof is leaking.", "jawapan": "its"},
+          {"no": 9, "teks": "That laptop is _____. I bought it yesterday.", "jawapan": "mine"},
+          {"no": 10, "teks": "Please tell _____ the truth.", "jawapan": "me"}
+        ]
+      },
+      {
+        "topik": "Verbs & Tenses",
+        "set": 1,
+        "format": "Pembetulan Kata Kerja (Present Tense)",
+        "arahan": "Change the verb in brackets to the correct Simple Present Tense.",
+        "soalan": [
+          {"no": 1, "teks": "The sun (rise) in the east.", "jawapan": "rises"},
+          {"no": 2, "teks": "They (play) badminton every evening.", "jawapan": "play"},
+          {"no": 3, "teks": "Ahmad (wash) his car once a week.", "jawapan": "washes"},
+          {"no": 4, "teks": "Cats (like) to eat fish.", "jawapan": "like"},
+          {"no": 5, "teks": "My mother (cook) delicious food.", "jawapan": "cooks"},
+          {"no": 6, "teks": "Water (boil) at 100 degrees Celsius.", "jawapan": "boils"},
+          {"no": 7, "teks": "We (visit) our grandparents every month.", "jawapan": "visit"},
+          {"no": 8, "teks": "The train (leave) at 8:00 AM.", "jawapan": "leaves"},
+          {"no": 9, "teks": "She (speak) three languages fluently.", "jawapan": "speaks"},
+          {"no": 10, "teks": "It (rain) heavily during the monsoon season.", "jawapan": "rains"}
+        ]
+      },
+      {
+        "topik": "Adjectives",
+        "set": 1,
+        "format": "Comparison (Tahap Perbandingan)",
+        "arahan": "Complete the sentence with the comparative or superlative form.",
+        "soalan": [
+          {"no": 1, "teks": "An elephant is _____ (big) than a tiger.", "jawapan": "bigger"},
+          {"no": 2, "teks": "Mount Everest is the _____ (high) mountain in the world.", "jawapan": "highest"},
+          {"no": 3, "teks": "This exercise is _____ (easy) than the last one.", "jawapan": "easier"},
+          {"no": 4, "teks": "She is the _____ (tall) girl in her class.", "jawapan": "tallest"},
+          {"no": 5, "teks": "A car is _____ (expensive) than a bicycle.", "jawapan": "more expensive"},
+          {"no": 6, "teks": "Today is the _____ (hot) day of the week.", "jawapan": "hottest"},
+          {"no": 7, "teks": "My handwriting is _____ (good) than yours.", "jawapan": "better"},
+          {"no": 8, "teks": "This is the _____ (interesting) book I have ever read.", "jawapan": "most interesting"},
+          {"no": 9, "teks": "A turtle is _____ (slow) than a rabbit.", "jawapan": "slower"},
+          {"no": 10, "teks": "The blue whale is the _____ (large) animal.", "jawapan": "largest"}
+        ]
+      },
+      {
+        "topik": "Adverbs",
+        "set": 1,
+        "format": "Adverbs of Manner",
+        "arahan": "Convert the adjective in brackets into an adverb of manner.",
+        "soalan": [
+          {"no": 1, "teks": "The choir sang _____ (beautiful).", "jawapan": "beautifully"},
+          {"no": 2, "teks": "He ran _____ (fast) to catch the bus.", "jawapan": "fast"},
+          {"no": 3, "teks": "The baby is sleeping _____ (quiet).", "jawapan": "quietly"},
+          {"no": 4, "teks": "The soldier fought _____ (brave).", "jawapan": "bravely"},
+          {"no": 5, "teks": "Please write your name _____ (neat).", "jawapan": "neatly"},
+          {"no": 6, "teks": "He drove _____ (careful) on the rainy road.", "jawapan": "carefully"},
+          {"no": 7, "teks": "They shouted _____ (loud) during the game.", "jawapan": "loudly"},
+          {"no": 8, "teks": "She answered the question _____ (correct).", "jawapan": "correctly"},
+          {"no": 9, "teks": "The rain fell _____ (heavy) all night.", "jawapan": "heavily"},
+          {"no": 10, "teks": "He smiled _____ (happy) when he saw the gift.", "jawapan": "happily"}
+        ]
+      },
+      {
+        "topik": "Prepositions",
+        "set": 1,
+        "format": "Pilihan Ganda (Prepositions of Place/Time)",
+        "arahan": "Choose the correct preposition.",
+        "soalan": [
+          {"no": 1, "teks": "The book is _____ the table.", "pilihan": ["on", "in", "at", "under"], "jawapan": "on"},
+          {"no": 2, "teks": "We were born _____ October.", "pilihan": ["in", "on", "at", "by"], "jawapan": "in"},
+          {"no": 3, "teks": "The cat is hiding _____ the bed.", "pilihan": ["under", "between", "on", "above"], "jawapan": "under"},
+          {"no": 4, "teks": "Meet me _____ the bus stop.", "pilihan": ["at", "in", "on", "into"], "jawapan": "at"},
+          {"no": 5, "teks": "The picture is hanging _____ the wall.", "pilihan": ["on", "above", "in", "against"], "jawapan": "on"},
+          {"no": 6, "teks": "I go to school _____ 7:00 AM.", "pilihan": ["at", "on", "in", "during"], "jawapan": "at"},
+          {"no": 7, "teks": "The ball rolled _____ the hole.", "pilihan": ["into", "onto", "at", "in"], "jawapan": "into"},
+          {"no": 8, "teks": "He sat _____ Ali and Abu.", "pilihan": ["between", "among", "besides", "at"], "jawapan": "between"},
+          {"no": 9, "teks": "They are walking _____ the bridge.", "pilihan": ["across", "through", "in", "at"], "jawapan": "across"},
+          {"no": 10, "teks": "We have a holiday _____ Monday.", "pilihan": ["on", "in", "at", "from"], "jawapan": "on"}
+        ]
+      },
+      {
+        "topik": "Conjunctions",
+        "set": 1,
+        "format": "Sentence Joining",
+        "arahan": "Join the sentences using (and, but, so, because).",
+        "soalan": [
+          {"no": 1, "teks": "I like apples. I like oranges. (and)", "jawapan": "I like apples and oranges."},
+          {"no": 2, "teks": "He is tall. His brother is short. (but)", "jawapan": "He is tall but his brother is short."},
+          {"no": 3, "teks": "She stayed home. She was sick. (because)", "jawapan": "She stayed home because she was sick."},
+          {"no": 4, "teks": "It was raining. I took an umbrella. (so)", "jawapan": "It was raining so I took an umbrella."},
+          {"no": 5, "teks": "You can have tea. You can have coffee. (or)", "jawapan": "You can have tea or coffee."},
+          {"no": 6, "teks": "He studied hard. He failed the test. (but)", "jawapan": "He studied hard but he failed the test."},
+          {"no": 7, "teks": "I was hungry. I ate a sandwich. (so)", "jawapan": "I was hungry so I ate a sandwich."},
+          {"no": 8, "teks": "Close the door. Lock it. (and)", "jawapan": "Close the door and lock it."},
+          {"no": 9, "teks": "She cried. She lost her doll. (because)", "jawapan": "She cried because she lost her doll."},
+          {"no": 10, "teks": "The car is old. It still runs well. (but)", "jawapan": "The car is old but it still runs well."}
+        ]
+      },
+      {
+        "topik": "Articles",
+        "set": 1,
+        "format": "Fill in the blanks (A, An, The)",
+        "arahan": "Fill in the blanks with 'a', 'an' or 'the'. Put an 'X' if no article is needed.",
+        "soalan": [
+          {"no": 1, "teks": "I saw _____ eagle flying above the hills.", "jawapan": "an"},
+          {"no": 2, "teks": "My father is _____ honest man.", "jawapan": "an"},
+          {"no": 3, "teks": "_____ sun is very bright today.", "jawapan": "The"},
+          {"no": 4, "teks": "She wants to buy _____ new dress.", "jawapan": "a"},
+          {"no": 5, "teks": "I have _____ umbrella in my bag.", "jawapan": "an"},
+          {"no": 6, "teks": "_____ capital of Malaysia is Kuala Lumpur.", "jawapan": "The"},
+          {"no": 7, "teks": "He ate _____ apple for breakfast.", "jawapan": "an"},
+          {"no": 8, "teks": "_____ children are playing in the garden.", "jawapan": "The"},
+          {"no": 9, "teks": "I need _____ hour to finish this work.", "jawapan": "an"},
+          {"no": 10, "teks": "She is _____ best student in our school.", "jawapan": "the"}
+        ]
+      },
+      {
+        "topik": "Subject-Verb Agreement",
+        "set": 1,
+        "format": "Error Identification",
+        "arahan": "Identify if the sentence is Correct (C) or Incorrect (I).",
+        "soalan": [
+          {"no": 1, "teks": "The cat drink milk.", "jawapan": "I"},
+          {"no": 2, "teks": "The girls are singing.", "jawapan": "C"},
+          {"no": 3, "teks": "He play football every day.", "jawapan": "I"},
+          {"no": 4, "teks": "We goes to the library.", "jawapan": "I"},
+          {"no": 5, "teks": "My mother cooks dinner.", "jawapan": "C"},
+          {"no": 6, "teks": "They has many toys.", "jawapan": "I"},
+          {"no": 7, "teks": "It rains a lot in November.", "jawapan": "C"},
+          {"no": 8, "teks": "You is a good student.", "jawapan": "I"},
+          {"no": 9, "teks": "Everybody likes music.", "jawapan": "C"},
+          {"no": 10, "teks": "The books is on the table.", "jawapan": "I"}
+        ]
+      },
+      {
+        "topik": "Question Forms",
+        "set": 1,
+        "format": "Wh-Questions",
+        "arahan": "Fill in with: Who, What, Where, When, Why, or How.",
+        "soalan": [
+          {"no": 1, "teks": "_____ is your name?", "jawapan": "What"},
+          {"no": 2, "teks": "_____ do you live?", "jawapan": "Where"},
+          {"no": 3, "teks": "_____ is that man standing at the gate?", "jawapan": "Who"},
+          {"no": 4, "teks": "_____ are you crying?", "jawapan": "Why"},
+          {"no": 5, "teks": "_____ does the school session start?", "jawapan": "When"},
+          {"no": 6, "teks": "_____ do you go to school? By bus.", "jawapan": "How"},
+          {"no": 7, "teks": "_____ color is your car?", "jawapan": "What"},
+          {"no": 8, "teks": "_____ won the competition?", "jawapan": "Who"},
+          {"no": 9, "teks": "_____ many siblings do you have?", "jawapan": "How"},
+          {"no": 10, "teks": "_____ is your birthday?", "jawapan": "When"}
+        ]
+      },
+      {
+        "topik": "Punctuation",
+        "set": 1,
+        "format": "Rewrite Sentence",
+        "arahan": "Rewrite the sentences with correct punctuation (Capital letters, Full stop, Question mark, Comma).",
+        "soalan": [
+          {"no": 1, "teks": "where are you going", "jawapan": "Where are you going?"},
+          {"no": 2, "teks": "my name is ali", "jawapan": "My name is Ali."},
+          {"no": 3, "teks": "i like to eat apples bananas and grapes", "jawapan": "I like to eat apples, bananas and grapes."},
+          {"no": 4, "teks": "wow what a beautiful house", "jawapan": "Wow! What a beautiful house."},
+          {"no": 5, "teks": "does ahmad live in kuala lumpur", "jawapan": "Does Ahmad live in Kuala Lumpur?"},
+          {"no": 6, "teks": "help me cried the old lady", "jawapan": "\"Help me!\" cried the old lady."},
+          {"no": 7, "teks": "its a hot day today", "jawapan": "It's a hot day today."},
+          {"no": 8, "teks": "we will go to malacca on monday", "jawapan": "We will go to Malacca on Monday."},
+          {"no": 9, "teks": "can i have a drink please", "jawapan": "Can I have a drink, please?"},
+          {"no": 10, "teks": "mr tan is our class teacher", "jawapan": "Mr. Tan is our class teacher."}
+        ]
+      }
+    ]
+  }
+}
