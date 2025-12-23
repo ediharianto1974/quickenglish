@@ -2,70 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Year 6 Grammar Portal - Mobile Friendly</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Year 6 Grammar - Mastery Edition</title>
     <style>
         :root { --primary: #4f46e5; --success: #22c55e; --danger: #ef4444; --bg: #f8fafc; --secondary: #64748b; }
-        
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
-        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: var(--bg); margin: 0; padding: 10px; color: #1e293b; line-height: 1.5; }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: var(--bg); margin: 0; padding: 12px; color: #1e293b; }
+        .container { max-width: 600px; margin: 0 auto; }
         
-        .container { max-width: 800px; margin: 0 auto; padding-bottom: 40px; }
-        
-        /* Header Responsive */
-        .header { background: linear-gradient(135deg, var(--primary), #818cf8); color: white; padding: 20px 15px; border-radius: 12px; text-align: center; margin-bottom: 15px; }
-        .header h1 { margin: 0; font-size: 1.5rem; }
-        .header p { margin: 5px 0 0; opacity: 0.9; font-size: 0.9rem; }
+        .header { background: linear-gradient(135deg, var(--primary), #818cf8); color: white; padding: 20px; border-radius: 16px; text-align: center; margin-bottom: 15px; }
+        .header h1 { margin: 0; font-size: 1.4rem; }
 
-        /* Setup Card */
-        .setup-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 15px; }
-        .input-group { display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px; }
-        
-        /* Media Query: Desktop/Tablet view for input group */
-        @media (min-width: 600px) {
-            .input-group { flex-direction: row; }
-            .header h1 { font-size: 2rem; }
+        input[type="text"], select { 
+            width: 100%; padding: 14px; border-radius: 12px; border: 2px solid #e2e8f0; 
+            font-size: 16px !important; background: white; appearance: none;
         }
 
-        input[type="text"], select { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #e2e8f0; font-size: 1rem; transition: border-color 0.2s; }
-        input:focus { border-color: var(--primary); outline: none; }
+        .setup-card { background: white; padding: 20px; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 15px; }
+        .input-group { display: flex; flex-direction: column; gap: 12px; margin-bottom: 15px; }
 
-        /* Progress Bar (Sticky) */
-        .progress-container { background: #e2e8f0; height: 8px; border-radius: 4px; margin-bottom: 15px; display: none; overflow: hidden; position: sticky; top: 10px; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .progress-bar { background: var(--primary); height: 100%; width: 0%; transition: 0.5s ease-out; }
+        .progress-container { background: #e2e8f0; height: 10px; border-radius: 5px; margin-bottom: 15px; display: none; overflow: hidden; position: sticky; top: 10px; z-index: 100; }
+        .progress-bar { background: var(--primary); height: 100%; width: 0%; transition: 0.4s; }
 
-        /* Quiz Content */
-        .topic-card { background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 15px; }
-        .topic-card h2 { font-size: 1.25rem; color: var(--primary); margin-top: 0; }
-        
-        .q-item { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #f1f5f9; }
-        .q-item p { font-size: 1.05rem; margin-bottom: 12px; font-weight: 500; }
+        .topic-card { background: white; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0; margin-bottom: 80px; }
+        .q-item { margin-bottom: 25px; }
+        .q-item p { font-size: 1rem; font-weight: 600; margin-bottom: 12px; }
 
-        /* MCQ Grid - Mobile First */
         .options-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
-        
-        @media (min-width: 480px) {
-            .options-grid { grid-template-columns: 1fr 1fr; }
-        }
+        .opt-btn { background: #f8fafc; border: 2px solid #e2e8f0; padding: 15px; border-radius: 12px; cursor: pointer; font-size: 1rem; transition: 0.2s; min-height: 55px; display: flex; align-items: center; justify-content: center; text-align: center; }
+        .opt-btn.selected { background: var(--primary); color: white; border-color: var(--primary); }
 
-        .opt-btn { background: #fdfdfd; border: 2px solid #e2e8f0; padding: 14px; border-radius: 10px; cursor: pointer; text-align: center; font-weight: 500; font-size: 0.95rem; transition: 0.2s; display: flex; align-items: center; justify-content: center; min-height: 54px; }
-        .opt-btn.selected { background: var(--primary); color: white; border-color: var(--primary); transform: translateY(-2px); }
-
-        /* Navigation Buttons */
-        .nav-controls { margin-top: 20px; display: flex; gap: 10px; }
-        .btn { padding: 16px; border-radius: 12px; border: none; font-weight: bold; cursor: pointer; flex: 1; font-size: 1rem; transition: opacity 0.2s; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-        .btn:active { transform: scale(0.98); }
-        .btn-start { background: var(--primary); color: white; }
+        /* Floating Nav */
+        .nav-controls { position: fixed; bottom: 0; left: 0; right: 0; background: white; padding: 15px; display: none; gap: 10px; box-shadow: 0 -5px 15px rgba(0,0,0,0.05); border-top: 1px solid #eee; }
+        .btn { padding: 14px; border-radius: 12px; border: none; font-weight: bold; cursor: pointer; flex: 1; font-size: 1rem; }
+        .btn-start { background: var(--primary); color: white; width: 100%; }
         .btn-next { background: var(--primary); color: white; }
-        .btn-prev { background: var(--secondary); color: white; display: none; }
-        .btn-submit { background: var(--success); color: white; display: none; }
+        .btn-prev { background: #e2e8f0; color: var(--secondary); }
+        .btn-submit { background: var(--success); color: white; }
 
-        /* Result Area */
-        #resultArea { display: none; background: white; padding: 20px; border-radius: 15px; border: 2px solid var(--primary); margin-top: 10px; }
+        /* Results Area */
+        #resultArea { display: none; background: white; padding: 20px; border-radius: 16px; border: 2px solid var(--primary); margin-bottom: 20px; }
         .result-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 0.9rem; }
         
-        #finalGrade { font-size: 1.4rem; font-weight: 800; margin: 20px 0; }
+        /* Redo Button Style */
+        .btn-redo { background: #f59e0b; color: white; margin-bottom: 10px; }
     </style>
 </head>
 <body>
@@ -73,35 +54,40 @@
 <div class="container">
     <div class="header" id="mainHeader">
         <h1>Grammar Portal</h1>
-        <p>Step-by-Step Learning Analysis</p>
+        <p>Mastery Learning Mode</p>
     </div>
 
     <div class="setup-card" id="setupCard">
         <div class="input-group">
             <input type="text" id="studentName" placeholder="Full Name">
-            <input type="text" id="studentClass" placeholder="Class (e.g. 6B)">
+            <input type="text" id="studentClass" placeholder="Class">
+            <select id="setMenu"><option value="">Loading sets...</option></select>
         </div>
-        <select id="setMenu"><option value="">Loading sets...</option></select>
-        <button class="btn btn-start" style="margin-top:15px; width:100%" onclick="initQuiz()">Start Practice</button>
+        <button class="btn btn-start" onclick="initQuiz()">Begin Practice</button>
+        <div id="resumeMsg" style="display:none; text-align:center; font-size:0.8rem; color:var(--success); margin-top:10px;">
+            Saved progress found! Resuming...
+        </div>
     </div>
 
     <div class="progress-container" id="progCont"><div class="progress-bar" id="progBar"></div></div>
-    
     <div id="quizContent"></div>
 
-    <div class="nav-controls" id="navArea" style="display:none">
+    <div class="nav-controls" id="navArea">
         <button id="prevBtn" class="btn btn-prev" onclick="prevStep()">Back</button>
-        <button id="nextBtn" class="btn btn-next" onclick="nextStep()">Next Topic</button>
-        <button id="submitBtn" class="btn btn-submit" onclick="finishQuiz()">Finish & Submit</button>
+        <button id="nextBtn" class="btn btn-next" onclick="nextStep()">Next</button>
+        <button id="submitBtn" class="btn btn-submit" onclick="finishQuiz()">Submit</button>
     </div>
 
     <div id="resultArea">
-        <h2 style="text-align:center; margin-top:0;">Assessment Result</h2>
-        <div id="studentDetail" style="margin-bottom:15px; padding:12px; background:#f1f5f9; border-radius:10px; font-size:0.9rem;"></div>
+        <h2 style="text-align:center; margin-top:0;">Performance Summary</h2>
         <div id="topicSummary"></div>
-        <div id="finalGrade" style="text-align:center; color:var(--primary)"></div>
-        <button class="btn" style="background:#334155; color:white; width:100%; margin-top:15px" onclick="downloadTextReport()">Download Report (.txt)</button>
-        <button class="btn" style="background:#cbd5e1; margin-top:10px; width:100%" onclick="location.reload()">Reset</button>
+        <div id="finalGrade" style="text-align:center; font-size: 1.6rem; margin: 20px 0; font-weight: 800; color: var(--primary);"></div>
+        
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+            <button class="btn btn-redo" onclick="redoQuiz()">Try Again (Redo Set)</button>
+            <button class="btn" style="background:#334155; color:white;" onclick="downloadTextReport()">Download Report</button>
+            <button class="btn" style="background:#f1f5f9; color: var(--secondary);" onclick="clearAndReset()">New Student / Change Set</button>
+        </div>
     </div>
 </div>
 
@@ -109,33 +95,61 @@
     let fullData = null;
     let currentTopicIdx = 0;
     let userAnswers = [];
+    const STORAGE_KEY = 'grammar_autosave_v1';
 
     window.onload = async () => {
         try {
             const res = await fetch('manifest.json');
             const data = await res.json();
             const menu = document.getElementById('setMenu');
-            menu.innerHTML = '<option value="">-- Choose Practice Set --</option>';
+            menu.innerHTML = '<option value="">-- Choose Practice --</option>';
             data.available_sets.forEach(s => menu.innerHTML += `<option value="${s.file}">${s.name}</option>`);
-        } catch (e) { alert("Data error."); }
+            checkSavedProgress();
+        } catch (e) { console.error("Manifest failed"); }
     };
 
-    async function initQuiz() {
-        const name = document.getElementById('studentName').value;
-        const sClass = document.getElementById('studentClass').value;
-        const file = document.getElementById('setMenu').value;
+    function checkSavedProgress() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+            const parsed = JSON.parse(saved);
+            document.getElementById('studentName').value = parsed.name || "";
+            document.getElementById('studentClass').value = parsed.sClass || "";
+            document.getElementById('setMenu').value = parsed.setFile || "";
+            userAnswers = parsed.answers || [];
+            currentTopicIdx = parsed.topicIdx || 0;
+            if(userAnswers.length > 0) document.getElementById('resumeMsg').style.display = 'block';
+        }
+    }
 
-        if(!name || !sClass || !file) return alert("Please fill in all details.");
+    async function initQuiz() {
+        const file = document.getElementById('setMenu').value;
+        if(!document.getElementById('studentName').value || !file) return alert("Fill all details!");
 
         try {
             const res = await fetch(file);
             const data = await res.json();
             fullData = data.modul_latihan_bahasa_inggeris_tahun_6;
-            document.getElementById('setupCard').style.display = 'none';
-            document.getElementById('progCont').style.display = 'block';
-            document.getElementById('navArea').style.display = 'flex';
-            showTopic(0);
-        } catch (e) { alert("File error."); }
+            startQuizUI();
+        } catch (e) { alert("File error!"); }
+    }
+
+    function startQuizUI() {
+        document.getElementById('setupCard').style.display = 'none';
+        document.getElementById('resultArea').style.display = 'none';
+        document.getElementById('progCont').style.display = 'block';
+        document.getElementById('navArea').style.display = 'flex';
+        document.getElementById('quizContent').style.display = 'block';
+        document.getElementById('mainHeader').style.display = 'block';
+        showTopic(currentTopicIdx);
+    }
+
+    // FUNGSI REDO: Padam jawapan tapi kekal maklumat pelajar
+    function redoQuiz() {
+        if(!confirm("Are you sure you want to clear your answers and try this set again?")) return;
+        userAnswers = [];
+        currentTopicIdx = 0;
+        autoSave(); // Simpan keadaan kosong ke localStorage
+        startQuizUI();
     }
 
     function showTopic(idx) {
@@ -146,8 +160,9 @@
         document.getElementById('progBar').style.width = percent + "%";
 
         let html = `<div class="topic-card">
-            <h2>${topic.topik}</h2>
-            <p><i>${topic.arahan}</i></p>`;
+            <p style="color:var(--secondary); font-size:0.75rem; margin:0; font-weight:bold;">TOPIC ${idx+1} OF ${fullData.latihan.length}</p>
+            <h2 style="margin:5px 0 15px 0; font-size:1.2rem;">${topic.topik}</h2>
+            <p style="font-size:0.85rem; font-style:italic; background:#f8fafc; padding:12px; border: 1px solid #eee; border-radius:10px;">${topic.arahan}</p>`;
 
         topic.soalan.forEach((q, qIdx) => {
             html += `<div class="q-item"><p>${qIdx + 1}. ${q.teks}</p>`;
@@ -160,14 +175,41 @@
                 html += `</div>`;
             } else {
                 const val = getSavedAns(idx, qIdx) || '';
-                html += `<input type="text" placeholder="Your answer" value="${val}" onchange="saveAns(${idx}, ${qIdx}, this.value)">`;
+                html += `<input type="text" placeholder="Type answer..." value="${val}" oninput="saveAns(${idx}, ${qIdx}, this.value)">`;
             }
             html += `</div>`;
         });
         html += `</div>`;
         container.innerHTML = html;
         updateNav(idx);
-        window.scrollTo({top: 0, behavior: 'smooth'});
+        window.scrollTo(0,0);
+        autoSave();
+    }
+
+    function saveAns(tIdx, qIdx, val, el) {
+        if(el && el.classList.contains('opt-btn')) {
+            Array.from(el.parentElement.children).forEach(b => b.classList.remove('selected'));
+            el.classList.add('selected');
+        }
+        const existing = userAnswers.find(a => a.tIdx === tIdx && a.qIdx === qIdx);
+        if(existing) existing.ans = val; else userAnswers.push({tIdx, qIdx, ans: val});
+        autoSave();
+    }
+
+    function getSavedAns(tIdx, qIdx) {
+        const found = userAnswers.find(a => a.tIdx === tIdx && a.qIdx === qIdx);
+        return found ? found.ans : null;
+    }
+
+    function autoSave() {
+        const data = {
+            name: document.getElementById('studentName').value,
+            sClass: document.getElementById('studentClass').value,
+            setFile: document.getElementById('setMenu').value,
+            answers: userAnswers,
+            topicIdx: currentTopicIdx
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     }
 
     function updateNav(idx) {
@@ -181,31 +223,19 @@
         }
     }
 
-    function saveAns(tIdx, qIdx, val, el) {
-        if(el) {
-            Array.from(el.parentElement.children).forEach(b => b.classList.remove('selected'));
-            el.classList.add('selected');
-        }
-        const existing = userAnswers.find(a => a.tIdx === tIdx && a.qIdx === qIdx);
-        if(existing) existing.ans = val; else userAnswers.push({tIdx, qIdx, ans: val});
-    }
-
-    function getSavedAns(tIdx, qIdx) {
-        const found = userAnswers.find(a => a.tIdx === tIdx && a.qIdx === qIdx);
-        return found ? found.ans : null;
-    }
-
     function nextStep() { showTopic(currentTopicIdx + 1); }
     function prevStep() { showTopic(currentTopicIdx - 1); }
 
     function finishQuiz() {
+        if(!confirm("Do you want to submit your answers?")) return;
         document.getElementById('quizContent').style.display = 'none';
         document.getElementById('navArea').style.display = 'none';
         document.getElementById('progCont').style.display = 'none';
         document.getElementById('mainHeader').style.display = 'none';
         
         const summaryCont = document.getElementById('topicSummary');
-        let totalScore = 0, totalMax = 0, report = "";
+        summaryCont.innerHTML = ""; // Bersihkan ringkasan lama jika ada
+        let totalScore = 0, totalMax = 0;
 
         fullData.latihan.forEach((topic, tIdx) => {
             let tScore = 0;
@@ -215,27 +245,29 @@
             });
             totalScore += tScore;
             totalMax += topic.soalan.length;
-            const perc = Math.round((tScore/topic.soalan.length)*100);
-            const remark = perc >= 80 ? "Excellent" : perc >= 50 ? "Good" : "Needs Practice";
-            
-            summaryCont.innerHTML += `<div class="result-row"><span>${topic.topik}</span><span><b>${tScore}/${topic.soalan.length}</b> (${remark})</span></div>`;
-            report += `${topic.topik}: ${tScore}/${topic.soalan.length} (${remark})\n`;
+            summaryCont.innerHTML += `<div class="result-row"><span>${topic.topik}</span><span><b>${tScore}/${topic.soalan.length}</b></span></div>`;
         });
 
-        document.getElementById('finalGrade').innerText = `Total: ${totalScore}/${totalMax} (${Math.round((totalScore/totalMax)*100)}%)`;
-        document.getElementById('studentDetail').innerHTML = `<b>Student:</b> ${document.getElementById('studentName').value}<br><b>Class:</b> ${document.getElementById('studentClass').value}`;
+        document.getElementById('finalGrade').innerText = `${totalScore} / ${totalMax} (${Math.round((totalScore/totalMax)*100)}%)`;
         document.getElementById('resultArea').style.display = 'block';
-        window.finalTxt = report;
+        window.scrollTo(0,0);
     }
 
     function downloadTextReport() {
         const name = document.getElementById('studentName').value;
-        const txt = `GRAMMAR REPORT\nName: ${name}\nClass: ${document.getElementById('studentClass').value}\n\n${window.finalTxt}\nOVERALL: ${document.getElementById('finalGrade').innerText}`;
+        const txt = `GRAMMAR REPORT\nName: ${name}\nScore: ${document.getElementById('finalGrade').innerText}\nDate: ${new Date().toLocaleDateString()}`;
         const blob = new Blob([txt], {type: 'text/plain'});
         const a = document.createElement('a');
         a.href = URL.createObjectURL(blob);
         a.download = `Result_${name}.txt`;
         a.click();
+    }
+
+    function clearAndReset() {
+        if(confirm("This will clear everything and go back to start. Continue?")) {
+            localStorage.removeItem(STORAGE_KEY);
+            location.reload();
+        }
     }
 </script>
 </body>
