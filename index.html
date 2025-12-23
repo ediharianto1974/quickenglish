@@ -3,65 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Year 6 Grammar Master - Interactive Portal</title>
+    <title>Year 6 Grammar Portal - Result Analysis</title>
     <style>
         :root { --primary: #4f46e5; --success: #22c55e; --danger: #ef4444; --bg: #f8fafc; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; padding: 20px; color: #1e293b; }
         .container { max-width: 850px; margin: 0 auto; }
         
-        .header { background: linear-gradient(135deg, var(--primary), #818cf8); color: white; padding: 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 15px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .header { background: linear-gradient(135deg, var(--primary), #818cf8); color: white; padding: 25px; border-radius: 20px; text-align: center; margin-bottom: 20px; }
         
-        .control-panel { background: white; padding: 20px; border-radius: 15px; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
-        
-        select { padding: 12px; border-radius: 10px; border: 2px solid #e2e8f0; min-width: 250px; font-size: 1rem; outline: none; }
-        
-        .btn { padding: 12px 25px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; transition: 0.2s; }
-        .btn-load { background: var(--primary); color: white; }
-        .btn-check { background: var(--success); color: white; width: 100%; font-size: 1.2rem; margin-top: 30px; display: none; }
-        
-        .stats { position: sticky; top: 10px; background: rgba(255,255,255,0.9); backdrop-filter: blur(5px); border: 2px solid var(--primary); padding: 15px; border-radius: 12px; display: none; justify-content: space-around; font-weight: bold; margin-bottom: 20px; z-index: 100; }
+        /* Information Section */
+        .info-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .input-group { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; }
+        .input-field { flex: 1; min-width: 200px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 0.9rem; }
+        input[type="text"], select { width: 100%; padding: 12px; border-radius: 10px; border: 2px solid #e2e8f0; box-sizing: border-box; font-size: 1rem; }
 
-        .topic-card { background: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; border: 1px solid #e2e8f0; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-        .q-item { margin-bottom: 15px; padding: 20px; border-radius: 12px; background: #fafafa; border: 1px solid #f1f5f9; transition: 0.3s; }
+        .btn { padding: 12px 25px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; transition: 0.2s; }
+        .btn-load { background: var(--primary); color: white; width: 100%; }
+        .btn-check { background: var(--success); color: white; width: 100%; font-size: 1.2rem; margin-top: 20px; display: none; }
+        .btn-report { background: #64748b; color: white; width: 100%; margin-top: 10px; display: none; }
+
+        .stats { position: sticky; top: 10px; background: rgba(255,255,255,0.95); border: 2px solid var(--primary); padding: 15px; border-radius: 12px; display: none; justify-content: space-around; font-weight: bold; margin-bottom: 20px; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+
+        .topic-card { background: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; border: 1px solid #e2e8f0; }
+        .q-item { margin-bottom: 15px; padding: 20px; border-radius: 12px; background: #fafafa; border: 1px solid #f1f5f9; }
         
-        /* MCQ Styling */
         .options-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 15px; }
-        .option-btn { background: white; border: 2px solid #e2e8f0; padding: 12px; border-radius: 10px; cursor: pointer; text-align: center; transition: 0.2s; font-weight: 500; }
-        .option-btn:hover { border-color: var(--primary); background: #f5f3ff; }
+        .option-btn { background: white; border: 2px solid #e2e8f0; padding: 12px; border-radius: 10px; cursor: pointer; text-align: center; font-weight: 500; }
         .option-btn.selected { background: var(--primary); color: white; border-color: var(--primary); }
 
-        /* Input Styling */
-        input[type="text"] { width: 100%; padding: 12px; margin-top: 10px; border: 2px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; font-size: 1rem; }
-
-        /* Results Styling */
         .q-item.correct { border: 2px solid var(--success); background: #f0fdf4; }
         .q-item.wrong { border: 2px solid var(--danger); background: #fef2f2; }
-        .ans-feedback { font-weight: bold; margin-top: 10px; display: none; font-size: 0.95rem; }
+        .ans-feedback { font-weight: bold; margin-top: 10px; display: none; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="header">
-        <h1>Grammar Master Year 6</h1>
-        <p>Dynamic Interactive Learning Portal</p>
+        <h1>Grammar Portal Year 6</h1>
+        <p>Interactive Question Bank & Results Analysis</p>
     </div>
 
-    <div class="control-panel">
-        <strong>Select Practice:</strong>
-        <select id="setMenu">
-            <option value="">Loading sets...</option>
-        </select>
-        <button class="btn btn-load" onclick="loadQuestions()">Start Quiz</button>
+    <div class="info-card">
+        <div class="input-group">
+            <div class="input-field">
+                <label>Student Full Name:</label>
+                <input type="text" id="studentName" placeholder="Enter your name">
+            </div>
+            <div class="input-field">
+                <label>Class:</label>
+                <input type="text" id="studentClass" placeholder="e.g. 6 Bijak">
+            </div>
+        </div>
+        <div class="input-group">
+            <div class="input-field">
+                <label>Select Grammar Set:</label>
+                <select id="setMenu">
+                    <option value="">Loading sets...</option>
+                </select>
+            </div>
+        </div>
+        <button class="btn btn-load" onclick="loadQuestions()">Start Practice</button>
     </div>
 
     <div class="stats" id="statsBar">
-        <span>Set: <span id="setNameDisplay">-</span></span>
-        <span>Score: <span id="currentScore">0</span> / <span id="totalScore">0</span></span>
+        <div id="displayIdentity"></div>
+        <div>Score: <span id="currentScore">0</span> / <span id="totalScore">0</span></div>
     </div>
 
-    <div id="quizArea" style="margin-top: 25px;"></div>
+    <div id="quizArea"></div>
+    
     <button id="checkBtn" class="btn btn-check" onclick="checkAnswers()">Submit & Check Answers</button>
+    <button id="reportBtn" class="btn btn-report" onclick="downloadReport()">Download Result Report (for Teacher)</button>
 </div>
 
 <script>
@@ -74,27 +88,31 @@
             data.available_sets.forEach(s => {
                 menu.innerHTML += `<option value="${s.file}">${s.name}</option>`;
             });
-        } catch (e) {
-            alert("Error: manifest.json not found! Please check your GitHub folder.");
-        }
+        } catch (e) { alert("Error: manifest.json not found!"); }
     };
 
     let activeSet = null;
+    let currentSetName = "";
 
     async function loadQuestions() {
-        const select = document.getElementById('setMenu');
-        const file = select.value;
-        if (!file) return alert("Please select a set!");
+        const name = document.getElementById('studentName').value.trim();
+        const sClass = document.getElementById('studentClass').value.trim();
+        const file = document.getElementById('setMenu').value;
+
+        if (!name || !sClass || !file) {
+            alert("Please fill in your Name, Class and Select a Set!");
+            return;
+        }
 
         try {
             const res = await fetch(file);
             const data = await res.json();
             activeSet = data.modul_latihan_bahasa_inggeris_tahun_6;
-            document.getElementById('setNameDisplay').innerText = select.options[select.selectedIndex].text;
+            currentSetName = document.getElementById('setMenu').options[document.getElementById('setMenu').selectedIndex].text;
+            
+            document.getElementById('displayIdentity').innerHTML = `Student: <b>${name} (${sClass})</b>`;
             renderQuiz();
-        } catch (e) {
-            alert("Could not load " + file + ". Ensure the file exists in your repository.");
-        }
+        } catch (e) { alert("Could not load file."); }
     }
 
     function renderQuiz() {
@@ -113,25 +131,13 @@
                 item.className = 'q-item';
                 item.id = `wrap-${tIdx}-${qIdx}`;
                 
-                let inputHTML = '';
-                
-                // JIKA ADA PILIHAN JAWAPAN (MCQ)
-                if (q.pilihan && q.pilihan.length > 0) {
-                    inputHTML = `<div class="options-container" id="container-${tIdx}-${qIdx}">`;
-                    q.pilihan.forEach(opt => {
-                        inputHTML += `<div class="option-btn" onclick="selectOption(${tIdx}, ${qIdx}, '${opt}', this)">${opt}</div>`;
-                    });
-                    inputHTML += `</div>`;
-                } else {
-                    // JIKA TIADA PILIHAN (SUBJEKTIF/ISI TEMPAT KOSONG)
-                    inputHTML = `<input type="text" id="ans-${tIdx}-${qIdx}" placeholder="Type your answer here">`;
-                }
+                let inputHTML = q.pilihan ? 
+                    `<div class="options-container" id="container-${tIdx}-${qIdx}">` + 
+                    q.pilihan.map(opt => `<div class="option-btn" onclick="selectOption(${tIdx}, ${qIdx}, '${opt}', this)">${opt}</div>`).join('') + 
+                    `</div>` : 
+                    `<input type="text" id="ans-${tIdx}-${qIdx}" placeholder="Type answer">`;
 
-                item.innerHTML = `
-                    <div><strong>${count}.</strong> ${q.teks}</div>
-                    ${inputHTML}
-                    <div class="ans-feedback" id="fb-${tIdx}-${qIdx}"></div>
-                `;
+                item.innerHTML = `<div><strong>${count}.</strong> ${q.teks}</div>${inputHTML}<div class="ans-feedback" id="fb-${tIdx}-${qIdx}"></div>`;
                 card.appendChild(item);
             });
             area.appendChild(card);
@@ -140,17 +146,13 @@
         document.getElementById('totalScore').innerText = count;
         document.getElementById('statsBar').style.display = 'flex';
         document.getElementById('checkBtn').style.display = 'block';
-        window.scrollTo({top: 250, behavior: 'smooth'});
+        window.scrollTo({top: 400, behavior: 'smooth'});
     }
 
-    // Fungsi untuk memilih option MCQ
     function selectOption(tIdx, qIdx, value, element) {
         const container = document.getElementById(`container-${tIdx}-${qIdx}`);
-        // Buang kelas 'selected' dari semua butang dalam soalan ini
         Array.from(container.children).forEach(btn => btn.classList.remove('selected'));
-        // Tambah kelas 'selected' pada butang yang diklik
         element.classList.add('selected');
-        // Simpan jawapan sementara dalam atribut data
         container.dataset.userChoice = value;
     }
 
@@ -160,32 +162,54 @@
             topic.soalan.forEach((q, qIdx) => {
                 const fb = document.getElementById(`fb-${tIdx}-${qIdx}`);
                 const wrap = document.getElementById(`wrap-${tIdx}-${qIdx}`);
-                let uAns = "";
+                const uAns = q.pilihan ? (document.getElementById(`container-${tIdx}-${qIdx}`).dataset.userChoice || "").trim() : document.getElementById(`ans-${tIdx}-${qIdx}`).value.trim();
 
-                // Ambil jawapan berdasarkan jenis soalan
-                if (q.pilihan) {
-                    uAns = (document.getElementById(`container-${tIdx}-${qIdx}`).dataset.userChoice || "").trim().toLowerCase();
-                } else {
-                    uAns = document.getElementById(`ans-${tIdx}-${qIdx}`).value.trim().toLowerCase();
-                }
-
-                const cAns = q.jawapan.toLowerCase();
                 fb.style.display = "block";
-
-                if (uAns === cAns) {
+                if (uAns.toLowerCase() === q.jawapan.toLowerCase()) {
                     score++;
                     wrap.className = "q-item correct";
-                    fb.innerText = "✓ Correct!";
+                    fb.innerText = "✓ Correct";
                     fb.style.color = "var(--success)";
                 } else {
                     wrap.className = "q-item wrong";
-                    fb.innerText = "✗ Incorrect. The answer is: " + q.jawapan;
+                    fb.innerText = "✗ Answer: " + q.jawapan;
                     fb.style.color = "var(--danger)";
                 }
             });
         });
         document.getElementById('currentScore').innerText = score;
+        document.getElementById('reportBtn').style.display = 'block';
         window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    function downloadReport() {
+        const name = document.getElementById('studentName').value;
+        const sClass = document.getElementById('studentClass').value;
+        const score = document.getElementById('currentScore').innerText;
+        const total = document.getElementById('totalScore').innerText;
+        const date = new Date().toLocaleString();
+
+        const reportText = `
+GRAMMAR PRACTICE REPORT
+-----------------------
+Student Name : ${name}
+Class        : ${sClass}
+Date/Time    : ${date}
+Exercise Set : ${currentSetName}
+Final Score  : ${score} / ${total}
+Percentage   : ${Math.round((score/total)*100)}%
+
+Status: Completed
+-----------------------
+Generated via Year 6 Grammar Portal.
+        `;
+
+        const blob = new Blob([reportText], { type: 'text/plain' });
+        const anchor = document.createElement('a');
+        anchor.download = `Result_${name}_${currentSetName}.txt`;
+        anchor.href = (window.URL || window.webkitURL).createObjectURL(blob);
+        anchor.dataset.downloadurl = ['text/plain', anchor.download, anchor.href].join(':');
+        anchor.click();
     }
 </script>
 </body>
