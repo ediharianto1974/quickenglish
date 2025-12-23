@@ -3,31 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Year 6 Grammar Master - GitHub Edition</title>
+    <title>Year 6 Grammar Master - Interactive Portal</title>
     <style>
         :root { --primary: #4f46e5; --success: #22c55e; --danger: #ef4444; --bg: #f8fafc; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; padding: 20px; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; padding: 20px; color: #1e293b; }
         .container { max-width: 850px; margin: 0 auto; }
         
         .header { background: linear-gradient(135deg, var(--primary), #818cf8); color: white; padding: 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 15px rgba(0,0,0,0.1); margin-bottom: 20px; }
         
-        .control-panel { background: white; padding: 20px; border-radius: 15px; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .control-panel { background: white; padding: 20px; border-radius: 15px; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
         
-        select { padding: 12px; border-radius: 10px; border: 2px solid #e2e8f0; min-width: 250px; font-size: 1rem; }
+        select { padding: 12px; border-radius: 10px; border: 2px solid #e2e8f0; min-width: 250px; font-size: 1rem; outline: none; }
         
         .btn { padding: 12px 25px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; transition: 0.2s; }
         .btn-load { background: var(--primary); color: white; }
         .btn-check { background: var(--success); color: white; width: 100%; font-size: 1.2rem; margin-top: 30px; display: none; }
         
-        .stats { position: sticky; top: 10px; background: white; border: 2px solid var(--primary); padding: 15px; border-radius: 12px; display: none; justify-content: space-around; font-weight: bold; margin-bottom: 20px; z-index: 100; }
+        .stats { position: sticky; top: 10px; background: rgba(255,255,255,0.9); backdrop-filter: blur(5px); border: 2px solid var(--primary); padding: 15px; border-radius: 12px; display: none; justify-content: space-around; font-weight: bold; margin-bottom: 20px; z-index: 100; }
 
-        .topic-card { background: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; border: 1px solid #e2e8f0; }
-        .q-item { margin-bottom: 15px; padding: 15px; border-radius: 10px; background: #fafafa; border-left: 5px solid #e2e8f0; }
-        .q-item.correct { border-left-color: var(--success); background: #f0fdf4; }
-        .q-item.wrong { border-left-color: var(--danger); background: #fef2f2; }
+        .topic-card { background: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; border: 1px solid #e2e8f0; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .q-item { margin-bottom: 15px; padding: 20px; border-radius: 12px; background: #fafafa; border: 1px solid #f1f5f9; transition: 0.3s; }
         
-        input[type="text"] { width: 100%; padding: 12px; margin-top: 10px; border: 2px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; }
-        .ans-feedback { font-weight: bold; margin-top: 8px; display: none; }
+        /* MCQ Styling */
+        .options-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 15px; }
+        .option-btn { background: white; border: 2px solid #e2e8f0; padding: 12px; border-radius: 10px; cursor: pointer; text-align: center; transition: 0.2s; font-weight: 500; }
+        .option-btn:hover { border-color: var(--primary); background: #f5f3ff; }
+        .option-btn.selected { background: var(--primary); color: white; border-color: var(--primary); }
+
+        /* Input Styling */
+        input[type="text"] { width: 100%; padding: 12px; margin-top: 10px; border: 2px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; font-size: 1rem; }
+
+        /* Results Styling */
+        .q-item.correct { border: 2px solid var(--success); background: #f0fdf4; }
+        .q-item.wrong { border: 2px solid var(--danger); background: #fef2f2; }
+        .ans-feedback { font-weight: bold; margin-top: 10px; display: none; font-size: 0.95rem; }
     </style>
 </head>
 <body>
@@ -35,7 +44,7 @@
 <div class="container">
     <div class="header">
         <h1>Grammar Master Year 6</h1>
-        <p>Interactive Learning Portal Hosted on GitHub</p>
+        <p>Dynamic Interactive Learning Portal</p>
     </div>
 
     <div class="control-panel">
@@ -47,15 +56,15 @@
     </div>
 
     <div class="stats" id="statsBar">
+        <span>Set: <span id="setNameDisplay">-</span></span>
         <span>Score: <span id="currentScore">0</span> / <span id="totalScore">0</span></span>
     </div>
 
     <div id="quizArea" style="margin-top: 25px;"></div>
-    <button id="checkBtn" class="btn btn-check" onclick="checkAnswers()">Check My Answers</button>
+    <button id="checkBtn" class="btn btn-check" onclick="checkAnswers()">Submit & Check Answers</button>
 </div>
 
 <script>
-    // 1. Auto-load manifest bila aplikasi dibuka
     window.onload = async () => {
         try {
             const res = await fetch('manifest.json');
@@ -66,28 +75,28 @@
                 menu.innerHTML += `<option value="${s.file}">${s.name}</option>`;
             });
         } catch (e) {
-            alert("Error loading manifest.json. Make sure it's in the same folder.");
+            alert("Error: manifest.json not found! Please check your GitHub folder.");
         }
     };
 
     let activeSet = null;
 
-    // 2. Load fail JSON yang dipilih
     async function loadQuestions() {
-        const file = document.getElementById('setMenu').value;
-        if (!file) return alert("Select a set!");
+        const select = document.getElementById('setMenu');
+        const file = select.value;
+        if (!file) return alert("Please select a set!");
 
         try {
             const res = await fetch(file);
             const data = await res.json();
             activeSet = data.modul_latihan_bahasa_inggeris_tahun_6;
+            document.getElementById('setNameDisplay').innerText = select.options[select.selectedIndex].text;
             renderQuiz();
         } catch (e) {
-            alert("Could not load " + file);
+            alert("Could not load " + file + ". Ensure the file exists in your repository.");
         }
     }
 
-    // 3. Paparkan soalan
     function renderQuiz() {
         const area = document.getElementById('quizArea');
         area.innerHTML = "";
@@ -103,9 +112,24 @@
                 const item = document.createElement('div');
                 item.className = 'q-item';
                 item.id = `wrap-${tIdx}-${qIdx}`;
+                
+                let inputHTML = '';
+                
+                // JIKA ADA PILIHAN JAWAPAN (MCQ)
+                if (q.pilihan && q.pilihan.length > 0) {
+                    inputHTML = `<div class="options-container" id="container-${tIdx}-${qIdx}">`;
+                    q.pilihan.forEach(opt => {
+                        inputHTML += `<div class="option-btn" onclick="selectOption(${tIdx}, ${qIdx}, '${opt}', this)">${opt}</div>`;
+                    });
+                    inputHTML += `</div>`;
+                } else {
+                    // JIKA TIADA PILIHAN (SUBJEKTIF/ISI TEMPAT KOSONG)
+                    inputHTML = `<input type="text" id="ans-${tIdx}-${qIdx}" placeholder="Type your answer here">`;
+                }
+
                 item.innerHTML = `
                     <div><strong>${count}.</strong> ${q.teks}</div>
-                    <input type="text" id="ans-${tIdx}-${qIdx}" placeholder="Type your answer here">
+                    ${inputHTML}
                     <div class="ans-feedback" id="fb-${tIdx}-${qIdx}"></div>
                 `;
                 card.appendChild(item);
@@ -116,29 +140,46 @@
         document.getElementById('totalScore').innerText = count;
         document.getElementById('statsBar').style.display = 'flex';
         document.getElementById('checkBtn').style.display = 'block';
+        window.scrollTo({top: 250, behavior: 'smooth'});
     }
 
-    // 4. Semak jawapan
+    // Fungsi untuk memilih option MCQ
+    function selectOption(tIdx, qIdx, value, element) {
+        const container = document.getElementById(`container-${tIdx}-${qIdx}`);
+        // Buang kelas 'selected' dari semua butang dalam soalan ini
+        Array.from(container.children).forEach(btn => btn.classList.remove('selected'));
+        // Tambah kelas 'selected' pada butang yang diklik
+        element.classList.add('selected');
+        // Simpan jawapan sementara dalam atribut data
+        container.dataset.userChoice = value;
+    }
+
     function checkAnswers() {
         let score = 0;
         activeSet.latihan.forEach((topic, tIdx) => {
             topic.soalan.forEach((q, qIdx) => {
-                const input = document.getElementById(`ans-${tIdx}-${qIdx}`);
                 const fb = document.getElementById(`fb-${tIdx}-${qIdx}`);
                 const wrap = document.getElementById(`wrap-${tIdx}-${qIdx}`);
-                
-                const uAns = input.value.trim().toLowerCase();
-                const cAns = q.jawapan.toLowerCase();
+                let uAns = "";
 
+                // Ambil jawapan berdasarkan jenis soalan
+                if (q.pilihan) {
+                    uAns = (document.getElementById(`container-${tIdx}-${qIdx}`).dataset.userChoice || "").trim().toLowerCase();
+                } else {
+                    uAns = document.getElementById(`ans-${tIdx}-${qIdx}`).value.trim().toLowerCase();
+                }
+
+                const cAns = q.jawapan.toLowerCase();
                 fb.style.display = "block";
+
                 if (uAns === cAns) {
                     score++;
                     wrap.className = "q-item correct";
-                    fb.innerText = "✓ Correct";
+                    fb.innerText = "✓ Correct!";
                     fb.style.color = "var(--success)";
                 } else {
                     wrap.className = "q-item wrong";
-                    fb.innerText = "✗ Answer: " + q.jawapan;
+                    fb.innerText = "✗ Incorrect. The answer is: " + q.jawapan;
                     fb.style.color = "var(--danger)";
                 }
             });
