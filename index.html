@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Year 6 Grammar Portal - Result Analysis</title>
+    <title>Year 6 Grammar Portal - Detailed Analysis</title>
     <style>
-        :root { --primary: #4f46e5; --success: #22c55e; --danger: #ef4444; --bg: #f8fafc; }
+        :root { --primary: #4f46e5; --success: #22c55e; --danger: #ef4444; --warning: #f59e0b; --bg: #f8fafc; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; padding: 20px; color: #1e293b; }
         .container { max-width: 850px; margin: 0 auto; }
         
         .header { background: linear-gradient(135deg, var(--primary), #818cf8); color: white; padding: 25px; border-radius: 20px; text-align: center; margin-bottom: 20px; }
         
-        /* Information Section */
         .info-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
         .input-group { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; }
         .input-field { flex: 1; min-width: 200px; }
@@ -21,9 +20,9 @@
         .btn { padding: 12px 25px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; transition: 0.2s; }
         .btn-load { background: var(--primary); color: white; width: 100%; }
         .btn-check { background: var(--success); color: white; width: 100%; font-size: 1.2rem; margin-top: 20px; display: none; }
-        .btn-report { background: #64748b; color: white; width: 100%; margin-top: 10px; display: none; }
+        .btn-report { background: #334155; color: white; width: 100%; margin-top: 10px; display: none; }
 
-        .stats { position: sticky; top: 10px; background: rgba(255,255,255,0.95); border: 2px solid var(--primary); padding: 15px; border-radius: 12px; display: none; justify-content: space-around; font-weight: bold; margin-bottom: 20px; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .stats { position: sticky; top: 10px; background: rgba(255,255,255,0.95); border: 2px solid var(--primary); padding: 15px; border-radius: 12px; display: none; flex-direction: column; gap: 5px; font-weight: bold; margin-bottom: 20px; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; }
 
         .topic-card { background: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; border: 1px solid #e2e8f0; }
         .q-item { margin-bottom: 15px; padding: 20px; border-radius: 12px; background: #fafafa; border: 1px solid #f1f5f9; }
@@ -35,6 +34,10 @@
         .q-item.correct { border: 2px solid var(--success); background: #f0fdf4; }
         .q-item.wrong { border: 2px solid var(--danger); background: #fef2f2; }
         .ans-feedback { font-weight: bold; margin-top: 10px; display: none; }
+
+        /* Summary Result Table */
+        #summaryResult { margin-top: 20px; padding: 20px; background: #fff; border-radius: 15px; display: none; border: 2px solid #e2e8f0; }
+        .summary-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee; }
     </style>
 </head>
 <body>
@@ -42,14 +45,14 @@
 <div class="container">
     <div class="header">
         <h1>Grammar Portal Year 6</h1>
-        <p>Interactive Question Bank & Results Analysis</p>
+        <p>Comprehensive Learning & Performance Analysis</p>
     </div>
 
     <div class="info-card">
         <div class="input-group">
             <div class="input-field">
                 <label>Student Full Name:</label>
-                <input type="text" id="studentName" placeholder="Enter your name">
+                <input type="text" id="studentName" placeholder="Enter name">
             </div>
             <div class="input-field">
                 <label>Class:</label>
@@ -59,9 +62,7 @@
         <div class="input-group">
             <div class="input-field">
                 <label>Select Grammar Set:</label>
-                <select id="setMenu">
-                    <option value="">Loading sets...</option>
-                </select>
+                <select id="setMenu"><option value="">Loading...</option></select>
             </div>
         </div>
         <button class="btn btn-load" onclick="loadQuestions()">Start Practice</button>
@@ -69,13 +70,20 @@
 
     <div class="stats" id="statsBar">
         <div id="displayIdentity"></div>
-        <div>Score: <span id="currentScore">0</span> / <span id="totalScore">0</span></div>
+        <div style="font-size: 1.2rem; color: var(--primary);">Total Score: <span id="currentScore">0</span> / <span id="totalScore">0</span></div>
     </div>
 
     <div id="quizArea"></div>
     
+    <div id="summaryResult">
+        <h3>Performance Summary</h3>
+        <div id="topicBreakdown"></div>
+        <hr>
+        <div id="finalComment" style="font-weight: bold; text-align: center; padding: 10px; font-size: 1.1rem;"></div>
+    </div>
+
     <button id="checkBtn" class="btn btn-check" onclick="checkAnswers()">Submit & Check Answers</button>
-    <button id="reportBtn" class="btn btn-report" onclick="downloadReport()">Download Result Report (for Teacher)</button>
+    <button id="reportBtn" class="btn btn-report" onclick="downloadReport()">Download Detailed Report (.txt)</button>
 </div>
 
 <script>
@@ -88,42 +96,41 @@
             data.available_sets.forEach(s => {
                 menu.innerHTML += `<option value="${s.file}">${s.name}</option>`;
             });
-        } catch (e) { alert("Error: manifest.json not found!"); }
+        } catch (e) { alert("Error loading manifest.json"); }
     };
 
     let activeSet = null;
     let currentSetName = "";
+    let topicResults = [];
 
     async function loadQuestions() {
         const name = document.getElementById('studentName').value.trim();
         const sClass = document.getElementById('studentClass').value.trim();
         const file = document.getElementById('setMenu').value;
 
-        if (!name || !sClass || !file) {
-            alert("Please fill in your Name, Class and Select a Set!");
-            return;
-        }
+        if (!name || !sClass || !file) return alert("Fill in Name, Class and Select a Set!");
 
         try {
             const res = await fetch(file);
             const data = await res.json();
             activeSet = data.modul_latihan_bahasa_inggeris_tahun_6;
             currentSetName = document.getElementById('setMenu').options[document.getElementById('setMenu').selectedIndex].text;
-            
-            document.getElementById('displayIdentity').innerHTML = `Student: <b>${name} (${sClass})</b>`;
+            document.getElementById('displayIdentity').innerHTML = `Student: <b>${name}</b> | Class: <b>${sClass}</b>`;
             renderQuiz();
-        } catch (e) { alert("Could not load file."); }
+        } catch (e) { alert("File error."); }
     }
 
     function renderQuiz() {
         const area = document.getElementById('quizArea');
         area.innerHTML = "";
         let count = 0;
+        document.getElementById('summaryResult').style.display = 'none';
+        document.getElementById('reportBtn').style.display = 'none';
 
         activeSet.latihan.forEach((topic, tIdx) => {
             const card = document.createElement('div');
             card.className = 'topic-card';
-            card.innerHTML = `<h3>${topic.topik}</h3><p><i>${topic.arahan}</i></p>`;
+            card.innerHTML = `<h3>Topic ${tIdx + 1}: ${topic.topik}</h3><p><i>${topic.arahan}</i></p>`;
 
             topic.soalan.forEach((q, qIdx) => {
                 count++;
@@ -135,7 +142,7 @@
                     `<div class="options-container" id="container-${tIdx}-${qIdx}">` + 
                     q.pilihan.map(opt => `<div class="option-btn" onclick="selectOption(${tIdx}, ${qIdx}, '${opt}', this)">${opt}</div>`).join('') + 
                     `</div>` : 
-                    `<input type="text" id="ans-${tIdx}-${qIdx}" placeholder="Type answer">`;
+                    `<input type="text" id="ans-${tIdx}-${qIdx}" placeholder="Answer...">`;
 
                 item.innerHTML = `<div><strong>${count}.</strong> ${q.teks}</div>${inputHTML}<div class="ans-feedback" id="fb-${tIdx}-${qIdx}"></div>`;
                 card.appendChild(item);
@@ -146,7 +153,7 @@
         document.getElementById('totalScore').innerText = count;
         document.getElementById('statsBar').style.display = 'flex';
         document.getElementById('checkBtn').style.display = 'block';
-        window.scrollTo({top: 400, behavior: 'smooth'});
+        window.scrollTo({top: 450, behavior: 'smooth'});
     }
 
     function selectOption(tIdx, qIdx, value, element) {
@@ -156,9 +163,23 @@
         container.dataset.userChoice = value;
     }
 
+    function getRemark(percent) {
+        if (percent >= 80) return "Excellent";
+        if (percent >= 60) return "Good";
+        if (percent >= 40) return "Satisfactory";
+        return "Needs Improvement";
+    }
+
     function checkAnswers() {
-        let score = 0;
+        let grandTotalScore = 0;
+        topicResults = [];
+        const breakdownDiv = document.getElementById('topicBreakdown');
+        breakdownDiv.innerHTML = "";
+
         activeSet.latihan.forEach((topic, tIdx) => {
+            let topicScore = 0;
+            let topicTotal = topic.soalan.length;
+
             topic.soalan.forEach((q, qIdx) => {
                 const fb = document.getElementById(`fb-${tIdx}-${qIdx}`);
                 const wrap = document.getElementById(`wrap-${tIdx}-${qIdx}`);
@@ -166,7 +187,8 @@
 
                 fb.style.display = "block";
                 if (uAns.toLowerCase() === q.jawapan.toLowerCase()) {
-                    score++;
+                    topicScore++;
+                    grandTotalScore++;
                     wrap.className = "q-item correct";
                     fb.innerText = "✓ Correct";
                     fb.style.color = "var(--success)";
@@ -176,8 +198,22 @@
                     fb.style.color = "var(--danger)";
                 }
             });
+
+            const percent = Math.round((topicScore / topicTotal) * 100);
+            const remark = getRemark(percent);
+            topicResults.push({ name: topic.topik, score: topicScore, total: topicTotal, remark: remark });
+            
+            breakdownDiv.innerHTML += `
+                <div class="summary-row">
+                    <span>Topic ${tIdx+1}: ${topic.topik}</span>
+                    <span><b>${topicScore}/${topicTotal}</b> (${remark})</span>
+                </div>`;
         });
-        document.getElementById('currentScore').innerText = score;
+
+        const finalPercent = Math.round((grandTotalScore / document.getElementById('totalScore').innerText) * 100);
+        document.getElementById('currentScore').innerText = grandTotalScore;
+        document.getElementById('finalComment').innerText = `Overall Performance: ${getRemark(finalPercent)} (${finalPercent}%)`;
+        document.getElementById('summaryResult').style.display = 'block';
         document.getElementById('reportBtn').style.display = 'block';
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
@@ -185,31 +221,35 @@
     function downloadReport() {
         const name = document.getElementById('studentName').value;
         const sClass = document.getElementById('studentClass').value;
-        const score = document.getElementById('currentScore').innerText;
-        const total = document.getElementById('totalScore').innerText;
-        const date = new Date().toLocaleString();
+        const totalScore = document.getElementById('currentScore').innerText;
+        const maxScore = document.getElementById('totalScore').innerText;
+        const percent = Math.round((totalScore/maxScore)*100);
+        
+        let reportText = `DETAILED GRAMMAR PRACTICE REPORT\n`;
+        reportText += `====================================\n`;
+        reportText += `Student Name : ${name}\n`;
+        reportText += `Class        : ${sClass}\n`;
+        reportText += `Exercise Set : ${currentSetName}\n`;
+        reportText += `Date         : ${new Date().toLocaleString()}\n`;
+        reportText += `====================================\n\n`;
+        reportText += `TOPIC BREAKDOWN:\n`;
+        
+        topicResults.forEach((t, i) => {
+            reportText += `Topic ${i+1}: ${t.name.padEnd(20)} (${t.score}/${t.total}) - ${t.remark}\n`;
+        });
 
-        const reportText = `
-GRAMMAR PRACTICE REPORT
------------------------
-Student Name : ${name}
-Class        : ${sClass}
-Date/Time    : ${date}
-Exercise Set : ${currentSetName}
-Final Score  : ${score} / ${total}
-Percentage   : ${Math.round((score/total)*100)}%
-
-Status: Completed
------------------------
-Generated via Year 6 Grammar Portal.
-        `;
+        reportText += `\n------------------------------------\n`;
+        reportText += `FINAL SCORE : ${totalScore} / ${maxScore}\n`;
+        reportText += `PERCENTAGE  : ${percent}%\n`;
+        reportText += `COMMENT     : ${getRemark(percent)}\n`;
+        reportText += `------------------------------------\n`;
+        reportText += `\nGenerated by Year 6 Grammar Portal.`;
 
         const blob = new Blob([reportText], { type: 'text/plain' });
-        const anchor = document.createElement('a');
-        anchor.download = `Result_${name}_${currentSetName}.txt`;
-        anchor.href = (window.URL || window.webkitURL).createObjectURL(blob);
-        anchor.dataset.downloadurl = ['text/plain', anchor.download, anchor.href].join(':');
-        anchor.click();
+        const a = document.createElement('a');
+        a.download = `Report_${name}_Set${currentSetName.match(/\d+/)}.txt`;
+        a.href = URL.createObjectURL(blob);
+        a.click();
     }
 </script>
 </body>
