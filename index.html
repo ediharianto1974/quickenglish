@@ -3,25 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Year 6 Grammar Portal - Step-by-Step</title>
+    <title>Year 6 Grammar Portal - Step-by-Step with Back Button</title>
     <style>
-        :root { --primary: #4f46e5; --success: #22c55e; --danger: #ef4444; --bg: #f8fafc; }
+        :root { --primary: #4f46e5; --success: #22c55e; --danger: #ef4444; --bg: #f8fafc; --secondary: #64748b; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; padding: 20px; color: #1e293b; }
         .container { max-width: 800px; margin: 0 auto; }
         
         .header { background: linear-gradient(135deg, var(--primary), #818cf8); color: white; padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 20px; }
         
-        /* Setup Section */
         .setup-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
         .input-group { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
         input[type="text"], select { flex: 1; padding: 12px; border-radius: 8px; border: 2px solid #e2e8f0; font-size: 1rem; }
 
-        /* Progress Bar */
         .progress-container { background: #e2e8f0; height: 10px; border-radius: 5px; margin-bottom: 20px; display: none; overflow: hidden; }
         .progress-bar { background: var(--primary); height: 100%; width: 0%; transition: 0.3s; }
 
-        /* Topic Display */
-        .topic-container { display: none; }
         .topic-card { background: white; padding: 25px; border-radius: 15px; border: 1px solid #e2e8f0; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
         .q-item { margin-bottom: 20px; padding: 15px; border-bottom: 1px solid #f1f5f9; }
         
@@ -29,18 +25,15 @@
         .opt-btn { background: white; border: 2px solid #e2e8f0; padding: 10px; border-radius: 8px; cursor: pointer; text-align: center; }
         .opt-btn.selected { background: var(--primary); color: white; border-color: var(--primary); }
 
-        /* Navigation Buttons */
         .nav-controls { margin-top: 20px; display: flex; gap: 10px; }
         .btn { padding: 15px 25px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; flex: 1; font-size: 1rem; }
         .btn-start { background: var(--primary); color: white; }
         .btn-next { background: var(--primary); color: white; }
+        .btn-prev { background: var(--secondary); color: white; display: none; }
         .btn-submit { background: var(--success); color: white; display: none; }
 
-        /* Results Area */
         #resultArea { display: none; background: white; padding: 25px; border-radius: 15px; border: 2px solid var(--primary); margin-top: 20px; }
         .result-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; }
-        .correct-ans { color: var(--success); font-weight: bold; }
-        .wrong-ans { color: var(--danger); font-weight: bold; }
     </style>
 </head>
 <body>
@@ -48,7 +41,7 @@
 <div class="container">
     <div class="header" id="mainHeader">
         <h1>Grammar Portal Year 6</h1>
-        <p>One Topic at a Time</p>
+        <p>Interactive Learning Analysis</p>
     </div>
 
     <div class="setup-card" id="setupCard">
@@ -65,12 +58,13 @@
     <div id="quizContent"></div>
 
     <div class="nav-controls" id="navArea" style="display:none">
+        <button id="prevBtn" class="btn btn-prev" onclick="prevStep()">← Previous</button>
         <button id="nextBtn" class="btn btn-next" onclick="nextStep()">Next Topic →</button>
-        <button id="submitBtn" class="btn btn-submit" onclick="finishQuiz()">Check Answers & Generate Report</button>
+        <button id="submitBtn" class="btn btn-submit" onclick="finishQuiz()">Check Answers & Submit</button>
     </div>
 
     <div id="resultArea">
-        <h2 style="text-align:center">Performance Report</h2>
+        <h2 style="text-align:center">Performance Summary</h2>
         <div id="studentDetail" style="margin-bottom:15px; padding:10px; background:#f1f5f9; border-radius:8px"></div>
         <div id="topicSummary"></div>
         <div id="finalGrade" style="font-size:1.5rem; text-align:center; margin-top:20px; color:var(--primary)"></div>
@@ -82,9 +76,8 @@
 <script>
     let fullData = null;
     let currentTopicIdx = 0;
-    let userAnswers = []; // Store all answers: {tIdx, qIdx, ans}
+    let userAnswers = []; 
 
-    // Load Manifest
     window.onload = async () => {
         try {
             const res = await fetch('manifest.json');
@@ -92,16 +85,15 @@
             const menu = document.getElementById('setMenu');
             menu.innerHTML = '<option value="">-- Select Set --</option>';
             data.available_sets.forEach(s => menu.innerHTML += `<option value="${s.file}">${s.name}</option>`);
-        } catch (e) { alert("Manifest not found!"); }
+        } catch (e) { alert("Manifest error."); }
     };
 
-    // Initialize Quiz
     async function initQuiz() {
         const name = document.getElementById('studentName').value;
         const sClass = document.getElementById('studentClass').value;
         const file = document.getElementById('setMenu').value;
 
-        if(!name || !sClass || !file) return alert("Please fill all details!");
+        if(!name || !sClass || !file) return alert("Fill in your name, class and select a set.");
 
         try {
             const res = await fetch(file);
@@ -113,21 +105,20 @@
             document.getElementById('navArea').style.display = 'flex';
             
             showTopic(0);
-        } catch (e) { alert("Load error."); }
+        } catch (e) { alert("Error loading quiz file."); }
     }
 
-    // Show specific topic
     function showTopic(idx) {
         currentTopicIdx = idx;
         const topic = fullData.latihan[idx];
         const container = document.getElementById('quizContent');
         
-        // Update Progress Bar
+        // Progress Bar Update
         const percent = ((idx + 1) / fullData.latihan.length) * 100;
         document.getElementById('progBar').style.width = percent + "%";
 
         let html = `<div class="topic-card">
-            <h2 style="color:var(--primary)">${topic.topik}</h2>
+            <h2 style="color:var(--primary)">Topic ${idx + 1}: ${topic.topik}</h2>
             <p><i>${topic.arahan}</i></p><hr style="border:1px solid #f1f5f9">`;
 
         topic.soalan.forEach((q, qIdx) => {
@@ -143,27 +134,37 @@
                 html += `</div>`;
             } else {
                 const val = getSavedAns(idx, qIdx) || '';
-                html += `<input type="text" placeholder="Type answer..." value="${val}" onchange="saveAns(${idx}, ${qIdx}, this.value)">`;
+                html += `<input type="text" placeholder="Type your answer" value="${val}" onchange="saveAns(${idx}, ${qIdx}, this.value)">`;
             }
             html += `</div>`;
         });
         html += `</div>`;
-        
         container.innerHTML = html;
         
-        // Toggle Buttons
-        if(idx === fullData.latihan.length - 1) {
-            document.getElementById('nextBtn').style.display = 'none';
-            document.getElementById('submitBtn').style.display = 'block';
-        } else {
-            document.getElementById('nextBtn').style.display = 'block';
-            document.getElementById('submitBtn').style.display = 'none';
-        }
+        updateNavigationButtons(idx);
         window.scrollTo(0,0);
     }
 
+    function updateNavigationButtons(idx) {
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Logic for Back Button
+        prevBtn.style.display = (idx === 0) ? 'none' : 'block';
+
+        // Logic for Next/Submit Button
+        if (idx === fullData.latihan.length - 1) {
+            nextBtn.style.display = 'none';
+            submitBtn.style.display = 'block';
+        } else {
+            nextBtn.style.display = 'block';
+            submitBtn.style.display = 'none';
+        }
+    }
+
     function saveAns(tIdx, qIdx, val, el) {
-        if(el) { // MCQ logic
+        if(el) {
             const parent = el.parentElement;
             Array.from(parent.children).forEach(b => b.classList.remove('selected'));
             el.classList.add('selected');
@@ -182,6 +183,10 @@
         showTopic(currentTopicIdx + 1);
     }
 
+    function prevStep() {
+        showTopic(currentTopicIdx - 1);
+    }
+
     function finishQuiz() {
         document.getElementById('quizContent').style.display = 'none';
         document.getElementById('navArea').style.display = 'none';
@@ -191,7 +196,6 @@
         const summaryCont = document.getElementById('topicSummary');
         let grandTotal = 0;
         let grandMax = 0;
-        
         let reportDetails = "";
 
         fullData.latihan.forEach((topic, tIdx) => {
@@ -219,12 +223,12 @@
         const finalPerc = Math.round((grandTotal/grandMax)*100);
         document.getElementById('finalGrade').innerText = `Final Score: ${grandTotal}/${grandMax} (${finalPerc}%)`;
         document.getElementById('studentDetail').innerHTML = `
-            <b>Name:</b> ${document.getElementById('studentName').value}<br>
+            <b>Student Name:</b> ${document.getElementById('studentName').value}<br>
             <b>Class:</b> ${document.getElementById('studentClass').value}<br>
             <b>Set:</b> ${document.getElementById('setMenu').options[document.getElementById('setMenu').selectedIndex].text}
         `;
         document.getElementById('resultArea').style.display = 'block';
-        window.finalReportText = reportDetails; // Store for download
+        window.finalReportText = reportDetails;
     }
 
     function downloadTextReport() {
@@ -232,16 +236,16 @@
         const sClass = document.getElementById('studentClass').value;
         const score = document.getElementById('finalGrade').innerText;
         
-        let txt = `OFFICIAL GRAMMAR REPORT\n========================\n`;
+        let txt = `DETAILED GRAMMAR ANALYSIS\n========================\n`;
         txt += `Student : ${name}\nClass   : ${sClass}\nDate    : ${new Date().toLocaleString()}\n\n`;
-        txt += `BREAKDOWN BY TOPIC:\n------------------------\n`;
+        txt += `RESULTS PER TOPIC:\n------------------------\n`;
         txt += window.finalReportText;
         txt += `\n------------------------\n${score}\n========================`;
         
         const blob = new Blob([txt], {type: 'text/plain'});
         const a = document.createElement('a');
         a.href = URL.createObjectURL(blob);
-        a.download = `Report_${name}.txt`;
+        a.download = `Report_${name}_${sClass}.txt`;
         a.click();
     }
 </script>
