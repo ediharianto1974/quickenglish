@@ -2,52 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Year 6 Grammar Portal - Step-by-Step with Back Button</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Year 6 Grammar Portal - Mobile Friendly</title>
     <style>
         :root { --primary: #4f46e5; --success: #22c55e; --danger: #ef4444; --bg: #f8fafc; --secondary: #64748b; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; padding: 20px; color: #1e293b; }
-        .container { max-width: 800px; margin: 0 auto; }
         
-        .header { background: linear-gradient(135deg, var(--primary), #818cf8); color: white; padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 20px; }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
-        .setup-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
-        .input-group { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
-        input[type="text"], select { flex: 1; padding: 12px; border-radius: 8px; border: 2px solid #e2e8f0; font-size: 1rem; }
-
-        .progress-container { background: #e2e8f0; height: 10px; border-radius: 5px; margin-bottom: 20px; display: none; overflow: hidden; }
-        .progress-bar { background: var(--primary); height: 100%; width: 0%; transition: 0.3s; }
-
-        .topic-card { background: white; padding: 25px; border-radius: 15px; border: 1px solid #e2e8f0; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-        .q-item { margin-bottom: 20px; padding: 15px; border-bottom: 1px solid #f1f5f9; }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: var(--bg); margin: 0; padding: 10px; color: #1e293b; line-height: 1.5; }
         
-        .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-top: 10px; }
-        .opt-btn { background: white; border: 2px solid #e2e8f0; padding: 10px; border-radius: 8px; cursor: pointer; text-align: center; }
-        .opt-btn.selected { background: var(--primary); color: white; border-color: var(--primary); }
+        .container { max-width: 800px; margin: 0 auto; padding-bottom: 40px; }
+        
+        /* Header Responsive */
+        .header { background: linear-gradient(135deg, var(--primary), #818cf8); color: white; padding: 20px 15px; border-radius: 12px; text-align: center; margin-bottom: 15px; }
+        .header h1 { margin: 0; font-size: 1.5rem; }
+        .header p { margin: 5px 0 0; opacity: 0.9; font-size: 0.9rem; }
 
+        /* Setup Card */
+        .setup-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 15px; }
+        .input-group { display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px; }
+        
+        /* Media Query: Desktop/Tablet view for input group */
+        @media (min-width: 600px) {
+            .input-group { flex-direction: row; }
+            .header h1 { font-size: 2rem; }
+        }
+
+        input[type="text"], select { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #e2e8f0; font-size: 1rem; transition: border-color 0.2s; }
+        input:focus { border-color: var(--primary); outline: none; }
+
+        /* Progress Bar (Sticky) */
+        .progress-container { background: #e2e8f0; height: 8px; border-radius: 4px; margin-bottom: 15px; display: none; overflow: hidden; position: sticky; top: 10px; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .progress-bar { background: var(--primary); height: 100%; width: 0%; transition: 0.5s ease-out; }
+
+        /* Quiz Content */
+        .topic-card { background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 15px; }
+        .topic-card h2 { font-size: 1.25rem; color: var(--primary); margin-top: 0; }
+        
+        .q-item { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #f1f5f9; }
+        .q-item p { font-size: 1.05rem; margin-bottom: 12px; font-weight: 500; }
+
+        /* MCQ Grid - Mobile First */
+        .options-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+        
+        @media (min-width: 480px) {
+            .options-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .opt-btn { background: #fdfdfd; border: 2px solid #e2e8f0; padding: 14px; border-radius: 10px; cursor: pointer; text-align: center; font-weight: 500; font-size: 0.95rem; transition: 0.2s; display: flex; align-items: center; justify-content: center; min-height: 54px; }
+        .opt-btn.selected { background: var(--primary); color: white; border-color: var(--primary); transform: translateY(-2px); }
+
+        /* Navigation Buttons */
         .nav-controls { margin-top: 20px; display: flex; gap: 10px; }
-        .btn { padding: 15px 25px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; flex: 1; font-size: 1rem; }
+        .btn { padding: 16px; border-radius: 12px; border: none; font-weight: bold; cursor: pointer; flex: 1; font-size: 1rem; transition: opacity 0.2s; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .btn:active { transform: scale(0.98); }
         .btn-start { background: var(--primary); color: white; }
         .btn-next { background: var(--primary); color: white; }
         .btn-prev { background: var(--secondary); color: white; display: none; }
         .btn-submit { background: var(--success); color: white; display: none; }
 
-        #resultArea { display: none; background: white; padding: 25px; border-radius: 15px; border: 2px solid var(--primary); margin-top: 20px; }
-        .result-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; }
+        /* Result Area */
+        #resultArea { display: none; background: white; padding: 20px; border-radius: 15px; border: 2px solid var(--primary); margin-top: 10px; }
+        .result-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        
+        #finalGrade { font-size: 1.4rem; font-weight: 800; margin: 20px 0; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="header" id="mainHeader">
-        <h1>Grammar Portal Year 6</h1>
-        <p>Interactive Learning Analysis</p>
+        <h1>Grammar Portal</h1>
+        <p>Step-by-Step Learning Analysis</p>
     </div>
 
     <div class="setup-card" id="setupCard">
         <div class="input-group">
             <input type="text" id="studentName" placeholder="Full Name">
-            <input type="text" id="studentClass" placeholder="Class">
+            <input type="text" id="studentClass" placeholder="Class (e.g. 6B)">
         </div>
         <select id="setMenu"><option value="">Loading sets...</option></select>
         <button class="btn btn-start" style="margin-top:15px; width:100%" onclick="initQuiz()">Start Practice</button>
@@ -58,34 +90,34 @@
     <div id="quizContent"></div>
 
     <div class="nav-controls" id="navArea" style="display:none">
-        <button id="prevBtn" class="btn btn-prev" onclick="prevStep()">← Previous</button>
-        <button id="nextBtn" class="btn btn-next" onclick="nextStep()">Next Topic →</button>
-        <button id="submitBtn" class="btn btn-submit" onclick="finishQuiz()">Check Answers & Submit</button>
+        <button id="prevBtn" class="btn btn-prev" onclick="prevStep()">Back</button>
+        <button id="nextBtn" class="btn btn-next" onclick="nextStep()">Next Topic</button>
+        <button id="submitBtn" class="btn btn-submit" onclick="finishQuiz()">Finish & Submit</button>
     </div>
 
     <div id="resultArea">
-        <h2 style="text-align:center">Performance Summary</h2>
-        <div id="studentDetail" style="margin-bottom:15px; padding:10px; background:#f1f5f9; border-radius:8px"></div>
+        <h2 style="text-align:center; margin-top:0;">Assessment Result</h2>
+        <div id="studentDetail" style="margin-bottom:15px; padding:12px; background:#f1f5f9; border-radius:10px; font-size:0.9rem;"></div>
         <div id="topicSummary"></div>
-        <div id="finalGrade" style="font-size:1.5rem; text-align:center; margin-top:20px; color:var(--primary)"></div>
-        <button class="btn" style="background:#334155; color:white; width:100%; margin-top:20px" onclick="downloadTextReport()">Download Report (.txt)</button>
-        <button class="btn" style="background:#cbd5e1; margin-top:10px; width:100%" onclick="location.reload()">Try Another Set</button>
+        <div id="finalGrade" style="text-align:center; color:var(--primary)"></div>
+        <button class="btn" style="background:#334155; color:white; width:100%; margin-top:15px" onclick="downloadTextReport()">Download Report (.txt)</button>
+        <button class="btn" style="background:#cbd5e1; margin-top:10px; width:100%" onclick="location.reload()">Reset</button>
     </div>
 </div>
 
 <script>
     let fullData = null;
     let currentTopicIdx = 0;
-    let userAnswers = []; 
+    let userAnswers = [];
 
     window.onload = async () => {
         try {
             const res = await fetch('manifest.json');
             const data = await res.json();
             const menu = document.getElementById('setMenu');
-            menu.innerHTML = '<option value="">-- Select Set --</option>';
+            menu.innerHTML = '<option value="">-- Choose Practice Set --</option>';
             data.available_sets.forEach(s => menu.innerHTML += `<option value="${s.file}">${s.name}</option>`);
-        } catch (e) { alert("Manifest error."); }
+        } catch (e) { alert("Data error."); }
     };
 
     async function initQuiz() {
@@ -93,38 +125,32 @@
         const sClass = document.getElementById('studentClass').value;
         const file = document.getElementById('setMenu').value;
 
-        if(!name || !sClass || !file) return alert("Fill in your name, class and select a set.");
+        if(!name || !sClass || !file) return alert("Please fill in all details.");
 
         try {
             const res = await fetch(file);
             const data = await res.json();
             fullData = data.modul_latihan_bahasa_inggeris_tahun_6;
-            
             document.getElementById('setupCard').style.display = 'none';
             document.getElementById('progCont').style.display = 'block';
             document.getElementById('navArea').style.display = 'flex';
-            
             showTopic(0);
-        } catch (e) { alert("Error loading quiz file."); }
+        } catch (e) { alert("File error."); }
     }
 
     function showTopic(idx) {
         currentTopicIdx = idx;
         const topic = fullData.latihan[idx];
         const container = document.getElementById('quizContent');
-        
-        // Progress Bar Update
         const percent = ((idx + 1) / fullData.latihan.length) * 100;
         document.getElementById('progBar').style.width = percent + "%";
 
         let html = `<div class="topic-card">
-            <h2 style="color:var(--primary)">Topic ${idx + 1}: ${topic.topik}</h2>
-            <p><i>${topic.arahan}</i></p><hr style="border:1px solid #f1f5f9">`;
+            <h2>${topic.topik}</h2>
+            <p><i>${topic.arahan}</i></p>`;
 
         topic.soalan.forEach((q, qIdx) => {
-            html += `<div class="q-item">
-                <p><strong>${qIdx + 1}.</strong> ${q.teks}</p>`;
-            
+            html += `<div class="q-item"><p>${qIdx + 1}. ${q.teks}</p>`;
             if(q.pilihan) {
                 html += `<div class="options-grid">`;
                 q.pilihan.forEach(opt => {
@@ -134,44 +160,34 @@
                 html += `</div>`;
             } else {
                 const val = getSavedAns(idx, qIdx) || '';
-                html += `<input type="text" placeholder="Type your answer" value="${val}" onchange="saveAns(${idx}, ${qIdx}, this.value)">`;
+                html += `<input type="text" placeholder="Your answer" value="${val}" onchange="saveAns(${idx}, ${qIdx}, this.value)">`;
             }
             html += `</div>`;
         });
         html += `</div>`;
         container.innerHTML = html;
-        
-        updateNavigationButtons(idx);
-        window.scrollTo(0,0);
+        updateNav(idx);
+        window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
-    function updateNavigationButtons(idx) {
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const submitBtn = document.getElementById('submitBtn');
-
-        // Logic for Back Button
-        prevBtn.style.display = (idx === 0) ? 'none' : 'block';
-
-        // Logic for Next/Submit Button
+    function updateNav(idx) {
+        document.getElementById('prevBtn').style.display = (idx === 0) ? 'none' : 'block';
         if (idx === fullData.latihan.length - 1) {
-            nextBtn.style.display = 'none';
-            submitBtn.style.display = 'block';
+            document.getElementById('nextBtn').style.display = 'none';
+            document.getElementById('submitBtn').style.display = 'block';
         } else {
-            nextBtn.style.display = 'block';
-            submitBtn.style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'block';
+            document.getElementById('submitBtn').style.display = 'none';
         }
     }
 
     function saveAns(tIdx, qIdx, val, el) {
         if(el) {
-            const parent = el.parentElement;
-            Array.from(parent.children).forEach(b => b.classList.remove('selected'));
+            Array.from(el.parentElement.children).forEach(b => b.classList.remove('selected'));
             el.classList.add('selected');
         }
         const existing = userAnswers.find(a => a.tIdx === tIdx && a.qIdx === qIdx);
-        if(existing) existing.ans = val;
-        else userAnswers.push({tIdx, qIdx, ans: val});
+        if(existing) existing.ans = val; else userAnswers.push({tIdx, qIdx, ans: val});
     }
 
     function getSavedAns(tIdx, qIdx) {
@@ -179,13 +195,8 @@
         return found ? found.ans : null;
     }
 
-    function nextStep() {
-        showTopic(currentTopicIdx + 1);
-    }
-
-    function prevStep() {
-        showTopic(currentTopicIdx - 1);
-    }
+    function nextStep() { showTopic(currentTopicIdx + 1); }
+    function prevStep() { showTopic(currentTopicIdx - 1); }
 
     function finishQuiz() {
         document.getElementById('quizContent').style.display = 'none';
@@ -194,9 +205,7 @@
         document.getElementById('mainHeader').style.display = 'none';
         
         const summaryCont = document.getElementById('topicSummary');
-        let grandTotal = 0;
-        let grandMax = 0;
-        let reportDetails = "";
+        let totalScore = 0, totalMax = 0, report = "";
 
         fullData.latihan.forEach((topic, tIdx) => {
             let tScore = 0;
@@ -204,51 +213,30 @@
                 const uA = (getSavedAns(tIdx, qIdx) || "").toLowerCase().trim();
                 if(uA === q.jawapan.toLowerCase().trim()) tScore++;
             });
-            
-            const tMax = topic.soalan.length;
-            grandTotal += tScore;
-            grandMax += tMax;
-            
-            const perc = Math.round((tScore/tMax)*100);
+            totalScore += tScore;
+            totalMax += topic.soalan.length;
+            const perc = Math.round((tScore/topic.soalan.length)*100);
             const remark = perc >= 80 ? "Excellent" : perc >= 50 ? "Good" : "Needs Practice";
             
-            summaryCont.innerHTML += `<div class="result-row">
-                <span>Topic ${tIdx+1}: ${topic.topik}</span>
-                <span><b>${tScore}/${tMax}</b> - ${remark}</span>
-            </div>`;
-            
-            reportDetails += `Topic ${tIdx+1}: ${topic.topik.padEnd(20)} | ${tScore}/${tMax} (${remark})\n`;
+            summaryCont.innerHTML += `<div class="result-row"><span>${topic.topik}</span><span><b>${tScore}/${topic.soalan.length}</b> (${remark})</span></div>`;
+            report += `${topic.topik}: ${tScore}/${topic.soalan.length} (${remark})\n`;
         });
 
-        const finalPerc = Math.round((grandTotal/grandMax)*100);
-        document.getElementById('finalGrade').innerText = `Final Score: ${grandTotal}/${grandMax} (${finalPerc}%)`;
-        document.getElementById('studentDetail').innerHTML = `
-            <b>Student Name:</b> ${document.getElementById('studentName').value}<br>
-            <b>Class:</b> ${document.getElementById('studentClass').value}<br>
-            <b>Set:</b> ${document.getElementById('setMenu').options[document.getElementById('setMenu').selectedIndex].text}
-        `;
+        document.getElementById('finalGrade').innerText = `Total: ${totalScore}/${totalMax} (${Math.round((totalScore/totalMax)*100)}%)`;
+        document.getElementById('studentDetail').innerHTML = `<b>Student:</b> ${document.getElementById('studentName').value}<br><b>Class:</b> ${document.getElementById('studentClass').value}`;
         document.getElementById('resultArea').style.display = 'block';
-        window.finalReportText = reportDetails;
+        window.finalTxt = report;
     }
 
     function downloadTextReport() {
         const name = document.getElementById('studentName').value;
-        const sClass = document.getElementById('studentClass').value;
-        const score = document.getElementById('finalGrade').innerText;
-        
-        let txt = `DETAILED GRAMMAR ANALYSIS\n========================\n`;
-        txt += `Student : ${name}\nClass   : ${sClass}\nDate    : ${new Date().toLocaleString()}\n\n`;
-        txt += `RESULTS PER TOPIC:\n------------------------\n`;
-        txt += window.finalReportText;
-        txt += `\n------------------------\n${score}\n========================`;
-        
+        const txt = `GRAMMAR REPORT\nName: ${name}\nClass: ${document.getElementById('studentClass').value}\n\n${window.finalTxt}\nOVERALL: ${document.getElementById('finalGrade').innerText}`;
         const blob = new Blob([txt], {type: 'text/plain'});
         const a = document.createElement('a');
         a.href = URL.createObjectURL(blob);
-        a.download = `Report_${name}_${sClass}.txt`;
+        a.download = `Result_${name}.txt`;
         a.click();
     }
 </script>
-
 </body>
 </html>
