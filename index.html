@@ -43,7 +43,6 @@
 
         /* Results Area */
         #resultArea { display: none; background: white; padding: 20px; border-radius: 16px; border: 2px solid var(--primary); margin-bottom: 20px; }
-        .result-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 0.9rem; }
         
         /* Redo Button Style */
         .btn-redo { background: #f59e0b; color: white; margin-bottom: 10px; }
@@ -61,7 +60,14 @@
         <div class="input-group">
             <input type="text" id="studentName" placeholder="Full Name">
             <input type="text" id="studentClass" placeholder="Class">
-            <select id="setMenu"><option value="">Loading sets...</option></select>
+            
+            <select id="setMenu" onchange="loadExerciseOptions()">
+                <option value="">-- Choose Set --</option>
+            </select>
+            
+            <select id="exerciseMenu" style="display:none;">
+                <option value="all">All Exercises (Semua Latihan)</option>
+            </select>
         </div>
         <button class="btn btn-start" onclick="initQuiz()">Begin Practice</button>
         <div id="resumeMsg" style="display:none; text-align:center; font-size:0.8rem; color:var(--success); margin-top:10px;">
@@ -84,7 +90,7 @@
         <div id="finalGrade" style="text-align:center; font-size: 1.6rem; margin: 20px 0; font-weight: 800; color: var(--primary);"></div>
         
         <div style="display: flex; flex-direction: column; gap: 8px;">
-            <button class="btn btn-redo" onclick="redoQuiz()">Try Again (Redo Set)</button>
+            <button class="btn btn-redo" onclick="redoQuiz()">Try Again (Redo Selection)</button>
             <button class="btn" style="background:#334155; color:white;" onclick="downloadTextReport()">Download Report</button>
             <button class="btn" style="background:#f1f5f9; color: var(--secondary);" onclick="clearAndReset()">New Student / Change Set</button>
         </div>
@@ -92,7 +98,8 @@
 </div>
 
 <script>
-    let fullData = null;
+    let rawFullData = null; // Menyimpan data asal fail JSON
+    let activeLatihan = []; // Latihan yang dipilih untuk dijawab
     let currentTopicIdx = 0;
     let userAnswers = [];
     const STORAGE_KEY = 'grammar_autosave_v1';
@@ -100,13 +107,41 @@
     window.onload = async () => {
         try {
             const res = await fetch('manifest.json');
+            if (!res.ok) throw new Error();
             const data = await res.json();
             const menu = document.getElementById('setMenu');
-            menu.innerHTML = '<option value="">-- Choose Practice --</option>';
             data.available_sets.forEach(s => menu.innerHTML += `<option value="${s.file}">${s.name}</option>`);
             checkSavedProgress();
-        } catch (e) { console.error("Manifest failed"); }
+        } catch (e) { 
+            alert("Error loading manifest.json. Make sure it's in the same folder.");
+        }
     };
+
+    // Fungsi Baru: Memuatkan senarai nombor latihan ke dropdown kedua
+    async function loadExerciseOptions() {
+        const file = document.getElementById('setMenu').value;
+        const exMenu = document.getElementById('exerciseMenu');
+        
+        if (!file) {
+            exMenu.style.display = 'none';
+            return;
+        }
+
+        try {
+            const res = await fetch(file);
+            const data = await res.json();
+            rawFullData = data.modul_latihan_bahasa_inggeris_tahun_6;
+            
+            // Isi Dropdown 2
+            exMenu.innerHTML = '<option value="all">All Exercises (Semua Latihan)</option>';
+            rawFullData.latihan.forEach((topic, idx) => {
+                exMenu.innerHTML += `<option value="${idx}">Latihan ${idx + 1}: ${topic.topik}</option>`;
+            });
+            exMenu.style.display = 'block';
+        } catch (e) {
+            alert("Error loading set details.");
+        }
+    }
 
     function checkSavedProgress() {
         const saved = localStorage.getItem(STORAGE_KEY);
@@ -115,6 +150,10 @@
             document.getElementById('studentName').value = parsed.name || "";
             document.getElementById('studentClass').value = parsed.sClass || "";
             document.getElementById('setMenu').value = parsed.setFile || "";
+            // Trigger load dropdown jika ada data lama
+            if (parsed.setFile) loadExerciseOptions().then(() => {
+                document.getElementById('exerciseMenu').value = parsed.exChoice || "all";
+            });
             userAnswers = parsed.answers || [];
             currentTopicIdx = parsed.topicIdx || 0;
             if(userAnswers.length > 0) document.getElementById('resumeMsg').style.display = 'block';
@@ -124,12 +163,25 @@
     async function initQuiz() {
         const file = document.getElementById('setMenu').value;
         const name = document.getElementById('studentName').value;
+        const exChoice = document.getElementById('exerciseMenu').value;
+
         if(!name || !file) return alert("Please fill in your name and select a set!");
 
         try {
-            const res = await fetch(file);
-            const data = await res.json();
-            fullData = data.modul_latihan_bahasa_inggeris_tahun_6;
+            // Jika belum di-load (contohnya resume)
+            if (!rawFullData) {
+                const res = await fetch(file);
+                const data = await res.json();
+                rawFullData = data.modul_latihan_bahasa_inggeris_tahun_6;
+            }
+
+            // FILTER: Tentukan latihan mana yang masuk ke dalam kuiz
+            if (exChoice === "all") {
+                activeLatihan = [...rawFullData.latihan];
+            } else {
+                activeLatihan = [rawFullData.latihan[parseInt(exChoice)]];
+            }
+
             startQuizUI();
         } catch (e) { alert("File error!"); }
     }
@@ -145,7 +197,7 @@
     }
 
     function redoQuiz() {
-        if(!confirm("Are you sure you want to clear your answers and try this set again?")) return;
+        if(!confirm("Restart this selection?")) return;
         userAnswers = [];
         currentTopicIdx = 0;
         autoSave();
@@ -154,13 +206,13 @@
 
     function showTopic(idx) {
         currentTopicIdx = idx;
-        const topic = fullData.latihan[idx];
+        const topic = activeLatihan[idx];
         const container = document.getElementById('quizContent');
-        const percent = ((idx + 1) / fullData.latihan.length) * 100;
+        const percent = ((idx + 1) / activeLatihan.length) * 100;
         document.getElementById('progBar').style.width = percent + "%";
 
         let html = `<div class="topic-card">
-            <p style="color:var(--secondary); font-size:0.75rem; margin:0; font-weight:bold;">TOPIC ${idx+1} OF ${fullData.latihan.length}</p>
+            <p style="color:var(--secondary); font-size:0.75rem; margin:0; font-weight:bold;">EXERCISE ${idx+1} OF ${activeLatihan.length}</p>
             <h2 style="margin:5px 0 15px 0; font-size:1.2rem;">${topic.topik}</h2>
             <p style="font-size:0.85rem; font-style:italic; background:#f8fafc; padding:12px; border: 1px solid #eee; border-radius:10px;">${topic.arahan}</p>`;
 
@@ -206,6 +258,7 @@
             name: document.getElementById('studentName').value,
             sClass: document.getElementById('studentClass').value,
             setFile: document.getElementById('setMenu').value,
+            exChoice: document.getElementById('exerciseMenu').value,
             answers: userAnswers,
             topicIdx: currentTopicIdx
         };
@@ -214,7 +267,7 @@
 
     function updateNav(idx) {
         document.getElementById('prevBtn').style.display = (idx === 0) ? 'none' : 'block';
-        if (idx === fullData.latihan.length - 1) {
+        if (idx === activeLatihan.length - 1) {
             document.getElementById('nextBtn').style.display = 'none';
             document.getElementById('submitBtn').style.display = 'block';
         } else {
@@ -236,18 +289,13 @@
     }
 
     function getTopicSpecificComment(topicName, percent) {
-        // Memberi ulasan spesifik berdasarkan nama topik dan markah
-        if (percent >= 80) {
-            return `Mastered ${topicName}. (Telah menguasai ${topicName}.)`;
-        } else if (percent >= 50) {
-            return `Basic understanding of ${topicName} is good, but needs more practice. (Pemahaman asas ${topicName} baik, tetapi perlu lebih latihan.)`;
-        } else {
-            return `Weak in ${topicName}. Needs intensive revision. (Lemah dalam ${topicName}. Perlu ulang kaji intensif.)`;
-        }
+        if (percent >= 80) return `Mastered ${topicName}. (Telah menguasai ${topicName}.)`;
+        if (percent >= 50) return `Basic understanding of ${topicName} is good, but needs more practice. (Pemahaman asas ${topicName} baik, tetapi perlu lebih latihan.)`;
+        return `Weak in ${topicName}. Needs intensive revision. (Lemah dalam ${topicName}. Perlu ulang kaji intensif.)`;
     }
 
     function finishQuiz() {
-        if(!confirm("Do you want to submit your answers?")) return;
+        if(!confirm("Submit results?")) return;
         
         const name = document.getElementById('studentName').value;
         const sClass = document.getElementById('studentClass').value;
@@ -258,12 +306,10 @@
         document.getElementById('navArea').style.display = 'none';
         document.getElementById('progCont').style.display = 'none';
         
-        let totalScore = 0;
-        let totalMax = 0;
-        let topicRows = "";
-        let specificComments = [];
+        let totalScore = 0, totalMax = 0, topicRows = "";
+        let comments = [];
 
-        fullData.latihan.forEach((topic, tIdx) => {
+        activeLatihan.forEach((topic, tIdx) => {
             let tScore = 0;
             topic.soalan.forEach((q, qIdx) => {
                 const uA = (getSavedAns(tIdx, qIdx) || "").toLowerCase().trim();
@@ -273,23 +319,16 @@
             const tMax = topic.soalan.length;
             totalScore += tScore;
             totalMax += tMax;
-            
             const tPerc = Math.round((tScore/tMax)*100);
-            const remark = getRemark(tPerc);
             
-            // Format Laporan: Topic : 1 Nouns ( 10/10 ) - Excellent
-            topicRows += `Topic : ${tIdx + 1} ${topic.topik} ( ${tScore}/${tMax} ) - ${remark}\n`;
-            
-            // Simpan komen spesifik
-            specificComments.push(getTopicSpecificComment(topic.topik, tPerc));
+            // Format: Topic : 1 Nouns ( 10/10 ) - Excellent
+            topicRows += `Topic : ${tIdx + 1} ${topic.topik} ( ${tScore}/${tMax} ) - ${getRemark(tPerc)}\n`;
+            comments.push(getTopicSpecificComment(topic.topik, tPerc));
         });
 
         const finalPerc = Math.round((totalScore/totalMax)*100);
-        
-        // Gabungkan ulasan spesifik menjadi satu perenggan
-        const combinedComments = specificComments.join(" ");
-        
-        // Paparan Skrin
+        const combinedComments = comments.join(" ");
+
         const summaryCont = document.getElementById('topicSummary');
         summaryCont.innerHTML = `
             <div style="text-align:left; font-family: monospace; white-space: pre-wrap; background:#f9fafb; padding:15px; border-radius:10px; border:1px solid #ddd; line-height:1.5;">
@@ -306,11 +345,7 @@ ${combinedComments}
             </div>
         `;
 
-        // Simpan data untuk download
-        window.lastReport = {
-            name, sClass, exerciseSet, topicRows, totalScore, totalMax, finalPerc, combinedComments
-        };
-
+        window.lastReport = { name, sClass, exerciseSet, topicRows, totalScore, totalMax, finalPerc, combinedComments };
         document.getElementById('finalGrade').innerText = `Final: ${finalPerc}%`;
         document.getElementById('resultArea').style.display = 'block';
         window.scrollTo(0,0);
@@ -320,18 +355,11 @@ ${combinedComments}
     function downloadTextReport() {
         const r = window.lastReport;
         if(!r) return;
-
-        let txt = `KANDUNGAN LAPORAN\n`;
-        txt += `------------------------------\n`;
-        txt += `Student Name : ${r.name}\n`;
-        txt += `Class : ${r.sClass}\n`;
-        txt += `Exercise Set : ${r.exerciseSet}\n\n`;
+        let txt = `KANDUNGAN LAPORAN\n------------------------------\n`;
+        txt += `Student Name : ${r.name}\nClass : ${r.sClass}\nExercise Set : ${r.exerciseSet}\n\n`;
         txt += r.topicRows;
-        txt += `\nFinal Score : ${r.totalScore}/${r.totalMax}\n`;
-        txt += `Percentage : ${r.finalPerc}%\n\n`;
-        txt += `Comment :\n${r.combinedComments}\n`;
-        txt += `------------------------------\n`;
-        txt += `Generated on: ${new Date().toLocaleString()}`;
+        txt += `\nFinal Score : ${r.totalScore}/${r.totalMax}\nPercentage : ${r.finalPerc}%\n\nComment :\n${r.combinedComments}\n`;
+        txt += `------------------------------\nGenerated: ${new Date().toLocaleString()}`;
 
         const blob = new Blob([txt], {type: 'text/plain'});
         const a = document.createElement('a');
@@ -341,7 +369,7 @@ ${combinedComments}
     }
 
     function clearAndReset() {
-        if(confirm("This will clear everything and go back to start. Continue?")) {
+        if(confirm("Reset everything?")) {
             localStorage.removeItem(STORAGE_KEY);
             location.reload();
         }
@@ -349,4 +377,3 @@ ${combinedComments}
 </script>
 </body>
 </html>
-
