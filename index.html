@@ -291,21 +291,21 @@
         let comments = [];
         let wrongQuestionsHtml = "";
 
-        activeLatihan.forEach((topic, tIdx) => {
-            let tScore = 0;
-            let topicWrongQs = [];
+activeLatihan.forEach((topic, tIdx) => {
+    let tScore = 0;
+    let topicWrongQs = [];
 
-            topic.soalan.forEach((q, qIdx) => {
-                const uA = (getSavedAns(tIdx, qIdx) || "").toLowerCase().trim();
-                const correctA = q.jawapan.toLowerCase().trim();
-                
-                if(uA === correctA) {
-                    tScore++;
-                } else {
-                    // Simpan soalan yang salah (hanya teks soalan)
-                    topicWrongQs.push(q.teks);
-                }
-            });
+    topic.soalan.forEach((q, qIdx) => {
+        // KITA BUANG .toLowerCase() supaya 'A' tidak sama dengan 'a'
+        const uA = (getSavedAns(tIdx, qIdx) || "").trim(); 
+        const correctA = q.jawapan.trim();
+        
+        if(uA === correctA) {
+            tScore++;
+        } else {
+            topicWrongQs.push(q.teks);
+        }
+    });
             
             const tMax = topic.soalan.length;
             totalScore += tScore;
