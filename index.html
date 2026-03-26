@@ -6,7 +6,7 @@
     <title>Year 6 Grammar - Mastery Edition</title>
     <style>
         :root { --primary: #4f46e5; --success: #22c55e; --danger: #ef4444; --bg: #f8fafc; --secondary: #64748b; }
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; user-select: none; } /* User-select none menghalang highlight teks */
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; user-select: none; }
         
         body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: var(--bg); margin: 0; padding: 12px; color: #1e293b; }
         .container { max-width: 600px; margin: 0 auto; }
@@ -33,7 +33,6 @@
         .opt-btn { background: #f8fafc; border: 2px solid #e2e8f0; padding: 15px; border-radius: 12px; cursor: pointer; font-size: 1rem; transition: 0.2s; min-height: 55px; display: flex; align-items: center; justify-content: center; text-align: center; }
         .opt-btn.selected { background: var(--primary); color: white; border-color: var(--primary); }
 
-        /* Floating Nav */
         .nav-controls { position: fixed; bottom: 0; left: 0; right: 0; background: white; padding: 15px; display: none; gap: 10px; box-shadow: 0 -5px 15px rgba(0,0,0,0.05); border-top: 1px solid #eee; }
         .btn { padding: 14px; border-radius: 12px; border: none; font-weight: bold; cursor: pointer; flex: 1; font-size: 1rem; transition: 0.3s; }
         .btn-start { background: var(--primary); color: white; width: 100%; }
@@ -44,9 +43,13 @@
 
         #resultArea { display: none; background: white; padding: 20px; border-radius: 16px; border: 2px solid var(--primary); margin-bottom: 20px; }
         .btn-redo { background: #f59e0b; color: white; margin-bottom: 10px; }
+
+        .wrong-q-box { background: #fff1f2; border-left: 4px solid var(--danger); padding: 10px; margin-top: 10px; border-radius: 4px; font-size: 0.9rem; }
     </style>
 </head>
-<body oncontextmenu="return false;"> <div class="container">
+<body oncontextmenu="return false;">
+
+<div class="container">
     <div class="header" id="mainHeader">
         <h1>Grammar Portal</h1>
         <p>Mastery Learning Mode</p>
@@ -56,11 +59,9 @@
         <div class="input-group">
             <input type="text" id="studentName" placeholder="Full Name">
             <input type="text" id="studentClass" placeholder="Class">
-            
             <select id="setMenu" onchange="loadExerciseOptions()">
                 <option value="">-- Choose Set --</option>
             </select>
-            
             <select id="exerciseMenu" style="display:none;">
                 <option value="all">All Exercises (Semua Latihan)</option>
             </select>
@@ -85,7 +86,6 @@
         <h2 style="text-align:center; margin-top:0;">Performance Summary</h2>
         <div id="topicSummary"></div>
         <div id="finalGrade" style="text-align:center; font-size: 1.6rem; margin: 20px 0; font-weight: 800; color: var(--primary);"></div>
-        
         <div style="display: flex; flex-direction: column; gap: 8px;">
             <button class="btn btn-redo" onclick="redoQuiz()">Try Again (Redo Selection)</button>
             <button class="btn" style="background:#334155; color:white;" onclick="downloadTextReport()">Download Report</button>
@@ -101,7 +101,6 @@
     let userAnswers = [];
     const STORAGE_KEY = 'grammar_autosave_v1';
 
-    // --- FUNGSI MENGHALANG COPY/PASTE ---
     window.addEventListener('copy', e => e.preventDefault());
     window.addEventListener('cut', e => e.preventDefault());
     window.addEventListener('paste', e => e.preventDefault());
@@ -115,32 +114,24 @@
             data.available_sets.forEach(s => menu.innerHTML += `<option value="${s.file}">${s.name}</option>`);
             checkSavedProgress();
         } catch (e) { 
-            alert("Error loading manifest.json. Make sure it's in the same folder.");
+            alert("Error loading manifest.json.");
         }
     };
 
     async function loadExerciseOptions() {
         const file = document.getElementById('setMenu').value;
         const exMenu = document.getElementById('exerciseMenu');
-        
-        if (!file) {
-            exMenu.style.display = 'none';
-            return;
-        }
-
+        if (!file) { exMenu.style.display = 'none'; return; }
         try {
             const res = await fetch(file);
             const data = await res.json();
             rawFullData = data.modul_latihan_bahasa_inggeris_tahun_6;
-            
             exMenu.innerHTML = '<option value="all">All Exercises (Semua Latihan)</option>';
             rawFullData.latihan.forEach((topic, idx) => {
                 exMenu.innerHTML += `<option value="${idx}">Latihan ${idx + 1}: ${topic.topik}</option>`;
             });
             exMenu.style.display = 'block';
-        } catch (e) {
-            alert("Error loading set details.");
-        }
+        } catch (e) { alert("Error loading set details."); }
     }
 
     function checkSavedProgress() {
@@ -163,22 +154,14 @@
         const file = document.getElementById('setMenu').value;
         const name = document.getElementById('studentName').value;
         const exChoice = document.getElementById('exerciseMenu').value;
-
-        if(!name || !file) return alert("Please fill in your name and select a set!");
-
+        if(!name || !file) return alert("Fill in name and select a set!");
         try {
             if (!rawFullData) {
                 const res = await fetch(file);
                 const data = await res.json();
                 rawFullData = data.modul_latihan_bahasa_inggeris_tahun_6;
             }
-
-            if (exChoice === "all") {
-                activeLatihan = [...rawFullData.latihan];
-            } else {
-                activeLatihan = [rawFullData.latihan[parseInt(exChoice)]];
-            }
-
+            activeLatihan = exChoice === "all" ? [...rawFullData.latihan] : [rawFullData.latihan[parseInt(exChoice)]];
             startQuizUI();
         } catch (e) { alert("File error!"); }
     }
@@ -189,19 +172,15 @@
         document.getElementById('progCont').style.display = 'block';
         document.getElementById('navArea').style.display = 'flex';
         document.getElementById('quizContent').style.display = 'block';
-        document.getElementById('mainHeader').style.display = 'block';
         showTopic(currentTopicIdx);
     }
 
-    // Fungsi Baru: Kembali ke menu utama
     function backToStart() {
-        if(confirm("Return to main menu? Progress on this screen will be saved.")) {
-            location.reload(); 
-        }
+        if(confirm("Return to main menu? Progress saved.")) { location.reload(); }
     }
 
     function redoQuiz() {
-        if(!confirm("Restart this selection?")) return;
+        if(!confirm("Restart selection?")) return;
         userAnswers = [];
         currentTopicIdx = 0;
         autoSave();
@@ -216,7 +195,7 @@
         document.getElementById('progBar').style.width = percent + "%";
 
         let html = `<div class="topic-card">
-            <p style="color:var(--secondary); font-size:0.75rem; margin:0; font-weight:bold;">EXERCISE ${idx+1} OF ${activeLatihan.length}</p>
+            <p style="color:var(--secondary); font-size:0.75rem; font-weight:bold;">EXERCISE ${idx+1} OF ${activeLatihan.length}</p>
             <h2 style="margin:5px 0 15px 0; font-size:1.2rem;">${topic.topik}</h2>
             <p style="font-size:0.85rem; font-style:italic; background:#f8fafc; padding:12px; border: 1px solid #eee; border-radius:10px;">${topic.arahan}</p>`;
 
@@ -291,9 +270,9 @@
     }
 
     function getTopicSpecificComment(topicName, percent) {
-        if (percent >= 80) return `Mastered ${topicName}. (Telah menguasai ${topicName}.)`;
-        if (percent >= 50) return `Basic understanding of ${topicName} is good, but needs more practice. (Pemahaman asas ${topicName} baik, tetapi perlu lebih latihan.)`;
-        return `Weak in ${topicName}. Needs intensive revision. (Lemah dalam ${topicName}. Perlu ulang kaji intensif.)`;
+        if (percent >= 80) return `Mastered ${topicName}.`;
+        if (percent >= 50) return `Basic understanding of ${topicName} is good.`;
+        return `Weak in ${topicName}. Needs intensive revision.`;
     }
 
     function finishQuiz() {
@@ -310,12 +289,22 @@
         
         let totalScore = 0, totalMax = 0, topicRows = "";
         let comments = [];
+        let wrongQuestionsHtml = "";
 
         activeLatihan.forEach((topic, tIdx) => {
             let tScore = 0;
+            let topicWrongQs = [];
+
             topic.soalan.forEach((q, qIdx) => {
                 const uA = (getSavedAns(tIdx, qIdx) || "").toLowerCase().trim();
-                if(uA === q.jawapan.toLowerCase().trim()) tScore++;
+                const correctA = q.jawapan.toLowerCase().trim();
+                
+                if(uA === correctA) {
+                    tScore++;
+                } else {
+                    // Simpan soalan yang salah (hanya teks soalan)
+                    topicWrongQs.push(q.teks);
+                }
             });
             
             const tMax = topic.soalan.length;
@@ -325,6 +314,15 @@
             
             topicRows += `Topic : ${tIdx + 1} ${topic.topik} ( ${tScore}/${tMax} ) - ${getRemark(tPerc)}\n`;
             comments.push(getTopicSpecificComment(topic.topik, tPerc));
+
+            // Bina HTML untuk soalan salah bagi topik ini
+            if(topicWrongQs.length > 0) {
+                wrongQuestionsHtml += `<div class="wrong-q-box"><strong>${topic.topik}:</strong><br>`;
+                topicWrongQs.forEach((txt, i) => {
+                    wrongQuestionsHtml += `${i+1}. ${txt}<br>`;
+                });
+                wrongQuestionsHtml += `</div>`;
+            }
         });
 
         const finalPerc = Math.round((totalScore/totalMax)*100);
@@ -343,10 +341,12 @@ ${topicRows}
 
 <strong>Comment :</strong>
 ${combinedComments}
+
+${wrongQuestionsHtml !== "" ? `<br><strong>Questions to Review (Sila kaji semula soalan ini):</strong>${wrongQuestionsHtml}` : ""}
             </div>
         `;
 
-        window.lastReport = { name, sClass, exerciseSet, topicRows, totalScore, totalMax, finalPerc, combinedComments };
+        window.lastReport = { name, sClass, exerciseSet, topicRows, totalScore, totalMax, finalPerc, combinedComments, wrongQuestionsHtml };
         document.getElementById('finalGrade').innerText = `Final: ${finalPerc}%`;
         document.getElementById('resultArea').style.display = 'block';
         window.scrollTo(0,0);
@@ -361,7 +361,6 @@ ${combinedComments}
         txt += r.topicRows;
         txt += `\nFinal Score : ${r.totalScore}/${r.totalMax}\nPercentage : ${r.finalPerc}%\n\nComment :\n${r.combinedComments}\n`;
         txt += `------------------------------\nGenerated: ${new Date().toLocaleString()}`;
-
         const blob = new Blob([txt], {type: 'text/plain'});
         const a = document.createElement('a');
         a.href = URL.createObjectURL(blob);
@@ -370,10 +369,7 @@ ${combinedComments}
     }
 
     function clearAndReset() {
-        if(confirm("Reset everything?")) {
-            localStorage.removeItem(STORAGE_KEY);
-            location.reload();
-        }
+        if(confirm("Reset everything?")) { localStorage.removeItem(STORAGE_KEY); location.reload(); }
     }
 </script>
 </body>
