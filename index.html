@@ -6,7 +6,7 @@
     <title>Year 6 Grammar - Mastery Edition</title>
     <style>
         :root { --primary: #4f46e5; --success: #22c55e; --danger: #ef4444; --bg: #f8fafc; --secondary: #64748b; }
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; user-select: none; } /* User-select none menghalang highlight teks */
         
         body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: var(--bg); margin: 0; padding: 12px; color: #1e293b; }
         .container { max-width: 600px; margin: 0 auto; }
@@ -35,22 +35,18 @@
 
         /* Floating Nav */
         .nav-controls { position: fixed; bottom: 0; left: 0; right: 0; background: white; padding: 15px; display: none; gap: 10px; box-shadow: 0 -5px 15px rgba(0,0,0,0.05); border-top: 1px solid #eee; }
-        .btn { padding: 14px; border-radius: 12px; border: none; font-weight: bold; cursor: pointer; flex: 1; font-size: 1rem; }
+        .btn { padding: 14px; border-radius: 12px; border: none; font-weight: bold; cursor: pointer; flex: 1; font-size: 1rem; transition: 0.3s; }
         .btn-start { background: var(--primary); color: white; width: 100%; }
         .btn-next { background: var(--primary); color: white; }
         .btn-prev { background: #e2e8f0; color: var(--secondary); }
+        .btn-home { background: #334155; color: white; }
         .btn-submit { background: var(--success); color: white; }
 
-        /* Results Area */
         #resultArea { display: none; background: white; padding: 20px; border-radius: 16px; border: 2px solid var(--primary); margin-bottom: 20px; }
-        
-        /* Redo Button Style */
         .btn-redo { background: #f59e0b; color: white; margin-bottom: 10px; }
     </style>
 </head>
-<body>
-
-<div class="container">
+<body oncontextmenu="return false;"> <div class="container">
     <div class="header" id="mainHeader">
         <h1>Grammar Portal</h1>
         <p>Mastery Learning Mode</p>
@@ -79,6 +75,7 @@
     <div id="quizContent"></div>
 
     <div class="nav-controls" id="navArea">
+        <button id="homeBtn" class="btn btn-home" onclick="backToStart()">Home</button>
         <button id="prevBtn" class="btn btn-prev" onclick="prevStep()">Back</button>
         <button id="nextBtn" class="btn btn-next" onclick="nextStep()">Next</button>
         <button id="submitBtn" class="btn btn-submit" onclick="finishQuiz()">Submit</button>
@@ -98,11 +95,16 @@
 </div>
 
 <script>
-    let rawFullData = null; // Menyimpan data asal fail JSON
-    let activeLatihan = []; // Latihan yang dipilih untuk dijawab
+    let rawFullData = null; 
+    let activeLatihan = []; 
     let currentTopicIdx = 0;
     let userAnswers = [];
     const STORAGE_KEY = 'grammar_autosave_v1';
+
+    // --- FUNGSI MENGHALANG COPY/PASTE ---
+    window.addEventListener('copy', e => e.preventDefault());
+    window.addEventListener('cut', e => e.preventDefault());
+    window.addEventListener('paste', e => e.preventDefault());
 
     window.onload = async () => {
         try {
@@ -117,7 +119,6 @@
         }
     };
 
-    // Fungsi Baru: Memuatkan senarai nombor latihan ke dropdown kedua
     async function loadExerciseOptions() {
         const file = document.getElementById('setMenu').value;
         const exMenu = document.getElementById('exerciseMenu');
@@ -132,7 +133,6 @@
             const data = await res.json();
             rawFullData = data.modul_latihan_bahasa_inggeris_tahun_6;
             
-            // Isi Dropdown 2
             exMenu.innerHTML = '<option value="all">All Exercises (Semua Latihan)</option>';
             rawFullData.latihan.forEach((topic, idx) => {
                 exMenu.innerHTML += `<option value="${idx}">Latihan ${idx + 1}: ${topic.topik}</option>`;
@@ -150,7 +150,6 @@
             document.getElementById('studentName').value = parsed.name || "";
             document.getElementById('studentClass').value = parsed.sClass || "";
             document.getElementById('setMenu').value = parsed.setFile || "";
-            // Trigger load dropdown jika ada data lama
             if (parsed.setFile) loadExerciseOptions().then(() => {
                 document.getElementById('exerciseMenu').value = parsed.exChoice || "all";
             });
@@ -168,14 +167,12 @@
         if(!name || !file) return alert("Please fill in your name and select a set!");
 
         try {
-            // Jika belum di-load (contohnya resume)
             if (!rawFullData) {
                 const res = await fetch(file);
                 const data = await res.json();
                 rawFullData = data.modul_latihan_bahasa_inggeris_tahun_6;
             }
 
-            // FILTER: Tentukan latihan mana yang masuk ke dalam kuiz
             if (exChoice === "all") {
                 activeLatihan = [...rawFullData.latihan];
             } else {
@@ -194,6 +191,13 @@
         document.getElementById('quizContent').style.display = 'block';
         document.getElementById('mainHeader').style.display = 'block';
         showTopic(currentTopicIdx);
+    }
+
+    // Fungsi Baru: Kembali ke menu utama
+    function backToStart() {
+        if(confirm("Return to main menu? Progress on this screen will be saved.")) {
+            location.reload(); 
+        }
     }
 
     function redoQuiz() {
@@ -279,8 +283,6 @@
     function nextStep() { showTopic(currentTopicIdx + 1); }
     function prevStep() { showTopic(currentTopicIdx - 1); }
 
-    // --- LOGIK LAPORAN & ULASAN SPESIFIK ---
-
     function getRemark(percent) {
         if (percent >= 80) return "Excellent";
         if (percent >= 60) return "Good";
@@ -321,7 +323,6 @@
             totalMax += tMax;
             const tPerc = Math.round((tScore/tMax)*100);
             
-            // Format: Topic : 1 Nouns ( 10/10 ) - Excellent
             topicRows += `Topic : ${tIdx + 1} ${topic.topik} ( ${tScore}/${tMax} ) - ${getRemark(tPerc)}\n`;
             comments.push(getTopicSpecificComment(topic.topik, tPerc));
         });
