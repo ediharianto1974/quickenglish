@@ -8,9 +8,31 @@
         :root { --primary: #4f46e5; --success: #22c55e; --danger: #ef4444; --bg: #f8fafc; --secondary: #64748b; }
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; user-select: none; }
         
-        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: var(--bg); margin: 0; padding: 12px; color: #1e293b; }
-        .container { max-width: 600px; margin: 0 auto; }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: var(--bg); margin: 0; padding: 12px; color: #1e293b; position: relative; }
+        .container { max-width: 600px; margin: 0 auto; position: relative; z-index: 10; }
         
+        /* KOD BARU: Tetapan untuk gambar kiri dan kanan */
+        .side-img {
+            position: fixed;
+            bottom: 5%; /* Menyelaraskan kedudukan ke bahagian bawah skrin */
+            max-width: 250px;
+            z-index: 1; /* Memastikan gambar berada di belakang jika bertindih */
+            pointer-events: none; /* Supaya gambar tidak menghalang klik */
+        }
+        .side-img.left {
+            left: 5%;
+        }
+        .side-img.right {
+            right: 5%;
+        }
+
+        /* Sembunyikan gambar pada skrin kecil (tablet/telefon) supaya tidak semak */
+        @media (max-width: 1150px) {
+            .side-img {
+                display: none;
+            }
+        }
+
         .header { background: linear-gradient(135deg, var(--primary), #818cf8); color: white; padding: 20px; border-radius: 16px; text-align: center; margin-bottom: 15px; }
         .header h1 { margin: 0; font-size: 1.4rem; }
 
@@ -33,7 +55,7 @@
         .opt-btn { background: #f8fafc; border: 2px solid #e2e8f0; padding: 15px; border-radius: 12px; cursor: pointer; font-size: 1rem; transition: 0.2s; min-height: 55px; display: flex; align-items: center; justify-content: center; text-align: center; }
         .opt-btn.selected { background: var(--primary); color: white; border-color: var(--primary); }
 
-        .nav-controls { position: fixed; bottom: 0; left: 0; right: 0; background: white; padding: 15px; display: none; gap: 10px; box-shadow: 0 -5px 15px rgba(0,0,0,0.05); border-top: 1px solid #eee; }
+        .nav-controls { position: fixed; bottom: 0; left: 0; right: 0; background: white; padding: 15px; display: none; gap: 10px; box-shadow: 0 -5px 15px rgba(0,0,0,0.05); border-top: 1px solid #eee; z-index: 20; }
         .btn { padding: 14px; border-radius: 12px; border: none; font-weight: bold; cursor: pointer; flex: 1; font-size: 1rem; transition: 0.3s; }
         .btn-start { background: var(--primary); color: white; width: 100%; }
         .btn-next { background: var(--primary); color: white; }
@@ -48,6 +70,9 @@
     </style>
 </head>
 <body oncontextmenu="return false;">
+
+<img src="integrated boy reading.jpeg" class="side-img left" alt="Boy Reading">
+<img src="integrated girl writing.jpeg" class="side-img right" alt="Girl Writing">
 
 <div class="container">
     <div class="header" id="mainHeader">
@@ -291,21 +316,20 @@
         let comments = [];
         let wrongQuestionsHtml = "";
 
-activeLatihan.forEach((topic, tIdx) => {
-    let tScore = 0;
-    let topicWrongQs = [];
+        activeLatihan.forEach((topic, tIdx) => {
+            let tScore = 0;
+            let topicWrongQs = [];
 
-    topic.soalan.forEach((q, qIdx) => {
-        // KITA BUANG .toLowerCase() supaya 'A' tidak sama dengan 'a'
-        const uA = (getSavedAns(tIdx, qIdx) || "").trim(); 
-        const correctA = q.jawapan.trim();
-        
-        if(uA === correctA) {
-            tScore++;
-        } else {
-            topicWrongQs.push(q.teks);
-        }
-    });
+            topic.soalan.forEach((q, qIdx) => {
+                const uA = (getSavedAns(tIdx, qIdx) || "").trim(); 
+                const correctA = q.jawapan.trim();
+                
+                if(uA === correctA) {
+                    tScore++;
+                } else {
+                    topicWrongQs.push(q.teks);
+                }
+            });
             
             const tMax = topic.soalan.length;
             totalScore += tScore;
@@ -315,7 +339,6 @@ activeLatihan.forEach((topic, tIdx) => {
             topicRows += `Topic : ${tIdx + 1} ${topic.topik} ( ${tScore}/${tMax} ) - ${getRemark(tPerc)}\n`;
             comments.push(getTopicSpecificComment(topic.topik, tPerc));
 
-            // Bina HTML untuk soalan salah bagi topik ini
             if(topicWrongQs.length > 0) {
                 wrongQuestionsHtml += `<div class="wrong-q-box"><strong>${topic.topik}:</strong><br>`;
                 topicWrongQs.forEach((txt, i) => {
